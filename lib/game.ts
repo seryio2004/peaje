@@ -219,11 +219,10 @@ function registerSuccess(state: GameState): GameState {
     return {
       ...state,
       position: 2,
-      failures: state.failures + 1,
       tolls: state.tolls + 1,
       phase: "toll",
       pendingPosition: 3,
-      message: "Has llegado a El Peaje: bebe doble para continuar.",
+      message: "Has llegado a El Peaje: bebe para continuar.",
     };
   }
 
@@ -303,11 +302,10 @@ export function continueAfterFailure(state: GameState): GameState {
     return {
       ...state,
       position: 2,
-      failures: state.failures + 1,
       tolls: state.tolls + 1,
       phase: "toll",
       pendingPosition: destination,
-      message: "Atraviesas El Peaje al retroceder: bebe doble.",
+      message: "Atraviesas El Peaje al retroceder: bebe.",
     };
   }
 

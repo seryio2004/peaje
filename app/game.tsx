@@ -90,14 +90,14 @@ function HiddenCard({
       <div className="card-motion is-dealing" style={animationStyle}>
         <div className={`playing-card card-back ${toll ? "toll-card" : ""}`}>
           <span className="back-mark" aria-hidden="true">
-            {toll ? "×2" : "P"}
+            {toll ? "×1" : "P"}
           </span>
           <span className="sr-only">
             {toll ? "El Peaje, carta oculta" : "Carta oculta"}
           </span>
         </div>
       </div>
-      {toll ? <span className="card-label">Bebe doble</span> : null}
+      {toll ? <span className="card-label">Bebe</span> : null}
     </div>
   );
 }
@@ -181,7 +181,7 @@ function ActionPanel({
           className="primary-button danger-button"
           onClick={() => setGame(confirmToll(game))}
         >
-          Ya he bebido doble
+          Ya he bebido
         </button>
       </div>
     );
