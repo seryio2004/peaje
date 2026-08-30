@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { type CSSProperties, useRef, useState } from "react";
 import {
   answerSinglePlayer,
   Card,
@@ -28,40 +28,74 @@ function PlayingCard({
   card,
   reference = false,
   label,
+  dealIndex = 0,
 }: {
   card: Card;
   reference?: boolean;
   label?: string;
+  dealIndex?: number;
 }) {
   const red = isRed(card);
+  const animationStyle = {
+    "--deal-index": dealIndex,
+  } as CSSProperties;
 
   return (
     <div className="card-wrap">
-      <div
-        className={`playing-card ${red ? "card-red" : "card-black"} ${reference ? "is-reference" : ""}`}
-        aria-label={`${rankLabel(card.rank)} de ${SUIT_NAMES[card.suit]}${reference ? ", carta de referencia" : ""}`}
-      >
-        <span className="card-corner">
-          <strong>{rankLabel(card.rank)}</strong>
-          <span>{SUIT_SYMBOLS[card.suit]}</span>
-        </span>
-        <span className="card-suit" aria-hidden="true">
-          {SUIT_SYMBOLS[card.suit]}
-        </span>
+      <div className="card-motion is-revealing" style={animationStyle}>
+        <div className="card-flip">
+          <div
+            className="playing-card card-back card-face card-face-back"
+            aria-hidden="true"
+          >
+            <span className="back-mark">P</span>
+          </div>
+          <div
+            className={`playing-card card-face card-face-front ${red ? "card-red" : "card-black"} ${reference ? "is-reference" : ""}`}
+            aria-label={`${rankLabel(card.rank)} de ${SUIT_NAMES[card.suit]}${reference ? ", carta de referencia" : ""}`}
+          >
+            <span className="card-corner card-corner-top">
+              <strong>{rankLabel(card.rank)}</strong>
+              <span>{SUIT_SYMBOLS[card.suit]}</span>
+            </span>
+            <span className="card-suit" aria-hidden="true">
+              {SUIT_SYMBOLS[card.suit]}
+            </span>
+            <span className="card-corner card-corner-bottom" aria-hidden="true">
+              <strong>{rankLabel(card.rank)}</strong>
+              <span>{SUIT_SYMBOLS[card.suit]}</span>
+            </span>
+            <span className="card-shine" aria-hidden="true" />
+          </div>
+        </div>
       </div>
       {label ? <span className="card-label">{label}</span> : null}
     </div>
   );
 }
 
-function HiddenCard({ toll = false }: { toll?: boolean }) {
+function HiddenCard({
+  toll = false,
+  dealIndex = 0,
+}: {
+  toll?: boolean;
+  dealIndex?: number;
+}) {
+  const animationStyle = {
+    "--deal-index": dealIndex,
+  } as CSSProperties;
+
   return (
     <div className="card-wrap">
-      <div className={`playing-card card-back ${toll ? "toll-card" : ""}`}>
-        <span aria-hidden="true">{toll ? "×2" : "?"}</span>
-        <span className="sr-only">
-          {toll ? "El Peaje, carta oculta" : "Carta oculta"}
-        </span>
+      <div className="card-motion is-dealing" style={animationStyle}>
+        <div className={`playing-card card-back ${toll ? "toll-card" : ""}`}>
+          <span className="back-mark" aria-hidden="true">
+            {toll ? "×2" : "P"}
+          </span>
+          <span className="sr-only">
+            {toll ? "El Peaje, carta oculta" : "Carta oculta"}
+          </span>
+        </div>
       </div>
       {toll ? <span className="card-label">Bebe doble</span> : null}
     </div>
@@ -249,6 +283,7 @@ function Board({ game }: { game: GameState }) {
           card={game.initialCard}
           reference={reference.id === game.initialCard.id}
           label={reference.id === game.initialCard.id ? "Referencia" : undefined}
+          dealIndex={0}
         />
       </div>
 
@@ -267,7 +302,7 @@ function Board({ game }: { game: GameState }) {
                 <p className="slot-title">{name}</p>
               </div>
               {index === 2 ? (
-                <HiddenCard toll />
+                <HiddenCard toll dealIndex={index + 1} />
               ) : card ? (
                 <PlayingCard
                   card={card}
@@ -275,7 +310,7 @@ function Board({ game }: { game: GameState }) {
                   label={reference.id === card.id ? "Referencia" : undefined}
                 />
               ) : (
-                <HiddenCard />
+                <HiddenCard dealIndex={index + 1} />
               )}
             </article>
           );
