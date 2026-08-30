@@ -321,6 +321,59 @@ h2 {
 .failure-action { padding: 8px; border-radius: 14px; background: var(--red-soft); }
 .failure-action .eyebrow, .toll-action .eyebrow { color: var(--red); }
 
+.five-failures-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -4px 0 16px;
+  padding: 10px 14px;
+  border: 1px solid #efc3be;
+  border-radius: 12px;
+  background: #fff7f5;
+  color: #8f2119;
+  font-size: 0.9rem;
+}
+
+.five-failures-notice span {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.five-failures-effect {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.failure-meme {
+  position: absolute;
+  width: clamp(230px, 34vw, 480px);
+  height: auto;
+  filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.35));
+  animation: failure-meme-show 3.2s cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+}
+
+.failure-meme-1 { top: -7%; left: -4%; rotate: -10deg; }
+.failure-meme-2 { top: -5%; right: -5%; rotate: 10deg; animation-delay: 70ms; }
+.failure-meme-3 { bottom: -8%; left: 2%; rotate: 7deg; animation-delay: 140ms; }
+.failure-meme-4 { right: 1%; bottom: -10%; rotate: -8deg; animation-delay: 210ms; }
+
+@keyframes failure-meme-show {
+  0% { opacity: 0; scale: 0.55; }
+  12%, 78% { opacity: 1; scale: 1; }
+  100% { opacity: 0; scale: 1.08; }
+}
+
 @media (max-width: 760px) {
   .setup-shell, .game-shell { width: min(100% - 20px, 1180px); }
   .game-header { align-items: center; }
@@ -342,6 +395,11 @@ h2 {
   .mode-button { min-height: 120px; }
   .game-header .eyebrow { max-width: 210px; }
   .answer-grid { grid-template-columns: 1fr; }
+  .failure-meme { width: clamp(210px, 58vw, 310px); }
+  .failure-meme-1 { top: -2%; left: -15%; }
+  .failure-meme-2 { top: -1%; right: -18%; }
+  .failure-meme-3 { bottom: -3%; left: -16%; }
+  .failure-meme-4 { right: -18%; bottom: -4%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

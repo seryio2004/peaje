@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 import {
   answerSinglePlayer,
   Card,
@@ -20,6 +21,8 @@ import {
   SUIT_NAMES,
   SUIT_SYMBOLS,
 } from "@/lib/game";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 function PlayingCard({
   card,
@@ -61,6 +64,24 @@ function HiddenCard({ toll = false }: { toll?: boolean }) {
         </span>
       </div>
       {toll ? <span className="card-label">Bebe doble</span> : null}
+    </div>
+  );
+}
+
+function FiveFailuresEffect() {
+  return (
+    <div className="five-failures-effect" aria-hidden="true">
+      {[0, 1, 2, 3].map((index) => (
+        <Image
+          className={`failure-meme failure-meme-${index + 1}`}
+          src={`${BASE_PATH}/images/cinco-fallos.webp`}
+          alt=""
+          width={250}
+          height={250}
+          priority={index === 0}
+          key={index}
+        />
+      ))}
     </div>
   );
 }
@@ -266,9 +287,59 @@ function Board({ game }: { game: GameState }) {
 
 export default function Game() {
   const [game, setGame] = useState<GameState | null>(null);
+  const [showFiveFailuresEffect, setShowFiveFailuresEffect] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const effectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function stopFiveFailuresEffect(stopAudio = false) {
+    if (effectTimeoutRef.current) {
+      clearTimeout(effectTimeoutRef.current);
+      effectTimeoutRef.current = null;
+    }
+
+    setShowFiveFailuresEffect(false);
+
+    if (stopAudio && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }
+
+  function startNewGame(mode: GameMode) {
+    stopFiveFailuresEffect(true);
+    setGame(startGame(mode));
+  }
+
+  function updateGame(nextGame: GameState) {
+    if (game && game.failures < 5 && nextGame.failures >= 5) {
+      stopFiveFailuresEffect();
+      setShowFiveFailuresEffect(true);
+
+      effectTimeoutRef.current = setTimeout(() => {
+        setShowFiveFailuresEffect(false);
+        effectTimeoutRef.current = null;
+      }, 3500);
+
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        void audioRef.current.play().catch(() => {
+          // El efecto visual sigue funcionando aunque aún no exista el MP3.
+        });
+      }
+    } else if (game && game.failures > 0 && nextGame.failures === 0) {
+      stopFiveFailuresEffect(true);
+    }
+
+    setGame(nextGame);
+  }
+
+  function returnToSetup() {
+    stopFiveFailuresEffect(true);
+    setGame(null);
+  }
 
   if (!game) {
-    return <ModeSelection onStart={(mode) => setGame(startGame(mode))} />;
+    return <ModeSelection onStart={startNewGame} />;
   }
 
   return (
@@ -280,7 +351,7 @@ export default function Game() {
           </p>
           <h1>El Peaje</h1>
         </div>
-        <button className="text-button" onClick={() => setGame(null)}>
+        <button className="text-button" onClick={returnToSetup}>
           Nueva partida
         </button>
       </header>
@@ -300,11 +371,26 @@ export default function Game() {
         </div>
       </section>
 
+      {game.failures >= 5 ? (
+        <aside className="five-failures-notice" aria-live="polite">
+          <span aria-hidden="true">!</span>
+          <strong>Llevas {game.failures} fallos</strong>
+        </aside>
+      ) : null}
+
       <Board game={game} />
 
       <section className="action-panel" aria-live="polite">
-        <ActionPanel game={game} setGame={setGame} />
+        <ActionPanel game={game} setGame={updateGame} />
       </section>
+
+      <audio
+        ref={audioRef}
+        src={`${BASE_PATH}/audio/cinco-fallos.mp3`}
+        preload="auto"
+      />
+
+      {showFiveFailuresEffect ? <FiveFailuresEffect /> : null}
     </main>
   );
 }
