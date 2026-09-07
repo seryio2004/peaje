@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 import "./globals.css";
+import "./editorial.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://seryio2004.github.io/peaje/";
