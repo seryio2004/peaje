@@ -40,10 +40,11 @@ export default function RouteBoard({ game, crossing, direction }: { game: GameSt
   const waiting = game.phase === "toll";
   const arrived = game.endReason === "route-completed";
   const carPosition = arrived ? game.route.length - 0.12 : game.position + 0.5;
-  const carOffset = waiting ? (backwards ? 47 : -47) : 0;
+  const stopDirection = waiting ? (backwards ? 1 : -1) : 0;
+  const carOffset = stopDirection * 47;
   const routeStyle = { "--route-slots": game.route.length } as CSSProperties;
   const carStyle = {
-    left: `min(calc(${carPosition / game.route.length * 100}% + ${carOffset}px), calc(100% - 36px))`,
+    left: `min(calc(${carPosition / game.route.length * 100}% + var(--toll-stop, 47px) * ${stopDirection}), calc(100% - var(--car-edge, 36px)))`,
   };
 
   useEffect(() => {
@@ -85,7 +86,7 @@ export default function RouteBoard({ game, crossing, direction }: { game: GameSt
                 const open = crossing?.position === index;
                 return (
                   <article className={`route-slot ${active ? "is-active" : ""} ${toll ? "is-toll" : ""}`}
-                    key={`${step}-${index}`} role="listitem" aria-current={active ? "step" : undefined}>
+                    key={`${step}-${index}`} role="listitem" aria-label={`Tramo ${index + 1}: ${STEP_NAMES[step]}`} aria-current={active ? "step" : undefined}>
                     <div className="slot-heading">
                       <span className="slot-number">{String(index + 1).padStart(2, "0")}</span>
                       <p className="slot-title">{STEP_NAMES[step]}</p>

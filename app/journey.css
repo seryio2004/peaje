@@ -1,4 +1,4 @@
-﻿/* The playable route shares the printed, arcade toll-road language of the home. */
+/* The playable route shares the printed, arcade toll-road language of the home. */
 .play-page { --muted: #bdccc1; }
 .game-stage .setup-shell, .game-stage .game-shell { min-height: auto; width: min(1180px, calc(100% - 32px)); }
 .game-stage .game-shell { gap: 20px; padding: 36px 0 12px; }
@@ -119,3 +119,183 @@
   .car-position, .road-car, .gate-arm { transition: none; }
 }
 
+/* An active mobile game occupies the available viewport, including browser chrome changes. */
+@media (max-width: 850px), (max-height: 600px) and (pointer: coarse), (max-width: 1100px) and (max-height: 600px) {
+  .site-page:has(.game-shell) > .site-header,
+  .site-page:has(.game-shell) > .site-footer,
+  .play-page:has(.game-shell) > .post-game-guide { display: none; }
+
+  .game-stage .game-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: "header" "stats" "board" "actions";
+    gap: 8px;
+    width: 100%;
+    height: 100svh;
+    height: 100dvh;
+    min-height: 0;
+    margin: 0;
+    padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+  }
+
+  .game-shell > .game-header { grid-area: header; min-width: 0; min-height: 40px; gap: 8px; padding: 0 2px; }
+  .game-shell > .stats { grid-area: stats; }
+  .game-shell > .journey-board { grid-area: board; }
+  .game-shell > .action-panel { grid-area: actions; }
+  .play-page .game-header h1 { gap: 8px; margin: 3px 0 0; font-size: 1.4rem; line-height: 1; }
+  .play-page .game-header .eyebrow { max-width: none; margin: 0; font-size: .55rem; letter-spacing: .06em; }
+  .game-shell .game-route-badge { padding: 3px 5px; font-size: .65rem; border-width: 1px; }
+  .play-page .game-shell .text-button { min-height: 44px; padding: 6px; font-size: .65rem; }
+  .play-page .game-shell .stats div { flex-direction: column; gap: 2px; padding: 5px 3px; }
+  .play-page .game-shell .stats span { font-size: .56rem; }
+  .play-page .game-shell .stats strong { font-size: 1rem; line-height: 1.1; }
+  .play-page .game-shell :is(.stats, .journey-board, .action-panel) { box-shadow: 0 3px 0 #091f1b; border-radius: 5px; }
+
+  .play-page .game-shell .journey-board {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    padding: 10px 8px;
+  }
+  .game-shell .journey-heading { gap: 8px; margin: 0 0 8px; padding-bottom: 6px; }
+  .game-shell .journey-heading .road-label { font-size: .5rem; gap: 6px; }
+  .game-shell .journey-heading .road-label > span { padding: 2px 4px; border-width: 1px; }
+  .game-shell .journey-direction { font-size: .5rem; }
+  .game-shell .journey-layout {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 8px;
+  }
+  .game-shell .journey-board .initial-card { flex: 0 0 auto; flex-direction: row; justify-content: center; align-items: center; gap: 16px; padding: 0 0 8px; border-right: 0; }
+  .game-shell .journey-board .initial-card .card-wrap { --card-width: 42px; }
+  .game-shell .journey-board .initial-card .slot-title { max-width: 78px; font-size: .5rem; }
+  .game-shell .departure-caption { font-size: .5rem; }
+  .game-shell .initial-card .card-suit { font-size: calc(var(--card-width) * .43); }
+  .game-shell .initial-card :is(.card-corner-bottom, .card-corner-top > span) { display: none; }
+  .game-shell .route-scroll { flex: 0 0 auto; width: 100%; padding: 3px 0; overflow: clip; container-type: inline-size; }
+  .game-shell .journey-route {
+    --card-width: min(80px, calc(100cqw / var(--route-slots) - 8px));
+    --car-width: min(54px, calc(100cqw / var(--route-slots) * .65));
+    --toll-stop: calc(var(--car-width) / 2 + 8px);
+    --car-edge: calc(var(--car-width) / 2 + 3px);
+    min-width: 0;
+    width: 100%;
+  }
+  .game-shell .journey-route .route-slot { padding: 4px 2px 80px; }
+  .game-shell .journey-route .slot-heading { min-height: 50px; gap: 3px; }
+  .game-shell .journey-route .slot-number { width: 21px; height: 19px; margin: 0; font-size: .55rem; }
+  .game-shell .journey-route .slot-title { font-size: clamp(.48rem, 1.9vw, .62rem); line-height: 1.15; }
+  .game-shell .journey-board .card-label { bottom: -6px; padding: 2px 3px; font-size: .43rem; }
+  .game-shell .journey-route .playing-card { border-width: 2px; border-radius: 4px; }
+  .game-shell .journey-route .card-back { border-width: 3px; }
+  .game-shell .journey-route .card-corner strong { font-size: clamp(.62rem, calc(var(--card-width) * .2), .9rem); }
+  .game-shell .journey-route .card-corner span { font-size: clamp(.55rem, calc(var(--card-width) * .16), .75rem); }
+  .game-shell .journey-route .card-suit { font-size: clamp(1rem, calc(var(--card-width) * .45), 2rem); }
+  .game-shell .road-kilometer { bottom: 57px; font-size: .45rem; }
+  .game-shell .road-track { bottom: 5px; height: 44px; border-width: 2px; }
+  .game-shell .road-gate { top: -2px; height: 44px; }
+  .game-shell .gate-base { width: 12px; height: 17px; left: -6px; top: -10px; border-width: 1px; }
+  .game-shell .gate-arm { left: -3px; width: 6px; height: 40px; background-size: 100% 26px; }
+  .game-shell .gate-hinge { width: 4px; height: 4px; left: -2px; }
+  .game-shell .car-position { width: var(--car-width); height: auto; aspect-ratio: 72 / 40; }
+  .game-shell .road-car { width: 100%; height: auto; }
+  .game-shell .car-pointer { left: calc(50% - 3px); top: -10px; width: 6px; height: 6px; }
+  .game-shell .road-finish { right: 3px; width: 8px; background-size: 8px 8px; }
+  .game-shell .toll-plaza { width: calc(100% - 2px); min-height: calc(var(--card-width) * 1.4); }
+  .game-shell .plaza-sign { padding: 4px 2px; gap: 1px; border-width: 1px; font-size: clamp(.45rem, 1.8vw, .65rem); }
+  .game-shell .plaza-signal { width: 10px; height: 12px; }
+  .game-shell .plaza-cabin { width: min(38px, 85%); height: 30px; margin-top: 8px; padding: 4px; border-top-width: 4px; grid-template-columns: 1fr 5px; gap: 2px; }
+  .game-shell .plaza-cabin > span { height: 12px; border-width: 1px; }
+  .game-shell .plaza-cabin > i { width: 4px; height: 4px; }
+  .game-shell .plaza-cabin > b { right: 4px; bottom: 0; font-size: .45rem; }
+  .game-shell :is(.plaza-payment, .plaza-status) { display: none; }
+  .game-shell .journey-legend { flex: 0 0 auto; gap: 0; margin-top: 6px; padding-top: 6px; font-size: .56rem; }
+  .game-shell .journey-legend > span { display: none; }
+
+  .play-page .game-shell .action-panel { min-width: 0; padding: 12px 10px; align-content: center; }
+  .play-page .game-shell .action-content h2 { margin-bottom: 6px; font-size: clamp(1rem, 3.8vw, 1.35rem); line-height: 1.15; }
+  .play-page .game-shell .action-content .eyebrow { margin-bottom: 5px; font-size: .55rem; letter-spacing: .08em; }
+  .play-page .game-shell .action-content > p:not(.eyebrow) { margin-bottom: 8px; font-size: .68rem; line-height: 1.35; }
+  .play-page .game-shell .action-content .button-row { gap: 8px; }
+  .play-page .game-shell .answer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .play-page .game-shell .action-content :is(.primary-button, .secondary-button) { min-height: 44px; padding: 9px 8px; font-size: .75rem; }
+  .game-shell .crossing-status { margin-bottom: 8px; padding: 5px; font-size: .6rem; line-height: 1.3; }
+  .play-page .game-shell .retreat-chain-notice { position: absolute; top: 104px; right: 16px; z-index: 5; max-width: calc(100% - 32px); padding: 3px 6px; font-size: .5rem; }
+  .game-shell:has(.retreat-chain-notice) .journey-heading { visibility: hidden; }
+
+  /* Short landscape view: the route and the controls share the remaining height. */
+  @media (orientation: landscape) {
+    .game-stage .game-shell {
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 30%);
+      grid-template-rows: auto auto minmax(0, 1fr);
+      grid-template-areas: "header header" "stats stats" "board actions";
+      gap: 6px;
+      padding: max(6px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+    }
+    .play-page .game-shell .game-header { min-height: 34px; }
+    .play-page .game-shell .game-header > div { display: flex; flex-direction: row-reverse; align-items: center; gap: 14px; }
+    .play-page .game-shell .game-header h1 { margin: 0; font-size: 1.2rem; white-space: nowrap; }
+    .play-page .game-shell .game-header .text-button { min-height: 34px; }
+    .play-page .game-shell .stats div { flex-direction: row; gap: 8px; padding: 4px; }
+    .game-shell .journey-heading { display: none; }
+    .play-page .game-shell .journey-board { padding: 8px; }
+    .game-shell .journey-layout { flex-direction: row; align-items: center; gap: 8px; }
+    .game-shell .journey-board .initial-card { flex: 0 0 48px; flex-direction: column; gap: 8px; padding: 0; border: 0; }
+    .game-shell .journey-board .initial-card .card-wrap { --card-width: 40px; }
+    .game-shell .journey-board .initial-card .slot-title { font-size: .44rem; }
+    .game-shell .departure-caption { display: none; }
+    .game-shell .route-scroll { flex: 1 1 0; width: 0; }
+    .game-shell .journey-route { --card-width: min(66px, calc(100cqw / var(--route-slots) - 7px), 16dvh); }
+    .game-shell .journey-route .slot-heading { min-height: 44px; }
+    .game-shell .journey-route .slot-title { font-size: .48rem; }
+    .game-shell .journey-route .route-slot { padding-bottom: 64px; }
+    .game-shell .road-kilometer { bottom: 50px; }
+    .game-shell .journey-legend { margin-top: 3px; padding-top: 4px; font-size: .5rem; }
+    .play-page .game-shell .action-panel { padding: 10px 8px; }
+    .play-page .game-shell .action-content h2 { font-size: 1rem; }
+    .play-page .game-shell .action-content > p:not(.eyebrow) { font-size: .62rem; }
+    .play-page .game-shell .action-content .helper-copy { display: none; }
+    .play-page .game-shell .action-content :is(.primary-button, .secondary-button) { font-size: .68rem; }
+    .play-page .game-shell .retreat-chain-notice { top: 84px; right: auto; left: 16px; max-width: 55%; }
+  }
+
+  @media (orientation: portrait) and (max-height: 650px) {
+    .game-stage .game-shell { gap: 6px; }
+    .play-page .game-shell .journey-board { padding: 8px 6px; }
+    .game-shell .journey-heading { display: none; }
+    .game-shell .journey-board .initial-card { padding-bottom: 5px; gap: 12px; }
+    .game-shell .journey-board .initial-card .card-wrap { --card-width: 32px; }
+    .game-shell .journey-layout { gap: 5px; }
+    .game-shell .journey-route { --card-width: min(48px, calc(100cqw / var(--route-slots) - 8px)); }
+    .game-shell .journey-route .slot-heading { min-height: 24px; }
+    .game-shell .journey-route .slot-heading .slot-title { display: none; }
+    .game-shell .journey-route .route-slot { padding-bottom: 62px; }
+    .game-shell .road-kilometer { bottom: 51px; }
+    .play-page .game-shell .action-panel { padding: 9px; }
+    .play-page .game-shell .action-content .helper-copy { display: none; }
+  }
+}
+
+/* Compact browser viewports, for example an older phone with its address bar visible. */
+@media (orientation: portrait) and (max-width: 850px) and (max-height: 540px) {
+  .game-stage .game-shell { gap: 5px; padding-top: max(5px, env(safe-area-inset-top)); }
+  .play-page .game-shell .journey-board { padding: 6px; }
+  .game-shell .journey-layout { gap: 4px; justify-content: center; }
+  .game-shell .journey-board .initial-card { padding: 0; border: 0; }
+  .game-shell .journey-board .initial-card .card-wrap { --card-width: 24px; }
+  .game-shell .initial-card :is(.card-suit, .card-corner-bottom) { display: none; }
+  .game-shell .initial-card .card-corner-top { inset: 0; justify-content: center; }
+  .game-shell .initial-card .card-corner-top > span { display: block; }
+  .game-shell .initial-card .card-label { font-size: .36rem; }
+  .game-shell .journey-route { --card-width: min(36px, calc(100cqw / var(--route-slots) - 8px)); }
+  .game-shell .journey-route .slot-heading { min-height: 22px; }
+  .game-shell .journey-route .route-slot { padding-bottom: 52px; }
+  .game-shell :is(.road-kilometer, .journey-legend) { display: none; }
+  .game-shell .toll-plaza { min-height: 0; }
+  .game-shell .plaza-cabin { margin-top: 4px; height: 25px; }
+  .play-page .game-shell .action-content h2 { font-size: 1rem; }
+}

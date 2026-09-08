@@ -649,7 +649,7 @@ export default function Game() {
 
       <section className="stats" aria-label="Estado de la partida">
         <div>
-          <span>Cartas restantes</span>
+          <span>En el mazo</span>
           <strong>{game.deck.length}</strong>
         </div>
         <div>
