@@ -3,6 +3,7 @@ import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 import "./globals.css";
 import "./editorial.css";
+import "./journey.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://seryio2004.github.io/peaje/";

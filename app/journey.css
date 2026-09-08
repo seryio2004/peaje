@@ -1,0 +1,121 @@
+﻿/* The playable route shares the printed, arcade toll-road language of the home. */
+.play-page { --muted: #bdccc1; }
+.game-stage .setup-shell, .game-stage .game-shell { min-height: auto; width: min(1180px, calc(100% - 32px)); }
+.game-stage .game-shell { gap: 20px; padding: 36px 0 12px; }
+.game-stage .setup-shell { padding: 36px 0 12px; }
+.play-page .setup-panel { max-width: 1000px; border-radius: 8px; padding: clamp(22px, 4vw, 42px); background: linear-gradient(125deg, #244c42, #173c37); }
+.play-page :is(.setup-panel, .board-panel, .action-panel, .stats) { border: 2px solid #7a9a8466; box-shadow: 0 6px 0 #091f1b; backdrop-filter: none; }
+.play-page .setup-road-label { justify-content: center; margin-bottom: 24px; }
+.play-page .setup-panel h1 { font-size: clamp(2.4rem, 5vw, 3.7rem); line-height: 1.08; }
+.play-page .setup-copy { max-width: 520px; }
+.play-page :is(.setup-choice-fieldset, .card-style-fieldset) { margin-top: 26px; }
+.play-page :is(.setup-choice-fieldset, .card-style-fieldset) legend { color: #f4cc75; font: 700 .72rem "Courier New", monospace; text-align: left; letter-spacing: .07em; margin-bottom: 12px; }
+.play-page :is(.setup-option, .card-style-option) { border: 2px solid #7c9c8559; border-radius: 5px; background: #183b33; box-shadow: 0 3px #0d2924; }
+.play-page :is(.setup-option, .card-style-option)[data-selected="true"] { border-color: #f4cc75; background: #394e38; box-shadow: 0 3px #172b23; }
+.play-page :is(.setup-option strong, .card-style-copy strong) { font-family: "Courier New", monospace; }
+.play-page .setup-option span { color: #bdccc1; line-height: 1.5; }
+.play-page .setup-option[data-selected="true"]::after, .play-page .card-style-check { color: #f4cc75; }
+.play-page .setup-summary { margin-top: 20px; font-family: "Courier New", monospace; }
+.play-page .rules-shortcut { margin-top: 16px; }
+.play-page .eyebrow { color: #f4cc75; font-family: "Courier New", monospace; line-height: 1.5; }
+.play-page .game-header { align-items: center; padding: 0 2px 4px; }
+.play-page .game-header h1 { display: flex; align-items: center; gap: 14px; margin-top: 10px; font-size: clamp(2rem, 4vw, 3rem); }
+.game-route-badge { border: 2px solid #e9e8d9; background: #286695; border-radius: 4px; padding: 7px 9px; font: 900 1rem "Courier New", monospace; letter-spacing: .02em; box-shadow: 3px 3px #081d24; }
+.play-page .text-button { font-family: "Courier New", monospace; }
+.play-page .stats { border-radius: 6px; background: #0c2422; }
+.play-page .stats div { padding: 17px 12px; border-right: 1px dashed #708e7680; }
+.play-page .stats div:last-child { border-right: 0; }
+.play-page .stats strong { color: #f4cc75; font-size: 1.4rem; }
+.play-page .stats span { font: .7rem "Courier New", monospace; }
+.play-page .action-panel { padding: 26px; border-radius: 7px; background: #193d35; }
+.play-page .action-content h2 { font-size: clamp(1.35rem, 3vw, 1.85rem); line-height: 1.2; letter-spacing: -.045em; }
+.play-page .action-content > p:not(.eyebrow) { font-size: .85rem; line-height: 1.6; }
+.play-page .action-content .button-row { gap: 12px; }
+.play-page .success-button { background: #367857; border-color: #85bc8d; box-shadow: 0 5px #1b4733; }
+.play-page .failure-action { background: transparent; }
+.action-controls { min-width: 0; margin: 0; padding: 0; border: 0; }
+.action-controls:disabled button { opacity: .55; cursor: wait; transform: none; }
+.crossing-status { padding: 10px; margin: 0 0 18px; border: 1px dashed #8eb58c; background: #294c38; color: #fff0ce; text-align: center; font: 700 .78rem/1.5 "Courier New", monospace; }
+.play-page .retreat-chain-notice { position: static; align-self: flex-end; border-radius: 4px; }
+.play-page .post-game-guide { padding-block: 50px; }
+.play-page .post-game-guide a { color: #f4cc75; }
+.play-page .journey-board { display: block; padding: 24px; overflow: hidden; border-radius: 8px; background: #173931; }
+.journey-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px dashed #77948566; }
+.journey-heading .road-label { margin: 0; }
+.journey-direction { color: #bdccc1; font: .65rem "Courier New", monospace; white-space: nowrap; }
+.journey-layout { display: grid; grid-template-columns: 126px minmax(0, 1fr); gap: 16px; }
+.journey-board .initial-card { justify-content: flex-start; gap: 18px; padding: 16px 16px 0 0; border-right: 1px dashed #77948566; }
+.journey-board .initial-card .slot-title { font: 700 .6rem/1.5 "Courier New", monospace; white-space: normal; text-align: center; }
+.departure-caption { color: #a2b9aa; font: .6rem "Courier New", monospace; text-align: center; }
+.route-scroll { min-width: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: #71927e #112c27; padding: 0 0 8px; }
+.route-scroll:focus-visible { outline: 2px solid #f4cc75; outline-offset: -2px; }
+.journey-route { --card-width: 86px; position: relative; min-width: calc(var(--route-slots) * 132px); }
+.journey-route .route { grid-template-columns: repeat(var(--route-slots), minmax(0, 1fr)); gap: 0; }
+.journey-route .route-slot { position: relative; justify-content: flex-start; padding: 8px 4px 133px; border-radius: 5px; border: 0; background: transparent; box-shadow: none; animation: none; }
+.journey-route .route-slot.is-active { background: linear-gradient(#f4cc751a, #f4cc7505); }
+.journey-route .route-slot.is-active::before { content: ""; position: absolute; top: 0; left: 20%; right: 20%; height: 3px; background: #f4cc75; }
+.journey-route .slot-heading { min-height: 62px; justify-content: flex-start; gap: 5px; }
+.journey-route .slot-title { white-space: normal; line-height: 1.4; font: 700 .66rem/1.4 "Courier New", monospace; }
+.journey-route .slot-number { width: 27px; height: 23px; background: #285d82; color: #fff3d6; border: 1px solid #d3dbc7; border-radius: 3px; box-shadow: 2px 2px #0b2425; font-size: .65rem; }
+.journey-route .is-active .slot-number { background: #f4cc75; color: #18342d; }
+.journey-route .is-toll.is-active .slot-number { background: #e66b51; color: #fff3d6; }
+.journey-route .playing-card { border-radius: 6px; box-shadow: 2px 4px #0a211c80; }
+.journey-board .card-label { border-radius: 3px; color: #f4cc75; background: #273c2e; border-color: #ad975e; font: 700 .53rem "Courier New", monospace; }
+.journey-board .playing-card.is-reference { border-color: #f4cc75; box-shadow: 0 0 0 2px #f4cc7533, 2px 4px #0a211c80; }
+.road-kilometer { position: absolute; bottom: 99px; color: #a3b8aa; font: .56rem "Courier New", monospace; }
+.road-track { position: absolute; bottom: 12px; left: 0; right: 0; height: 78px; background: repeating-linear-gradient(90deg, #ffffff02 0 1px, transparent 1px 5px), #25353b; border-top: 3px solid #e5d9b8; border-bottom: 3px solid #e5d9b8; box-shadow: 0 -5px #0e2823, 0 5px #0e2823; }
+.road-centerline { position: absolute; top: calc(50% - 1px); width: 100%; height: 2px; background: repeating-linear-gradient(90deg, #ede0bd88 0 22px, transparent 22px 44px); }
+.road-finish { position: absolute; right: 10px; top: 0; bottom: 0; width: 12px; background: repeating-conic-gradient(#e9e2c9 0% 25%, #203035 0% 50%) 0 0 / 12px 12px; opacity: .65; }
+.car-position { position: absolute; top: 50%; width: 64px; height: 36px; transform: translate(-50%, -50%); transition: left 700ms cubic-bezier(.45, 0, .2, 1); z-index: 3; }
+.road-car { display: block; width: 64px; height: 36px; filter: drop-shadow(0 3px 2px #07191788); transition: transform 220ms ease; }
+.road-car[data-backwards="true"] { transform: rotate(180deg); }
+.car-pointer { position: absolute; left: 27px; top: -19px; width: 10px; height: 10px; border-top: 2px solid #f4cc75; border-left: 2px solid #f4cc75; transform: rotate(45deg); }
+.car-position[data-waiting="true"] .car-pointer { border-color: #ef806a; }
+.road-gate { position: absolute; top: -3px; width: 0; height: 78px; z-index: 4; }
+.gate-base { position: absolute; left: -10px; top: -15px; width: 20px; height: 24px; border: 2px solid #f2dfb7; border-radius: 3px; background: #d66850; box-shadow: 2px 2px #0d2024; }
+.gate-arm { position: absolute; left: -4px; top: 0; width: 8px; height: 73px; border: 1px solid #f1dfbf; border-radius: 2px; background: repeating-linear-gradient(155deg, #f6e9cc 0 10px, #d64f47 10px 20px); transform-origin: 50% 4px; transition: transform 480ms cubic-bezier(.4, 0, .2, 1); box-shadow: 3px 3px #07191c66; }
+.gate-hinge { position: absolute; top: 0; left: -3px; width: 6px; height: 6px; border-radius: 50%; background: #344246; }
+.road-gate[data-open="true"] .gate-arm { transform: rotate(-90deg); }
+.road-gate[data-open="true"] .gate-base { background: #6cae78; }
+.toll-plaza { width: 112px; min-height: 120px; display: flex; flex-direction: column; align-items: center; }
+.plaza-sign { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; padding: 7px 8px; border: 2px solid #ece4ca; border-radius: 3px; background: #285d82; color: #fff1d1; font: 900 .85rem "Courier New", monospace; box-shadow: 3px 3px #0b2425; }
+.plaza-signal { display: grid; place-items: center; width: 18px; height: 19px; background: #152e32; color: #ff8b78; }
+.toll-plaza[data-open="true"] .plaza-signal { color: #8feb9f; }
+.plaza-payment { margin-top: 7px; color: #a5bbaa; font: .46rem "Courier New", monospace; }
+.plaza-cabin { position: relative; display: grid; grid-template-columns: 1fr 10px; gap: 4px; width: 55px; height: 48px; margin-top: 12px; padding: 7px; background: #d6c7a4; border: 2px solid #f0dfbd; border-top: 6px solid #426879; border-radius: 2px; box-shadow: 3px 3px #0a2423; }
+.plaza-cabin > span { height: 17px; border: 2px solid #325469; background: #81a7b2; }
+.plaza-cabin > i { width: 6px; height: 6px; background: #dd6850; }
+.plaza-cabin > b { position: absolute; right: 8px; bottom: 2px; color: #375161; font: 900 .6rem "Courier New", monospace; }
+.plaza-status { margin-top: 9px; color: #f4cc75; font: 700 .51rem "Courier New", monospace; }
+.journey-legend { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; padding-top: 18px; margin-top: 12px; border-top: 1px dashed #77948566; font: .65rem/1.5 "Courier New", monospace; }
+.journey-legend p { margin: 0; color: #f4cc75; }
+.journey-legend > span { color: #a3b8aa; }
+@media (max-width: 850px) {
+  .journey-layout { grid-template-columns: 1fr; gap: 20px; }
+  .journey-board .initial-card { flex-direction: row; align-items: center; justify-content: flex-start; gap: 20px; padding: 0 0 16px; border-right: 0; border-bottom: 1px dashed #77948566; }
+  .journey-board .initial-card .card-wrap { --card-width: 54px; }
+  .journey-board .initial-card .slot-title { max-width: 90px; margin: 0; }
+  .journey-heading { flex-wrap: wrap; gap: 10px; }
+  .play-page .variant-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .game-stage .game-shell, .game-stage .setup-shell { width: calc(100% - 24px); padding-top: 24px; min-height: auto; }
+  .game-stage .game-shell { gap: 16px; }
+  .play-page .journey-board { padding: 16px 12px; }
+  .play-page .stats div { padding: 12px 4px; }
+  .play-page .stats span { font-size: .56rem; }
+  .play-page .stats strong { font-size: 1.05rem; }
+  .play-page .game-header .eyebrow { font-size: .56rem; }
+  .play-page .game-header h1 { gap: 10px; font-size: 1.8rem; }
+  .game-route-badge { font-size: .75rem; }
+  .play-page .text-button { font-size: .68rem; }
+  .play-page .action-panel { padding: 22px 16px; }
+  .play-page .action-content .primary-button, .play-page .action-content .secondary-button { padding: 12px 9px; font-size: .75rem; }
+  .play-page .difficulty-grid { grid-template-columns: 1fr; }
+  .play-page .difficulty-option { text-align: left; }
+  .play-page .post-game-guide { grid-template-columns: 1fr; gap: 18px; padding-block: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .car-position, .road-car, .gate-arm { transition: none; }
+}
+

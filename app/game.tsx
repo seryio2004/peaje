@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { type CSSProperties, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import RouteBoard, { type TollCrossing } from "./route-board";
 import {
   answerSinglePlayer,
-  Card,
   confirmToll,
   continueAfterFailure,
   GameDifficulty,
@@ -16,17 +16,11 @@ import {
   getAnswerOptions,
   getQuestion,
   getQuestionCount,
-  getReferenceCard,
   getScore,
-  isRed,
   judgeAnswer,
-  rankLabel,
   reachesStartFromLastFailureStreak,
   revealForJudge,
-  STEP_NAMES,
   startGame,
-  SUIT_NAMES,
-  SUIT_SYMBOLS,
 } from "@/lib/game";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -140,88 +134,6 @@ const DIFFICULTY_LABELS: Record<GameDifficulty, string> = {
   hard: "Difícil",
 };
 
-function PlayingCard({
-  card,
-  reference = false,
-  label,
-  dealIndex = 0,
-}: {
-  card: Card;
-  reference?: boolean;
-  label?: string;
-  dealIndex?: number;
-}) {
-  const red = isRed(card);
-  const animationStyle = {
-    "--deal-index": dealIndex,
-  } as CSSProperties;
-
-  return (
-    <div className="card-wrap">
-      <div className="card-motion is-revealing" style={animationStyle}>
-        <div className="card-flip">
-          <div
-            className="playing-card card-back card-face card-face-back"
-            aria-hidden="true"
-          >
-            <span className="back-mark">P</span>
-          </div>
-          <div
-            className={`playing-card card-face card-face-front ${red ? "card-red" : "card-black"} ${reference ? "is-reference" : ""}`}
-            aria-label={`${rankLabel(card.rank)} de ${SUIT_NAMES[card.suit]}${reference ? ", carta de referencia" : ""}`}
-          >
-            <span className="card-corner card-corner-top">
-              <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
-            </span>
-            <span className="card-suit" aria-hidden="true">
-              {SUIT_SYMBOLS[card.suit]}
-            </span>
-            <span className="card-corner card-corner-bottom" aria-hidden="true">
-              <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
-            </span>
-            <span className="card-shine" aria-hidden="true" />
-          </div>
-        </div>
-      </div>
-      {label ? <span className="card-label">{label}</span> : null}
-    </div>
-  );
-}
-
-function HiddenCard({
-  toll = false,
-  safeToll = false,
-  dealIndex = 0,
-}: {
-  toll?: boolean;
-  safeToll?: boolean;
-  dealIndex?: number;
-}) {
-  const animationStyle = {
-    "--deal-index": dealIndex,
-  } as CSSProperties;
-
-  return (
-    <div className="card-wrap">
-      <div className="card-motion is-dealing" style={animationStyle}>
-        <div className={`playing-card card-back ${toll ? "toll-card" : ""}`}>
-          <span className="back-mark" aria-hidden="true">
-            {toll ? "×1" : "P"}
-          </span>
-          <span className="sr-only">
-            {toll ? "El Peaje, carta oculta" : "Carta oculta"}
-          </span>
-        </div>
-      </div>
-      {toll ? (
-        <span className="card-label">{safeToll ? "Reto" : "Bebe"}</span>
-      ) : null}
-    </div>
-  );
-}
-
 function RetreatChainEffect() {
   return (
     <div className="five-failures-effect" aria-hidden="true">
@@ -249,7 +161,7 @@ function CardStyleSelector({
 }) {
   return (
     <fieldset className="card-style-fieldset">
-      <legend>Elige el estilo de las cartas</legend>
+      <legend>04 / Tu baraja de viaje</legend>
       <div className="card-style-grid">
         {CARD_STYLES.map((style) => (
           <label
@@ -310,14 +222,14 @@ function ModeSelection({
   return (
     <section className="setup-shell" aria-labelledby="setup-title">
       <section className="setup-panel" aria-labelledby="setup-title">
-        <p className="eyebrow">Juego de cartas</p>
-        <h1 id="setup-title">El Peaje</h1>
+        <p className="road-label setup-road-label"><span>EP-52</span> CONTROL DE ACCESO · EL PEAJE</p>
+        <h1 id="setup-title">Prepara tu viaje.</h1>
         <p className="setup-copy">
-          Configura la partida y la ruta se adaptará a vuestra forma de jugar.
+          Elige compañía, ruta y baraja. La siguiente salida depende de tu suerte.
         </p>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>Jugadores</legend>
+          <legend>01 / Compañeros de viaje</legend>
           <div className="setup-option-grid mode-grid">
             {MODE_OPTIONS.map((option) => (
               <label
@@ -341,7 +253,7 @@ function ModeSelection({
         </fieldset>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>Modo de juego</legend>
+          <legend>02 / Elige tu ruta</legend>
           <div className="setup-option-grid variant-grid">
             {VARIANT_OPTIONS.map((option) => {
               const disabled =
@@ -374,7 +286,7 @@ function ModeSelection({
         </fieldset>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>Dificultad</legend>
+          <legend>03 / Dificultad del trayecto</legend>
           <div className="setup-option-grid difficulty-grid">
             {DIFFICULTY_OPTIONS.map((option) => (
               <label
@@ -567,69 +479,12 @@ function ActionPanel({
   );
 }
 
-function Board({ game }: { game: GameState }) {
-  const reference = getReferenceCard(game);
-  const routeStyle = {
-    "--route-slots": game.route.length,
-  } as CSSProperties;
-
-  return (
-    <section className="board-panel" aria-label="Tablero de juego">
-      <div className="initial-card">
-        <p className="slot-title">Carta inicial</p>
-        <PlayingCard
-          card={game.initialCard}
-          reference={reference.id === game.initialCard.id}
-          label={reference.id === game.initialCard.id ? "Referencia" : undefined}
-          dealIndex={0}
-        />
-      </div>
-
-      <div
-        className="route"
-        role="list"
-        aria-label="Recorrido"
-        style={routeStyle}
-      >
-        {game.route.map((step, index) => {
-          const card = game.slots[index];
-          const active = game.position === index && game.phase !== "complete";
-          const toll = step === "toll";
-          return (
-            <article
-              className={`route-slot ${active ? "is-active" : ""} ${toll ? "is-toll" : ""}`}
-              key={`${step}-${index}`}
-              role="listitem"
-            >
-              <div className="slot-heading">
-                <span className="slot-number">{index + 1}</span>
-                <p className="slot-title">{STEP_NAMES[step]}</p>
-              </div>
-              {toll ? (
-                <HiddenCard
-                  toll
-                  safeToll={game.variant === "safe-toll"}
-                  dealIndex={index + 1}
-                />
-              ) : card ? (
-                <PlayingCard
-                  key={card.id}
-                  card={card}
-                  reference={reference.id === card.id}
-                  label={reference.id === card.id ? "Referencia" : undefined}
-                />
-              ) : (
-                <HiddenCard dealIndex={index + 1} />
-              )}
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 export default function Game() {
+  const [journeyRun, setJourneyRun] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const [crossing, setCrossing] = useState<TollCrossing | null>(null);
+  const crossingTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const crossingLock = useRef(false);
   const [game, setGame] = useState<GameState | null>(null);
   const [settings, setSettings] = useState<GameSettings>({
     mode: "one-player",
@@ -642,6 +497,18 @@ export default function Game() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const effectImagePreloadRef = useRef<HTMLImageElement | null>(null);
   const effectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    crossingTimers.current.forEach(clearTimeout);
+    if (effectTimeoutRef.current) clearTimeout(effectTimeoutRef.current);
+  }, []);
+
+  function cancelCrossing() {
+    crossingTimers.current.forEach(clearTimeout);
+    crossingTimers.current = [];
+    crossingLock.current = false;
+    setCrossing(null);
+  }
 
   function stopRetreatEffect(stopAudio = false) {
     if (effectTimeoutRef.current) {
@@ -658,6 +525,8 @@ export default function Game() {
   }
 
   function startNewGame() {
+    cancelCrossing();
+    setDirection(1);
     stopRetreatEffect(true);
     effectImagePreloadRef.current = new window.Image();
     effectImagePreloadRef.current.src = `${BASE_PATH}/images/cinco-fallos.webp`;
@@ -665,6 +534,42 @@ export default function Game() {
   }
 
   function updateGame(nextGame: GameState) {
+    if (crossingLock.current) return;
+
+    if (game?.phase === "complete" && nextGame.phase === "playing") {
+      stopRetreatEffect(true);
+      setDirection(1);
+      setJourneyRun((run) => run + 1);
+      setGame(nextGame);
+      return;
+    }
+
+    if (game?.phase === "toll" && nextGame.phase === "playing") {
+      const passage: TollCrossing = {
+        position: game.position,
+        direction: nextGame.position < game.position ? -1 : 1,
+        departing: false,
+      };
+      setDirection(passage.direction);
+      crossingLock.current = true;
+      setCrossing(passage);
+
+      // Open the arm fully before the car moves; keep it open until it clears.
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      crossingTimers.current = [
+        setTimeout(() => {
+          setCrossing({ ...passage, departing: true });
+          setGame(nextGame);
+        }, reducedMotion ? 0 : 520),
+        setTimeout(() => {
+          setCrossing(null);
+          crossingLock.current = false;
+          crossingTimers.current = [];
+        }, reducedMotion ? 0 : 1300),
+      ];
+      return;
+    }
+
     if (reachesStartFromLastFailureStreak(nextGame)) {
       stopRetreatEffect();
       setRetreatEffectRun((run) => run + 1);
@@ -683,10 +588,16 @@ export default function Game() {
       }
     }
 
+    if (nextGame.endReason === "route-completed" || !game || nextGame.position > game.position) {
+      setDirection(1);
+    } else if (nextGame.position < game.position) {
+      setDirection(-1);
+    }
     setGame(nextGame);
   }
 
   function returnToSetup() {
+    cancelCrossing();
     stopRetreatEffect(true);
     setGame(null);
   }
@@ -729,7 +640,7 @@ export default function Game() {
             {VARIANT_LABELS[game.variant]} · {DIFFICULTY_LABELS[game.difficulty]} ·{" "}
             {game.mode === "one-player" ? "1 jugador" : "2 jugadores"}
           </p>
-          <h1>El Peaje</h1>
+          <h1><span className="game-route-badge">EP-52</span> En ruta.</h1>
         </div>
         <button className="text-button" onClick={returnToSetup}>
           Nueva partida
@@ -764,10 +675,17 @@ export default function Game() {
         </aside>
       ) : null}
 
-      <Board game={game} />
+      <RouteBoard key={journeyRun} game={game} crossing={crossing} direction={direction} />
 
       <section className="action-panel" aria-live="polite">
-        <ActionPanel game={game} setGame={updateGame} />
+        {crossing ? (
+          <p className="crossing-status" role="status">
+            {crossing.departing ? "Buen viaje. Cruzando el peaje…" : "Penalización cumplida. Levantando la barrera…"}
+          </p>
+        ) : null}
+        <fieldset className="action-controls" disabled={crossing !== null} aria-label="Acciones de la partida">
+          <ActionPanel game={game} setGame={updateGame} />
+        </fieldset>
       </section>
 
       <audio

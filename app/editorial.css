@@ -1,6 +1,7 @@
 /* Public pages: arcade panels, printed cards and Spanish toll-road details. */
 .site-page:has(.landing-page),
-.site-page:has(.content-page) {
+.site-page:has(.content-page),
+.site-page:has(.play-page) {
   background:
     repeating-linear-gradient(0deg, transparent 0 3px, #00000009 3px 4px),
     radial-gradient(ellipse at 85% 12%, #4e91733b, transparent 42%),
@@ -10,18 +11,18 @@
 .site-brand { font-family: "Courier New", monospace; font-style: normal; font-weight: 900; }
 .site-brand span { border-radius: 5px; background: #285b87; color: #fff3d6; border: 2px solid #e9e6d6; box-shadow: 2px 3px 0 #091a20; }
 .site-header nav a { padding-block: 10px; }
-.site-header nav a[href="/jugar"] { padding: 10px 16px; border-radius: 4px; background: #df594b; color: #fff9e7; box-shadow: 0 3px 0 #8b322b; }
+.site-header nav a:is([href="/jugar"], [href="/jugar/"]) { padding: 10px 16px; border-radius: 4px; background: #df594b; color: #fff9e7; box-shadow: 0 3px 0 #8b322b; }
 .site-footer { margin-top: 64px; border-top: 2px dashed #93a49155; }
 .site-footer strong { font-family: "Courier New", monospace; font-style: normal; }
-:is(.landing-page, .content-page) { --muted: #bdccc1; }
-:is(.landing-page, .content-page) a:focus-visible, .site-header a:focus-visible, .site-footer a:focus-visible { outline: 3px solid #f4cc75; outline-offset: 5px; }
-:is(.landing-page, .content-page) .content-kicker { color: #f4cc75; font-family: "Courier New", monospace; letter-spacing: .14em; }
-:is(.landing-page, .content-page) :is(h1, h2) { font-family: "Courier New", monospace; font-weight: 900; font-style: normal; letter-spacing: -.065em; text-wrap: balance; }
-:is(.landing-page, .content-page) h2 { font-size: clamp(1.75rem, 3.7vw, 2.9rem); line-height: 1.12; }
-:is(.landing-page, .content-page) :is(.primary-button, .secondary-button) { min-height: 50px; padding: 15px 22px; border-radius: 5px; font-size: .85rem; text-decoration: none; transition: transform 160ms, box-shadow 160ms; }
-:is(.landing-page, .content-page) .primary-button { background: #e65f50; color: #fff9e8; border: 2px solid #f58669; box-shadow: 0 5px 0 #86362f, 0 8px 0 #071f2380; }
-:is(.landing-page, .content-page) .secondary-button { background: #244a42; border: 2px solid #6d8e78; color: #fff2d6; box-shadow: 0 5px 0 #10211c; }
-:is(.landing-page, .content-page) :is(.primary-button, .secondary-button):hover { transform: translateY(-3px); }
+:is(.landing-page, .content-page, .play-page) { --muted: #bdccc1; }
+:is(.landing-page, .content-page, .play-page) a:focus-visible, .site-header a:focus-visible, .site-footer a:focus-visible { outline: 3px solid #f4cc75; outline-offset: 5px; }
+:is(.landing-page, .content-page, .play-page) .content-kicker { color: #f4cc75; font-family: "Courier New", monospace; letter-spacing: .14em; }
+:is(.landing-page, .content-page, .play-page) :is(h1, h2) { font-family: "Courier New", monospace; font-weight: 900; font-style: normal; letter-spacing: -.065em; text-wrap: balance; }
+:is(.landing-page, .content-page, .play-page) h2 { font-size: clamp(1.75rem, 3.7vw, 2.9rem); line-height: 1.12; }
+:is(.landing-page, .content-page, .play-page) :is(.primary-button, .secondary-button) { min-height: 50px; padding: 15px 22px; border-radius: 5px; font-size: .85rem; text-decoration: none; transition: transform 160ms, box-shadow 160ms; }
+:is(.landing-page, .content-page, .play-page) .primary-button { background: #e65f50; color: #fff9e8; border: 2px solid #f58669; box-shadow: 0 5px 0 #86362f, 0 8px 0 #071f2380; }
+:is(.landing-page, .content-page, .play-page) .secondary-button { background: #244a42; border: 2px solid #6d8e78; color: #fff2d6; box-shadow: 0 5px 0 #10211c; }
+:is(.landing-page, .content-page, .play-page) :is(.primary-button, .secondary-button):hover { transform: translateY(-3px); }
 .landing-hero { grid-template-columns: 1.1fr .9fr; gap: 42px; min-height: 650px; padding: 70px 0 65px; }
 .road-label { display: flex; align-items: center; gap: 12px; color: #bfcec4; font: 700 .65rem/1.6 "Courier New", monospace; letter-spacing: .04em; }
 .road-label > span { padding: 4px 8px; border: 2px solid #e9e8d9; border-radius: 4px; background: #286695; color: #fff; white-space: nowrap; }
@@ -39,9 +40,9 @@
 .souvenir-card { position: absolute; display: flex; flex-direction: column; width: 144px; height: 204px; padding: 11px; border: 3px solid #f7edce; border-radius: 9px; background: #f4eacf; color: #20332f; box-shadow: 3px 5px 0 #adaf91, 8px 15px 0 #06191760; font: 900 1.2rem/1 "Courier New", monospace; }
 .souvenir-card > b { align-self: center; margin: auto; font: 5.5rem/1 Georgia, serif; }
 .souvenir-card > span:last-child { align-self: flex-end; transform: rotate(180deg); }
-.card-back { left: 4px; top: 6px; transform: rotate(-19deg); justify-content: center; align-items: center; gap: 25px; outline: 2px solid #234237; outline-offset: -9px; background: repeating-linear-gradient(45deg, #418b74 0 3px, #347460 3px 8px); color: #f7edce; text-align: center; }
-.card-back > span { font-size: 1.5rem; text-shadow: 2px 2px #173b30; }
-.card-back > small { font-size: 1rem; }
+.souvenir-card.card-back { left: 4px; top: 6px; transform: rotate(-19deg); justify-content: center; align-items: center; gap: 25px; outline: 2px solid #234237; outline-offset: -9px; background: repeating-linear-gradient(45deg, #418b74 0 3px, #347460 3px 8px); color: #f7edce; text-align: center; }
+.souvenir-card.card-back > span { font-size: 1.5rem; text-shadow: 2px 2px #173b30; }
+.souvenir-card.card-back > small { font-size: 1rem; }
 .card-diamond { left: 82px; top: -8px; transform: rotate(-2deg); color: #ce493e; }
 .card-spade { left: 167px; top: 12px; transform: rotate(16deg); }
 .toll-barrier { position: absolute; top: 333px; left: 4%; width: 94%; height: 14px; border: 2px solid #ddd8bf; border-radius: 2px; background: repeating-linear-gradient(135deg, #f3e8ce 0 24px, #d75749 24px 48px); box-shadow: 0 5px #08231f; transform: rotate(-7deg); }
@@ -129,5 +130,5 @@
   .site-footer nav { justify-content: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
-  :is(.landing-page, .content-page) *, :is(.landing-page, .content-page) *::before { transition: none !important; }
+  :is(.landing-page, .content-page, .play-page) *, :is(.landing-page, .content-page, .play-page) *::before { transition: none !important; }
 }
