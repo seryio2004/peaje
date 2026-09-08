@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { DIFFICULTIES, GAME_MODES } from "../../lib/site-content";
 import AdPlacement from "../ad-placement";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Modos de juego y dificultades",
-  description:
-    "Compara los cinco modos de El Peaje y elige entre dificultad fácil, media o difícil con rutas y peajes adaptados.",
-};
+export const metadata = pageMetadata("/modos-de-juego");
 
 export default function ModesPage() {
   return (

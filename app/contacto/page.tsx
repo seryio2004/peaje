@@ -1,10 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Canal de contacto para comunicar errores o sugerencias sobre El Peaje.",
-};
+export const metadata = pageMetadata("/contacto");
 
 export default function ContactPage() {
   return (

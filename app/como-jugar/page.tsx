@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { RULES } from "../../lib/site-content";
 import AdPlacement from "../ad-placement";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Cómo jugar",
-  description:
-    "Reglas completas de El Peaje: cómo predecir las cartas, avanzar por la ruta, resolver peajes y terminar una partida.",
-};
+export const metadata = pageMetadata("/como-jugar");
 
 export default function RulesPage() {
   return (

@@ -1,12 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Sobre el juego",
-  description:
-    "Conoce el propósito, el funcionamiento y los principios de diseño de El Peaje, un juego de cartas online gratuito.",
-};
+export const metadata = pageMetadata("/sobre-el-juego");
 
 export default function AboutPage() {
   return (

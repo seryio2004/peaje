@@ -1,4 +1,7 @@
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
+
+export const metadata = pageMetadata("/");
 
 const EXITS = [
   { number: "01", suit: "♠", title: "Conoce las reglas", text: "Predice, avanza y descubre qué pasa cuando la suerte te pone una barrera.", href: "/como-jugar", action: "Cómo jugar" },
@@ -13,7 +16,7 @@ export default function Home() {
         <div className="landing-copy">
           <p className="road-label"><span>EP-52</span> BARAJA FRANCESA · DESTINO: LA ÚLTIMA CARTA</p>
           <h1>La suerte se reparte.<br /><em>El peaje se cruza.</em></h1>
-          <p>Una carta más. Una predicción más. Atrévete a cruzar una ruta donde cada acierto te acerca al final y cada fallo tiene su peaje.</p>
+          <p>El Peaje es un juego de cartas online gratis para uno o dos jugadores. Predice la siguiente carta: cada acierto te acerca al final y cada fallo tiene su peaje.</p>
           <div className="landing-actions">
             <Link className="primary-button" href="/jugar">Empezar partida <span aria-hidden="true">↗</span></Link>
             <Link className="secondary-button" href="/como-jugar">Cómo se juega</Link>
@@ -60,6 +63,7 @@ export default function Home() {
         <div><p className="content-kicker">Área de descanso</p><h2>Buen juego.<br />Buen viaje.</h2></div>
         <div><p>El peaje lo ponéis vosotros: puntos, preguntas o retos breves. Acordad una penalización segura antes de repartir. El juego no necesita alcohol.</p><Link href="/sobre-el-juego">Más sobre El Peaje <span aria-hidden="true">↗</span></Link></div>
       </section>
+      <section className="landing-section share-invitation"><p className="content-kicker">Una partida más, otro móvil</p><h2>Invita a tu grupo a cruzar el peaje.</h2><p>Comparte la web con un QR y descubre las apps que estamos preparando.</p><Link className="secondary-button" href="/compartir">Compartir por QR y ver las apps →</Link></section>
     </main>
   );
 }

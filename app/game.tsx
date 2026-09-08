@@ -3,6 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { createGameAnalytics } from "@/lib/game-analytics";
+import { hasConsent, subscribeConsent } from "@/lib/consent";
+import PrivacySettingsButton from "./privacy-settings-button";
+import ShareGame from "./share-game";
 import RouteBoard, { type TollCrossing } from "./route-board";
 import {
   answerSinglePlayer,
@@ -333,9 +337,11 @@ function ModeSelection({
 function ActionPanel({
   game,
   setGame,
+  onShared,
 }: {
   game: GameState;
   setGame: (state: GameState) => void;
+  onShared: (method: "native" | "clipboard") => void;
 }) {
   if (game.phase === "complete") {
     const title =
@@ -363,6 +369,7 @@ function ActionPanel({
         >
           Jugar otra vez
         </button>
+        <ShareGame game={game} onShared={onShared} />
       </div>
     );
   }
@@ -480,6 +487,7 @@ function ActionPanel({
 }
 
 export default function Game() {
+  const [gameAnalytics] = useState(() => createGameAnalytics());
   const [journeyRun, setJourneyRun] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [crossing, setCrossing] = useState<TollCrossing | null>(null);
@@ -502,6 +510,21 @@ export default function Game() {
     crossingTimers.current.forEach(clearTimeout);
     if (effectTimeoutRef.current) clearTimeout(effectTimeoutRef.current);
   }, []);
+
+  useEffect(() => {
+    const onPageHide = (event: PageTransitionEvent) => {
+      if (!event.persisted) gameAnalytics.abandon("page_exit");
+    };
+    window.addEventListener("pagehide", onPageHide);
+    const unsubscribe = subscribeConsent(() => {
+      if (!hasConsent("analytics")) gameAnalytics.forget();
+    });
+    return () => {
+      unsubscribe();
+      window.removeEventListener("pagehide", onPageHide);
+      gameAnalytics.abandon("navigation");
+    };
+  }, [gameAnalytics]);
 
   function cancelCrossing() {
     crossingTimers.current.forEach(clearTimeout);
@@ -530,13 +553,16 @@ export default function Game() {
     stopRetreatEffect(true);
     effectImagePreloadRef.current = new window.Image();
     effectImagePreloadRef.current.src = `${BASE_PATH}/images/cinco-fallos.webp`;
-    setGame(startGame(settings));
+    const nextGame = startGame(settings);
+    gameAnalytics.start(nextGame);
+    setGame(nextGame);
   }
 
   function updateGame(nextGame: GameState) {
     if (crossingLock.current) return;
 
     if (game?.phase === "complete" && nextGame.phase === "playing") {
+      gameAnalytics.start(nextGame, "repeat");
       stopRetreatEffect(true);
       setDirection(1);
       setJourneyRun((run) => run + 1);
@@ -559,6 +585,7 @@ export default function Game() {
       crossingTimers.current = [
         setTimeout(() => {
           setCrossing({ ...passage, departing: true });
+          gameAnalytics.update(nextGame);
           setGame(nextGame);
         }, reducedMotion ? 0 : 520),
         setTimeout(() => {
@@ -593,10 +620,12 @@ export default function Game() {
     } else if (nextGame.position < game.position) {
       setDirection(-1);
     }
+    gameAnalytics.update(nextGame);
     setGame(nextGame);
   }
 
   function returnToSetup() {
+    gameAnalytics.abandon("new_game");
     cancelCrossing();
     stopRetreatEffect(true);
     setGame(null);
@@ -632,6 +661,7 @@ export default function Game() {
     <section
       className="game-shell game-root"
       data-card-style={cardStyle}
+      data-complete={game.phase === "complete"}
       aria-label="Partida de El Peaje"
     >
       <header className="game-header">
@@ -642,9 +672,9 @@ export default function Game() {
           </p>
           <h1><span className="game-route-badge">EP-52</span> En ruta.</h1>
         </div>
-        <button className="text-button" onClick={returnToSetup}>
+        <div className="game-header-actions"><PrivacySettingsButton compact /><button className="text-button" onClick={returnToSetup}>
           Nueva partida
-        </button>
+        </button></div>
       </header>
 
       <section className="stats" aria-label="Estado de la partida">
@@ -684,7 +714,7 @@ export default function Game() {
           </p>
         ) : null}
         <fieldset className="action-controls" disabled={crossing !== null} aria-label="Acciones de la partida">
-          <ActionPanel game={game} setGame={updateGame} />
+          <ActionPanel game={game} setGame={updateGame} onShared={gameAnalytics.share} />
         </fieldset>
       </section>
 

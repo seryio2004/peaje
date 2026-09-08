@@ -1,12 +1,7 @@
 import Link from "next/link";
+import { HEADER_PATHS, SITE_PAGES } from "@/lib/site-routes";
 
-const NAVIGATION = [
-  { href: "/", label: "Inicio" },
-  { href: "/jugar", label: "Jugar" },
-  { href: "/como-jugar", label: "Reglas" },
-  { href: "/modos-de-juego", label: "Modos" },
-  { href: "/preguntas-frecuentes", label: "Preguntas" },
-];
+
 
 export default function SiteHeader() {
   return (
@@ -16,9 +11,9 @@ export default function SiteHeader() {
         El Peaje
       </Link>
       <nav aria-label="Navegación principal">
-        {NAVIGATION.map((item) => (
-          <Link href={item.href} key={item.href}>
-            {item.label}
+        {HEADER_PATHS.map((path) => (
+          <Link href={path} key={path}>
+            {SITE_PAGES[path].label}
           </Link>
         ))}
       </nav>

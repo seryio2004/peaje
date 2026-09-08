@@ -1,16 +1,6 @@
-type AdPlacementProps = {
-  position: "after-rules" | "after-modes" | "after-faq";
-};
+import AdSlot, { type AdSlotId } from "./ad-slot";
 
-export default function AdPlacement({ position }: AdPlacementProps) {
-  return (
-    <aside
-      className="ad-placement"
-      aria-label="Espacio reservado para publicidad"
-      data-ad-position={position}
-    >
-      <span>Publicidad</span>
-      <p>Espacio preparado para un anuncio adaptable</p>
-    </aside>
-  );
+/** Compatibility wrapper for existing editorial pages. */
+export default function AdPlacement({ position }: { position: AdSlotId }) {
+  return <AdSlot id={position} />;
 }

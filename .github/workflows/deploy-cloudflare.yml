@@ -1,0 +1,48 @@
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main, staging]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: vars.CLOUDFLARE_DEPLOY_ENABLED == 'true' && (github.ref_name == 'main' || github.ref_name == 'staging')
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
+    env:
+      DEPLOY_ENV: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
+      DEPLOY_BRANCH: ${{ github.ref_name }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PROJECT_NAME: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+      NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+      NEXT_PUBLIC_ANALYTICS_ENABLED: ${{ vars.ANALYTICS_ENABLED || 'false' }}
+      NEXT_PUBLIC_ANALYTICS_DEBUG: 'false'
+      NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED: ${{ vars.CLOUDFLARE_ANALYTICS_ENABLED || 'false' }}
+      NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_ANALYTICS_TOKEN }}
+      NEXT_PUBLIC_ADS_ENABLED: ${{ vars.ADS_ENABLED || 'false' }}
+      PAGES_BASE_PATH: ''
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: |
+          test -n "$PROJECT_NAME"
+          test -n "$NEXT_PUBLIC_SITE_URL"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run "build:$DEPLOY_ENV"
+      - run: npx wrangler pages deploy out --project-name "$PROJECT_NAME" --branch "$DEPLOY_BRANCH"

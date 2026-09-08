@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
+import AdSlot from "../ad-slot";
 import Game from "../game";
 
-export const metadata: Metadata = {
-  title: "Jugar",
-  description:
-    "Juega gratis a El Peaje con una baraja de 52 cartas, cinco modos y tres dificultades para uno o dos jugadores.",
-};
+export const metadata = pageMetadata("/jugar");
 
 export default function PlayPage() {
   return (
@@ -14,6 +11,7 @@ export default function PlayPage() {
       <section className="game-stage" aria-label="Juego El Peaje">
         <Game />
       </section>
+      <div className="post-game-ad"><AdSlot id="after-game" /></div>
       <section className="post-game-guide" aria-labelledby="play-help-title">
         <div>
           <p className="content-kicker">Antes de otra partida</p>
