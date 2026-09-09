@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { clearAnalyticsSession } from "@/lib/analytics";
 import { CONSENT_CHANGED, CONSENT_MAX_AGE_MS, saveConsent } from "@/lib/consent";
@@ -9,6 +10,7 @@ import { OPEN_PRIVACY_SETTINGS } from "./privacy-settings-button";
 
 export default function PrivacyRuntime() {
   const consent = useConsent();
+  const pathname = usePathname();
   const loaded = useRef(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const [open, setOpen] = useState(false);
@@ -24,9 +26,15 @@ export default function PrivacyRuntime() {
   }, [open]);
   useEffect(() => {
     if (!consent) return;
-    // Cap the delay to avoid the browser's 32-bit timer limit.
-    const delay = Math.min(2147483647, Math.max(0, consent.updatedAt + CONSENT_MAX_AGE_MS - Date.now()) + 1);
-    const timer = setTimeout(() => window.dispatchEvent(new Event(CONSENT_CHANGED)), delay);
+    const expiresAt = consent.updatedAt + CONSENT_MAX_AGE_MS;
+    let timer: ReturnType<typeof setTimeout>;
+    function schedule() {
+      timer = setTimeout(() => {
+        window.dispatchEvent(new Event(CONSENT_CHANGED));
+        if (Date.now() < expiresAt) schedule();
+      }, Math.min(2147483647, Math.max(1, expiresAt - Date.now() + 1)));
+    }
+    schedule();
     return () => clearTimeout(timer);
   }, [consent]);
   useEffect(() => {
@@ -49,7 +57,7 @@ export default function PrivacyRuntime() {
     document.body.appendChild(script);
   }, [allowed]);
   return <>
-    {!consent && siteConfig.analyticsEnabled && !open ? <aside className="consent-notice" aria-labelledby="consent-title">
+    {!consent && siteConfig.analyticsEnabled && !open && !pathname.replace(/\/$/, "").endsWith("/cookies") ? <aside className="consent-notice" aria-labelledby="consent-title">
       <h2 id="consent-title">Cookies y privacidad</h2>
       <p>El Peaje guarda tu elección de privacidad. Si aceptas, medimos el uso de las partidas{siteConfig.cloudflareEnabled ? " y usamos Cloudflare Web Analytics para conocer visitas y rendimiento" : ""}. Puedes rechazar y seguir jugando. No hay publicidad activa.</p>
       <div className="consent-actions">

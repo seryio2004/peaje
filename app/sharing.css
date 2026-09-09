@@ -28,3 +28,7 @@
 .cookie-table-wrap { overflow-x: auto; }
 .cookie-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
 .cookie-table th, .cookie-table td { padding: 12px; text-align: left; border: 1px solid #718c76; vertical-align: top; overflow-wrap: anywhere; }
+
+.consent-actions { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.consent-actions button { min-width: 0; }
+@media (max-width: 600px) and (min-height: 401px) { .consent-actions { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); } }

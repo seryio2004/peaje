@@ -24,6 +24,6 @@ export default function ConsentControls({ onSave }: { onSave?: () => void }) {
       {siteConfig.analyticsEnabled ? <button type="button" onClick={() => choose(true)}>Aceptar opcionales</button> : null}
     </div>
     <small>Al retirar el permiso de una analítica ya cargada, la página se recarga para detenerla y la partida abierta se pierde.</small>
-    <p role="status">{saved ? "Preferencias guardadas." : ""}</p>
+    <p role="status">{saved ? "Preferencias aplicadas." : ""}</p>
   </div>;
 }

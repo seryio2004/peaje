@@ -140,7 +140,7 @@ Todo acceso localStorage/sessionStorage vive en `lib/storage.ts`, con fallback s
 
 | Clave | Almacén | Finalidad / duración |
 | --- | --- | --- |
-| peaje.consent.v1 | localStorage | Preferencias, 180 días; al caducar se solicita otra elección |
+| peaje.consent.v2 | localStorage | Preferencias, 180 días; al caducar se solicita otra elección |
 | peaje.analytics-session.v1 | sessionStorage, solo con permiso y métricas habilitadas | ID y contador por pestaña; nueva sesión tras 30 minutos sin eventos |
 
 No se guarda la partida ni un identificador permanente de visitante. La revocación borra la sesión analítica desde el runtime y olvida el seguimiento de la partida; no borra datos que un proveedor ya hubiera recibido.
