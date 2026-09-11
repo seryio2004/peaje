@@ -83,6 +83,18 @@ body {
   --card-back-mark-line: rgba(216, 244, 255, 0.58);
 }
 
+.game-root[data-card-style="pixel-toll"] {
+  --card-front: #f7e5a1;
+  --card-border: #f5c94b;
+  --card-black: #12334b;
+  --card-red: #c9483f;
+  --card-back-base: #0d2845;
+  --card-back-edge: #071829;
+  --card-back-mark: #f8d55a;
+  --card-back-mark-bg: rgba(5, 20, 35, 0.35);
+  --card-back-mark-line: rgba(248, 213, 90, 0.75);
+}
+
 body::before {
   position: fixed;
   inset: 0;
@@ -272,7 +284,7 @@ button:focus-visible {
 
 .card-style-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 9px;
 }
 
@@ -341,6 +353,20 @@ button:focus-visible {
   --preview-edge: #091b2d;
   --preview-border: #9eb8c3;
   --preview-mark: #d8f4ff;
+}
+
+.card-style-option[data-preview-style="pixel-toll"] {
+  --preview-back: #0d2845;
+  --preview-edge: #071829;
+  --preview-border: #f5c94b;
+  --preview-mark: #f8d55a;
+}
+
+.card-style-option[data-preview-style="pixel-toll"] .card-style-preview {
+  background-image: var(--pixel-toll-back);
+  background-position: center;
+  background-size: cover;
+  image-rendering: pixelated;
 }
 
 .card-style-copy,
@@ -799,6 +825,65 @@ h2 {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
   rotate: 18deg;
   animation: card-shine 850ms 420ms ease-out both;
+}
+
+.game-root[data-card-style="pixel-toll"] .playing-card.card-face-front {
+  background:
+    linear-gradient(90deg, transparent 0 42%, rgba(16, 48, 68, 0.16) 42% 58%, transparent 58%),
+    repeating-linear-gradient(0deg, transparent 0 9px, rgba(18, 51, 75, 0.07) 9px 11px),
+    var(--card-front);
+  image-rendering: pixelated;
+}
+
+.game-root[data-card-style="pixel-toll"] .card-corner {
+  font-family: "Courier New", monospace;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.game-root[data-card-style="pixel-toll"] .card-suit {
+  filter: none;
+  text-shadow: none;
+}
+
+.game-root[data-card-style="pixel-toll"] .pixel-suit-hearts,
+.game-root[data-card-style="pixel-toll"] .pixel-suit-diamonds,
+.game-root[data-card-style="pixel-toll"] .pixel-suit-clubs,
+.game-root[data-card-style="pixel-toll"] .pixel-suit-spades {
+  color: transparent;
+  background-image: var(--pixel-toll-suits);
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.game-root[data-card-style="pixel-toll"] .pixel-suit-hearts { background-position: 0% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-suit-diamonds { background-position: 33.333% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-suit-clubs { background-position: 66.667% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-suit-spades { background-position: 100% 50%; }
+
+.game-root[data-card-style="pixel-toll"] .card-corner .card-suit-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-size: 400% 100%;
+}
+
+.game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-hearts,
+.game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-diamonds,
+.game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-clubs,
+.game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-spades {
+  background-size: auto 43%;
+}
+
+.game-root[data-card-style="pixel-toll"] .card-back {
+  background-image: var(--pixel-toll-back);
+  background-position: center;
+  background-size: cover;
+  image-rendering: pixelated;
+}
+
+.game-root[data-card-style="pixel-toll"] .card-back .back-mark {
+  border-color: rgba(248, 213, 90, 0.78);
+  box-shadow: 0 0 0 2px rgba(7, 24, 41, 0.5);
 }
 
 .card-back {

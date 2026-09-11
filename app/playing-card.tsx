@@ -13,6 +13,7 @@ export default function PlayingCard({
   dealIndex?: number;
 }) {
   const red = isRed(card);
+  const pixelSuitClass = `pixel-suit-${card.suit}`;
   const animationStyle = {
     "--deal-index": dealIndex,
   } as CSSProperties;
@@ -33,14 +34,14 @@ export default function PlayingCard({
           >
             <span className="card-corner card-corner-top">
               <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
+              <span className={`card-suit-icon ${pixelSuitClass}`}>{SUIT_SYMBOLS[card.suit]}</span>
             </span>
-            <span className="card-suit" aria-hidden="true">
+            <span className={`card-suit ${pixelSuitClass}`} aria-hidden="true">
               {SUIT_SYMBOLS[card.suit]}
             </span>
             <span className="card-corner card-corner-bottom" aria-hidden="true">
               <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
+              <span className={`card-suit-icon ${pixelSuitClass}`}>{SUIT_SYMBOLS[card.suit]}</span>
             </span>
             <span className="card-shine" aria-hidden="true" />
           </div>

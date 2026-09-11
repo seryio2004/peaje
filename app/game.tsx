@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { createGameAnalytics } from "@/lib/game-analytics";
 import { hasConsent, subscribeConsent } from "@/lib/consent";
 import PrivacySettingsButton from "./privacy-settings-button";
@@ -34,7 +34,7 @@ import {
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-type CardStyle = "classic" | "burgundy" | "midnight";
+type CardStyle = "classic" | "burgundy" | "midnight" | "pixel-toll";
 
 const CARD_STYLES: Array<{
   id: CardStyle;
@@ -55,6 +55,11 @@ const CARD_STYLES: Array<{
     id: "midnight",
     name: "Medianoche",
     description: "Oscura y moderna",
+  },
+  {
+    id: "pixel-toll",
+    name: "Peaje pixel",
+    description: "Arcade de autopista",
   },
 ];
 
@@ -530,6 +535,12 @@ export default function Game() {
     difficulty: "medium",
   });
   const [cardStyle, setCardStyle] = useState<CardStyle>("classic");
+  const cardStyleVariables = cardStyle === "pixel-toll"
+    ? ({
+        "--pixel-toll-back": "url(" + BASE_PATH + "/images/peaje-pixel-back.png)",
+        "--pixel-toll-suits": "url(" + BASE_PATH + "/images/peaje-pixel-suits.png)",
+      } as CSSProperties)
+    : undefined;
   const [showRetreatEffect, setShowRetreatEffect] = useState(false);
   const [retreatEffectRun, setRetreatEffectRun] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -681,7 +692,7 @@ export default function Game() {
 
   if (!game) {
     return (
-      <div className="game-root" data-card-style={cardStyle}>
+      <div className="game-root" data-card-style={cardStyle} style={cardStyleVariables}>
         <ModeSelection
           onStart={startNewGame}
           settings={settings}
@@ -710,6 +721,7 @@ export default function Game() {
       className="game-shell game-root"
       data-card-style={cardStyle}
       data-complete={game.phase === "complete"}
+      style={cardStyleVariables}
       aria-label="Partida de El Peaje"
     >
       <header className="game-header">
