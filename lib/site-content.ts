@@ -53,8 +53,8 @@ export const GAME_MODES = [
   {
     number: "04",
     title: "Turnos rápidos",
-    summary: "Dos jugadores alternos",
-    text: "La web alterna automáticamente el jugador activo después de validar cada respuesta. Está disponible al seleccionar dos jugadores.",
+    summary: "Dos partidas · Cambio al fallar",
+    text: "Cada jugador tiene su propia ruta, cartas, fallos y peajes. La web valida cada respuesta automáticamente; al fallar, la partida queda guardada y el turno pasa al otro jugador.",
   },
   {
     number: "05",
@@ -116,7 +116,12 @@ export const FAQS = [
   {
     question: "¿En qué se diferencian uno y dos jugadores?",
     answer:
-      "En un jugador, la web comprueba la respuesta. En dos jugadores, una persona responde en voz alta y la otra revela la carta y valida el resultado.",
+      "En un jugador, la web comprueba la respuesta. En el modo normal de dos jugadores, una persona responde en voz alta y la otra revela la carta y valida el resultado. Turnos rápidos es distinto: la web valida y cada jugador conserva su propia partida.",
+  },
+  {
+    question: "¿Cómo funcionan los turnos rápidos?",
+    answer:
+      "Hay dos partidas independientes, una por jugador. Un acierto permite seguir jugando con la misma partida; un fallo guarda ese estado y cede el turno a la otra persona. Cuando el turno vuelve, puedes retomar tu ruta exactamente donde la dejaste.",
   },
   {
     question: "¿Se guardan mis partidas?",

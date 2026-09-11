@@ -62,6 +62,11 @@ export type GameState = GameSettings & {
   endReason: "route-completed" | "deck-empty" | "failure-limit" | null;
 };
 
+export type QuickTurnsState = {
+  players: Record<1 | 2, GameState>;
+  activePlayer: 1 | 2;
+};
+
 export type AnswerOption = {
   label: string;
   value: Prediction;
@@ -205,6 +210,25 @@ export function startGame(
   };
 }
 
+export function startQuickTurnsGame(
+  settings: GameSettings,
+  random = Math.random,
+): QuickTurnsState {
+  const quickTurnsSettings: GameSettings = {
+    ...settings,
+    mode: "two-players",
+    variant: "quick-turns",
+  };
+
+  return {
+    players: {
+      1: { ...startGame(quickTurnsSettings, random), activePlayer: 1 },
+      2: { ...startGame(quickTurnsSettings, random), activePlayer: 2 },
+    },
+    activePlayer: 1,
+  };
+}
+
 export function getQuestion(step: RouteStep): string {
   return step === "toll" ? "El Peaje" : QUESTIONS[step];
 }
@@ -259,8 +283,7 @@ function finishEmptyDeck(state: GameState): GameState {
 }
 
 function nextPlayer(state: GameState): 1 | 2 {
-  if (state.variant !== "quick-turns") return state.activePlayer;
-  return state.activePlayer === 1 ? 2 : 1;
+  return state.activePlayer;
 }
 
 function tollMessage(state: GameState, backwards = false): string {
@@ -392,7 +415,12 @@ export function answerSinglePlayer(
   state: GameState,
   prediction: Prediction,
 ): GameState {
-  if (state.mode !== "one-player" || state.phase !== "playing") return state;
+  if (
+    (state.mode !== "one-player" && state.variant !== "quick-turns") ||
+    state.phase !== "playing"
+  ) {
+    return state;
+  }
 
   const step = state.route[state.position];
   if (!step || step === "toll") return state;
@@ -427,6 +455,50 @@ export function revealForJudge(state: GameState): GameState {
 export function judgeAnswer(state: GameState, correct: boolean): GameState {
   if (state.mode !== "two-players" || state.phase !== "judging") return state;
   return correct ? registerSuccess(state) : registerFailure(state);
+}
+
+function updateActiveQuickTurnsPlayer(
+  state: QuickTurnsState,
+  game: GameState,
+): QuickTurnsState {
+  return {
+    ...state,
+    players: {
+      ...state.players,
+      [state.activePlayer]: game,
+    },
+  };
+}
+
+export function answerQuickTurns(
+  state: QuickTurnsState,
+  prediction: Prediction,
+): QuickTurnsState {
+  const player = state.activePlayer;
+  const nextGame = answerSinglePlayer(state.players[player], prediction);
+  const nextState = updateActiveQuickTurnsPlayer(state, nextGame);
+
+  return nextGame.phase === "failed"
+    ? { ...nextState, activePlayer: player === 1 ? 2 : 1 }
+    : nextState;
+}
+
+export function continueQuickTurnsAfterFailure(
+  state: QuickTurnsState,
+): QuickTurnsState {
+  return updateActiveQuickTurnsPlayer(
+    state,
+    continueAfterFailure(state.players[state.activePlayer]),
+  );
+}
+
+export function confirmQuickTurnsToll(
+  state: QuickTurnsState,
+): QuickTurnsState {
+  return updateActiveQuickTurnsPlayer(
+    state,
+    confirmToll(state.players[state.activePlayer]),
+  );
 }
 
 export function continueAfterFailure(state: GameState): GameState {

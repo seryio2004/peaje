@@ -10,8 +10,11 @@ import ShareGame from "./share-game";
 import RouteBoard, { type TollCrossing } from "./route-board";
 import {
   answerSinglePlayer,
+  answerQuickTurns,
   confirmToll,
+  confirmQuickTurnsToll,
   continueAfterFailure,
+  continueQuickTurnsAfterFailure,
   GameDifficulty,
   GameMode,
   GameSettings,
@@ -22,9 +25,11 @@ import {
   getQuestionCount,
   getScore,
   judgeAnswer,
+  type QuickTurnsState,
   reachesStartFromLastFailureStreak,
   revealForJudge,
   startGame,
+  startQuickTurnsGame,
 } from "@/lib/game";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -93,7 +98,7 @@ const VARIANT_OPTIONS: Array<{
   {
     id: "quick-turns",
     name: "Turnos rápidos",
-    description: "Alterna el jugador activo después de cada respuesta.",
+    description: "Cada jugador conserva su ruta; el turno cambia solo al fallar.",
   },
   {
     id: "safe-toll",
@@ -338,10 +343,16 @@ function ActionPanel({
   game,
   setGame,
   onShared,
+  quickTurns,
+  onQuickTurnsChange,
+  onRestart,
 }: {
   game: GameState;
   setGame: (state: GameState) => void;
   onShared: (method: "native" | "clipboard") => void;
+  quickTurns?: QuickTurnsState;
+  onQuickTurnsChange?: (state: QuickTurnsState) => void;
+  onRestart?: () => void;
 }) {
   if (game.phase === "complete") {
     const title =
@@ -357,15 +368,19 @@ function ActionPanel({
         <p>{game.message}</p>
         <button
           className="primary-button"
-          onClick={() =>
+          onClick={() => {
+            if (onRestart) {
+              onRestart();
+              return;
+            }
             setGame(
               startGame({
                 mode: game.mode,
                 variant: game.variant,
                 difficulty: game.difficulty,
               }),
-            )
-          }
+            );
+          }}
         >
           Jugar otra vez
         </button>
@@ -382,7 +397,11 @@ function ActionPanel({
         <p>{game.message}</p>
         <button
           className="primary-button danger-button"
-          onClick={() => setGame(confirmToll(game))}
+          onClick={() =>
+            quickTurns && onQuickTurnsChange
+              ? onQuickTurnsChange(confirmQuickTurnsToll(quickTurns))
+              : setGame(confirmToll(game))
+          }
         >
           {game.variant === "safe-toll" ? "Reto completado" : "Ya he bebido"}
         </button>
@@ -398,7 +417,11 @@ function ActionPanel({
         <p>{game.message}</p>
         <button
           className="primary-button"
-          onClick={() => setGame(continueAfterFailure(game))}
+          onClick={() =>
+            quickTurns && onQuickTurnsChange
+              ? onQuickTurnsChange(continueQuickTurnsAfterFailure(quickTurns))
+              : setGame(continueAfterFailure(game))
+          }
         >
           Continuar
         </button>
@@ -440,6 +463,8 @@ function ActionPanel({
     .slice(0, game.position + 1)
     .filter((step) => step !== "toll").length;
 
+  const automaticValidation = game.mode === "one-player" || Boolean(quickTurns);
+
   return (
     <div className="action-content">
       <p className="eyebrow">
@@ -447,12 +472,14 @@ function ActionPanel({
         {game.variant === "quick-turns" ? ` · Jugador ${game.activePlayer}` : ""}
       </p>
       <h2>{getQuestion(currentStep)}</h2>
-      {game.mode === "one-player" ? (
+      {automaticValidation ? (
         <>
           <p className="helper-copy">
-            {currentStep === "higher-lower"
-              ? "El as es la carta más alta; un empate cuenta como fallo."
-              : "Elige una opción para revelar la siguiente carta."}
+            {quickTurns
+              ? "La web comprueba el resultado. Si fallas, guarda tu partida y pasa el turno al otro jugador."
+              : currentStep === "higher-lower"
+                ? "El as es la carta más alta; un empate cuenta como fallo."
+                : "Elige una opción para revelar la siguiente carta."}
           </p>
           <div className="button-row answer-grid">
             {options.map((option) => (
@@ -460,7 +487,9 @@ function ActionPanel({
                 className="primary-button"
                 key={option.value}
                 onClick={() =>
-                  setGame(answerSinglePlayer(game, option.value))
+                  quickTurns && onQuickTurnsChange
+                    ? onQuickTurnsChange(answerQuickTurns(quickTurns, option.value))
+                    : setGame(answerSinglePlayer(game, option.value))
                 }
               >
                 {option.label}
@@ -494,6 +523,7 @@ export default function Game() {
   const crossingTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const crossingLock = useRef(false);
   const [game, setGame] = useState<GameState | null>(null);
+  const [quickTurns, setQuickTurns] = useState<QuickTurnsState | null>(null);
   const [settings, setSettings] = useState<GameSettings>({
     mode: "one-player",
     variant: "classic",
@@ -553,8 +583,25 @@ export default function Game() {
     stopRetreatEffect(true);
     effectImagePreloadRef.current = new window.Image();
     effectImagePreloadRef.current.src = `${BASE_PATH}/images/cinco-fallos.webp`;
+    if (settings.variant === "quick-turns") {
+      const nextSession = startQuickTurnsGame(settings);
+      gameAnalytics.start(nextSession.players[1]);
+      setQuickTurns(nextSession);
+      setGame(nextSession.players[1]);
+      return;
+    }
+
     const nextGame = startGame(settings);
     gameAnalytics.start(nextGame);
+    setQuickTurns(null);
+    setGame(nextGame);
+  }
+
+  function updateQuickTurns(nextSession: QuickTurnsState) {
+    const nextGame = nextSession.players[nextSession.activePlayer];
+    gameAnalytics.update(nextGame);
+    setDirection(1);
+    setQuickTurns(nextSession);
     setGame(nextGame);
   }
 
@@ -628,6 +675,7 @@ export default function Game() {
     gameAnalytics.abandon("new_game");
     cancelCrossing();
     stopRetreatEffect(true);
+    setQuickTurns(null);
     setGame(null);
   }
 
@@ -651,7 +699,7 @@ export default function Game() {
       : game.variant === "cooperative"
         ? { label: "Margen", value: String(Math.max(0, 6 - game.failures)) }
         : game.variant === "quick-turns"
-          ? { label: "Turno", value: `J${game.activePlayer}` }
+          ? { label: "Turno", value: `J${quickTurns?.activePlayer ?? game.activePlayer}` }
           : {
               label: "Dificultad",
               value: DIFFICULTY_LABELS[game.difficulty],
@@ -714,7 +762,14 @@ export default function Game() {
           </p>
         ) : null}
         <fieldset className="action-controls" disabled={crossing !== null} aria-label="Acciones de la partida">
-          <ActionPanel game={game} setGame={updateGame} onShared={gameAnalytics.share} />
+          <ActionPanel
+            game={game}
+            setGame={updateGame}
+            onShared={gameAnalytics.share}
+            quickTurns={quickTurns ?? undefined}
+            onQuickTurnsChange={updateQuickTurns}
+            onRestart={quickTurns ? startNewGame : undefined}
+          />
         </fieldset>
       </section>
 

@@ -3,11 +3,14 @@ import test from "node:test";
 
 import {
   answerSinglePlayer,
+  answerQuickTurns,
   type Card,
   confirmToll,
   continueAfterFailure,
+  continueQuickTurnsAfterFailure,
   createDeck,
   type GameState,
+  type QuickTurnsState,
   getAnswerOptions,
   getRoute,
   getScore,
@@ -16,6 +19,7 @@ import {
   revealForJudge,
   shuffleDeck,
   startGame,
+  startQuickTurnsGame,
 } from "../lib/game";
 
 function card(suit: Card["suit"], rank: number): Card {
@@ -263,30 +267,55 @@ test("cooperative mode ends when the team reaches six failures", () => {
   assert.equal(state.endReason, "failure-limit");
 });
 
-test("quick turns alternates the active player after every judged answer", () => {
-  let state = gameState({
-    mode: "two-players",
-    variant: "quick-turns",
-    deck: [card("spades", 11), card("diamonds", 4)],
-  });
+test("quick turns keeps two independent games and changes player only after a failure", () => {
+  let state: QuickTurnsState = {
+    activePlayer: 1,
+    players: {
+      1: gameState({
+        mode: "two-players",
+        variant: "quick-turns",
+        deck: [card("diamonds", 10)],
+        activePlayer: 1,
+      }),
+      2: gameState({
+        mode: "two-players",
+        variant: "quick-turns",
+        deck: [card("spades", 11), card("diamonds", 4)],
+        activePlayer: 2,
+      }),
+    },
+  };
 
-  state = revealForJudge(state);
-  state = judgeAnswer(state, true);
+  state = answerQuickTurns(state, "higher");
   assert.equal(state.activePlayer, 2);
+  assert.equal(state.players[1].phase, "failed");
+  assert.equal(state.players[1].deck.length, 0);
+  assert.equal(state.players[2].deck.length, 2);
 
-  state = revealForJudge(state);
-  state = judgeAnswer(state, false);
+  state = answerQuickTurns(state, "higher");
+  assert.equal(state.activePlayer, 2);
+  assert.equal(state.players[2].position, 1);
+
+  state = answerQuickTurns(state, "rounded");
   assert.equal(state.activePlayer, 1);
+  assert.equal(state.players[2].phase, "failed");
+
+  state = continueQuickTurnsAfterFailure(state);
+  assert.equal(state.players[1].phase, "playing");
+  assert.equal(state.players[1].position, 0);
 });
 
-test("quick turns always starts as a two-player game", () => {
-  const state = startGame({
+test("quick turns starts two separate two-player states", () => {
+  const state = startQuickTurnsGame({
     mode: "one-player",
     variant: "quick-turns",
     difficulty: "easy",
   });
 
-  assert.equal(state.mode, "two-players");
+  assert.equal(state.activePlayer, 1);
+  assert.equal(state.players[1].mode, "two-players");
+  assert.equal(state.players[2].mode, "two-players");
+  assert.notEqual(state.players[1], state.players[2]);
 });
 
 test("safe toll replaces the drinking instruction with an agreed challenge", () => {

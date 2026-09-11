@@ -48,8 +48,19 @@ export default function RulesPage() {
           </div>
           <div className="content-prose">
             <article><h3>1. Elige una respuesta</h3><p>Observa la carta de referencia y selecciona una de las opciones disponibles para la posición actual.</p></article>
-            <article><h3>2. Revela la carta</h3><p>En solitario, la web comprueba la predicción. Con dos jugadores, la otra persona revela y valida el resultado.</p></article>
+            <article><h3>2. Revela la carta</h3><p>En solitario, la web comprueba la predicción. En el modo normal de dos jugadores, la otra persona revela y valida el resultado; en turnos rápidos, la web lo valida automáticamente.</p></article>
             <article><h3>3. Actualiza la ruta</h3><p>Un acierto hace avanzar. Un fallo suma al marcador y hace retroceder hasta la posición anterior.</p></article>
+          </div>
+        </section>
+
+        <section className="content-section" aria-labelledby="quick-turns-title">
+          <div className="content-heading">
+            <p className="content-kicker">Dos rutas, un turno</p>
+            <h2 id="quick-turns-title">Turnos rápidos</h2>
+          </div>
+          <div className="content-prose">
+            <p>Cada persona juega su propia partida, con sus cartas, posición, fallos y peajes. La web verifica la respuesta al pulsar una opción.</p>
+            <p>Mientras aciertas, sigues con tu ruta. Al fallar, tu estado queda guardado —incluida la carta revelada— y el turno pasa a la otra persona. Cuando vuelva tu turno, retomarás exactamente esa partida.</p>
           </div>
         </section>
 
