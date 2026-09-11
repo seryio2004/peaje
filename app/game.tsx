@@ -539,6 +539,7 @@ export default function Game() {
     ? ({
         "--pixel-toll-back": "url(" + BASE_PATH + "/images/peaje-pixel-back.png)",
         "--pixel-toll-suits": "url(" + BASE_PATH + "/images/peaje-pixel-suits.png)",
+        "--pixel-toll-references": "url(" + BASE_PATH + "/images/peaje-pixel-references.png)",
       } as CSSProperties)
     : undefined;
   const [showRetreatEffect, setShowRetreatEffect] = useState(false);

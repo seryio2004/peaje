@@ -871,8 +871,33 @@ h2 {
 .game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-diamonds,
 .game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-clubs,
 .game-root[data-card-style="pixel-toll"] .card-suit.pixel-suit-spades {
-  background-size: auto 43%;
+  color: transparent;
+  background-image: none;
 }
+
+.card-reference-art {
+  display: none;
+}
+
+.game-root[data-card-style="pixel-toll"] .card-reference-art {
+  position: absolute;
+  z-index: 0;
+  top: 24%;
+  left: 26%;
+  display: block;
+  width: 48%;
+  aspect-ratio: 2 / 3;
+  background-image: var(--pixel-toll-references);
+  background-repeat: no-repeat;
+  background-size: 500% 100%;
+  image-rendering: pixelated;
+}
+
+.game-root[data-card-style="pixel-toll"] .pixel-reference-0 { background-position: 0% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-reference-1 { background-position: 25% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-reference-2 { background-position: 50% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-reference-3 { background-position: 75% 50%; }
+.game-root[data-card-style="pixel-toll"] .pixel-reference-4 { background-position: 100% 50%; }
 
 .game-root[data-card-style="pixel-toll"] .card-back {
   background-image: var(--pixel-toll-back);

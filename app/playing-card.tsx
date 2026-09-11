@@ -14,6 +14,7 @@ export default function PlayingCard({
 }) {
   const red = isRed(card);
   const pixelSuitClass = `pixel-suit-${card.suit}`;
+  const pixelReferenceClass = `pixel-reference-${card.rank % 5}`;
   const animationStyle = {
     "--deal-index": dealIndex,
   } as CSSProperties;
@@ -39,6 +40,7 @@ export default function PlayingCard({
             <span className={`card-suit ${pixelSuitClass}`} aria-hidden="true">
               {SUIT_SYMBOLS[card.suit]}
             </span>
+            <span className={`card-reference-art ${pixelReferenceClass}`} aria-hidden="true" />
             <span className="card-corner card-corner-bottom" aria-hidden="true">
               <strong>{rankLabel(card.rank)}</strong>
               <span className={`card-suit-icon ${pixelSuitClass}`}>{SUIT_SYMBOLS[card.suit]}</span>

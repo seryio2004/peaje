@@ -23,11 +23,14 @@ function back() {
   for (let x = 18; x < 145; x += 19) box(png, x, 22 + (x % 3) * 7, 2, 2, C.amber);
   box(png, 12, 132, 136, 80, C.asphalt);
   for (let y = 134; y < 212; y += 8) { const width = Math.round(18 + (y - 132) * 1.45); box(png, Math.round(80 - width / 2), y, width, 8, [42, 55, 62]); if ((y - 134) % 16 === 0) box(png, 77, y + 2, 6, 5, C.cream); }
+  // Farolas detrás y fuera de la cabina: nunca cruzan la fachada.
+  [28, 132].forEach((x) => { box(png, x, 70, 3, 60, [10, 35, 47]); box(png, x - 2, 69, 7, 4, C.gold); box(png, x - 4, 73, 11, 3, C.amber); });
   box(png, 43, 86, 74, 40, [19, 53, 57]); box(png, 39, 80, 82, 8, C.green); box(png, 45, 77, 70, 3, C.gold);
   [50, 72, 94].forEach((x) => { box(png, x, 94, 16, 24, [9, 31, 38]); box(png, x + 4, 98, 8, 6, C.amber); });
   box(png, 76, 84, 8, 35, [16, 42, 45]); box(png, 74, 84, 12, 4, C.cream);
-  for (let index = 0; index < 5; index += 1) { const x = 20 + index * 27; box(png, x, 70, 3, 48, [10, 35, 47]); box(png, x - 2, 69, 7, 4, C.gold); }
-  for (let step = 0; step < 9; step += 1) box(png, 42 + step * 8, 122 - step * 4, 8, 4, step % 2 === 0 ? C.red : C.cream);
+  // Barrera en el lateral izquierdo del acceso, sin superponerse al peaje.
+  box(png, 18, 116, 4, 38, C.blue); box(png, 16, 151, 8, 4, C.gold);
+  for (let step = 0; step < 6; step += 1) box(png, 18 + step * 4, 121 - step * 3, 4, 3, step % 2 === 0 ? C.red : C.cream);
   box(png, 20, 160, 24, 3, C.gold); box(png, 116, 160, 24, 3, C.gold); save("peaje-pixel-back.png", png);
 }
 function suits() {
@@ -36,5 +39,15 @@ function suits() {
   shapes.forEach((shape, index) => { const color = index < 2 ? C.red : C.navy; box(png, index * 32 + 2, 2, 28, 28, index < 2 ? C.gold : [164, 195, 182]); box(png, index * 32 + 4, 4, 24, 24, [0, 0, 0, 0]); paint(png, index * 32 + 5, 5, shape.split("|"), 3, color); });
   save("peaje-pixel-suits.png", png);
 }
+function references() {
+  const png = image(160, 48);
+  [0, 32, 64, 96, 128].forEach((x) => box(png, x + 1, 1, 30, 46, [248, 229, 161]));
+  box(png, 4, 17, 24, 20, C.green); box(png, 2, 12, 28, 6, C.gold); box(png, 8, 22, 7, 10, C.blue); box(png, 18, 22, 7, 10, C.blue);
+  box(png, 36, 31, 25, 5, C.cream); for (let step = 0; step < 6; step += 1) box(png, 36 + step * 4, 31 - step * 3, 4, 3, step % 2 ? C.cream : C.red);
+  box(png, 68, 8, 24, 34, C.asphalt); box(png, 79, 12, 3, 8, C.gold); box(png, 79, 28, 3, 8, C.gold); box(png, 70, 8, 2, 34, C.cream); box(png, 88, 8, 2, 34, C.cream);
+  box(png, 101, 9, 22, 30, C.cream); box(png, 104, 12, 16, 4, C.red); box(png, 104, 20, 16, 2, C.gold); box(png, 104, 25, 10, 2, C.blue); box(png, 104, 30, 13, 2, C.blue);
+  box(png, 132, 10, 24, 20, C.green); box(png, 136, 16, 12, 4, C.cream); box(png, 144, 12, 4, 12, C.cream); box(png, 130, 30, 4, 12, C.blue); box(png, 126, 42, 12, 3, C.gold);
+  save("peaje-pixel-references.png", png);
+}
 rmSync(`${out}/peaje-pixel-deck-back.png`, { force: true });
-back(); suits();
+back(); suits(); references();
