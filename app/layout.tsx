@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | El Peaje",
   },
   description:
-    "Juega gratis a El Peaje con rutas de tres o cuatro preguntas, cinco modos y tres dificultades para uno o dos jugadores.",
+    "Juega gratis a El Peaje: seis modos para jugar solo, en pareja o en grupo, con rutas de tres a cinco preguntas.",
   applicationName: "El Peaje",
   category: "games",
 };

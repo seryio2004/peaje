@@ -9,7 +9,7 @@ export function siteUrl(path = "/"): string {
 export function pageMetadata(path: SitePath): Metadata {
   const page = SITE_PAGES[path];
   const title = path === "/" ? page.title : page.title + " | El Peaje";
-  const images = [{ url: siteConfig.siteUrl + "/share-image.png", width: 1200, height: 630, alt: "El Peaje: juego de cartas online gratis para uno o dos jugadores" }];
+  const images = [{ url: siteConfig.siteUrl + "/share-image.png", width: 1200, height: 630, alt: "El Peaje: juego de cartas online gratis para jugar solo, en pareja o en grupo" }];
   return {
     title: { absolute: title },
     description: page.description,

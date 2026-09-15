@@ -16,6 +16,10 @@
 .play-page .setup-option span { color: #bdccc1; line-height: 1.5; }
 .play-page .setup-option[data-selected="true"]::after, .play-page .card-style-check { color: #f4cc75; }
 .play-page .setup-summary { margin-top: 20px; font-family: "Courier New", monospace; }
+.play-page .potato-player-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 600px) {
+  .play-page .potato-player-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .play-page .rules-shortcut { margin-top: 16px; }
 .play-page .eyebrow { color: #f4cc75; font-family: "Courier New", monospace; line-height: 1.5; }
 .play-page .game-header { align-items: center; padding: 0 2px 4px; }

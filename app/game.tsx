@@ -25,9 +25,11 @@ import {
   getQuestionCount,
   getScore,
   judgeAnswer,
+  normalizeGameSettings,
   type QuickTurnsState,
   reachesStartFromLastFailureStreak,
   revealForJudge,
+  resolvePotatoPass,
   startGame,
   startQuickTurnsGame,
 } from "@/lib/game";
@@ -44,22 +46,22 @@ const CARD_STYLES: Array<{
   {
     id: "classic",
     name: "Clásica",
-    description: "Marfil y verde",
+    description: "Marfil y verde. Las de toda la vida.",
   },
   {
     id: "burgundy",
     name: "Granate",
-    description: "Cálida y elegante",
+    description: "Granate. Parece que sabes jugar.",
   },
   {
     id: "midnight",
     name: "Medianoche",
-    description: "Oscura y moderna",
+    description: "Oscura, por si ya es muy tarde.",
   },
   {
     id: "pixel-toll",
     name: "Peaje pixel",
-    description: "Arcade de autopista",
+    description: "La autopista en cuatro píxeles.",
   },
 ];
 
@@ -71,12 +73,17 @@ const MODE_OPTIONS: Array<{
   {
     id: "one-player",
     name: "1 jugador",
-    description: "La web comprueba automáticamente cada respuesta.",
+    description: "Sin testigos. La web comprueba cada respuesta.",
   },
   {
     id: "two-players",
     name: "2 jugadores",
-    description: "Una persona responde y la otra valida la carta revelada.",
+    description: "Uno responde y el otro valida la carta. Procurad seguir siendo amigos.",
+  },
+  {
+    id: "group",
+    name: "Grupo · 3–8 jugadores",
+    description: "La patata: un móvil que solo puedes pasar cuando la carta te deja.",
   },
 ];
 
@@ -88,27 +95,32 @@ const VARIANT_OPTIONS: Array<{
   {
     id: "classic",
     name: "Clásico",
-    description: "Recorre la baraja con las reglas originales.",
+    description: "Las reglas originales. Ya dan bastante trabajo.",
   },
   {
     id: "points",
     name: "Por puntos",
-    description: "Cada fallo suma 1 punto y cada peaje suma 2.",
+    description: "Llevamos la cuenta: +1 punto por fallo, +2 por peaje.",
   },
   {
     id: "cooperative",
     name: "Cooperativo",
-    description: "Completad la ruta antes de alcanzar 6 fallos.",
+    description: "Completad la ruta antes de 6 fallos. Las culpas se reparten después.",
   },
   {
     id: "quick-turns",
     name: "Turnos rápidos",
-    description: "Cada jugador conserva su ruta; el turno cambia solo al fallar.",
+    description: "Fallas y le toca al otro. Cada uno conserva su ruta.",
   },
   {
     id: "safe-toll",
     name: "Peaje seguro",
-    description: "Los peajes son retos o pruebas sin bebidas.",
+    description: "Retos y pruebas sin bebidas. Acordadlos antes, que luego hay quejas.",
+  },
+  {
+    id: "hot-potato",
+    name: "La patata",
+    description: "Acierta una carta de pase y elige a quién darle el móvil. Si fallas, te lo quedas.",
   },
 ];
 
@@ -140,13 +152,24 @@ const VARIANT_LABELS: Record<GameVariant, string> = {
   cooperative: "Cooperativo",
   "quick-turns": "Turnos rápidos",
   "safe-toll": "Peaje seguro",
+  "hot-potato": "La patata",
 };
 
 const DIFFICULTY_LABELS: Record<GameDifficulty, string> = {
   easy: "Fácil",
   medium: "Media",
   hard: "Difícil",
+  normal: "Normal",
 };
+
+const POTATO_DIFFICULTIES: typeof DIFFICULTY_OPTIONS = [
+  { id: "normal", name: "Normal", description: "4 preguntas · 2 peajes · El difícil de siempre" },
+  { id: "hard", name: "Difícil", description: "5 preguntas · 2 peajes · Añade par o impar" },
+];
+
+function playerCountLabel(settings: GameSettings) {
+  return settings.mode === "group" ? `${settings.playerCount ?? 3} jugadores` : settings.mode === "one-player" ? "1 jugador" : "2 jugadores";
+}
 
 function RetreatChainEffect() {
   return (
@@ -175,7 +198,7 @@ function CardStyleSelector({
 }) {
   return (
     <fieldset className="card-style-fieldset">
-      <legend>04 / Tu baraja de viaje</legend>
+      <legend>04 / El aspecto de las cartas</legend>
       <div className="card-style-grid">
         {CARD_STYLES.map((style) => (
           <label
@@ -222,28 +245,36 @@ function ModeSelection({
   cardStyle: CardStyle;
   onCardStyleChange: (style: CardStyle) => void;
 }) {
+  const isPotato = settings.variant === "hot-potato";
+  const difficulties = isPotato ? POTATO_DIFFICULTIES : DIFFICULTY_OPTIONS;
   function changeMode(mode: GameMode) {
-    onSettingsChange({
+    onSettingsChange(normalizeGameSettings({
       ...settings,
       mode,
-      variant:
-        mode === "one-player" && settings.variant === "quick-turns"
-          ? "classic"
-          : settings.variant,
-    });
+      variant: mode === "group" ? "hot-potato" : isPotato || (mode === "one-player" && settings.variant === "quick-turns") ? "classic" : settings.variant,
+      difficulty: mode === "group" && !isPotato ? "normal" : settings.difficulty,
+    }));
+  }
+
+  function changeVariant(variant: GameVariant) {
+    onSettingsChange(normalizeGameSettings({
+      ...settings,
+      variant,
+      difficulty: variant === "hot-potato" && !isPotato ? "normal" : settings.difficulty,
+    }));
   }
 
   return (
     <section className="setup-shell" aria-labelledby="setup-title">
       <section className="setup-panel" aria-labelledby="setup-title">
-        <p className="road-label setup-road-label"><span>EP-52</span> CONTROL DE ACCESO · EL PEAJE</p>
-        <h1 id="setup-title">Prepara tu viaje.</h1>
+        <p className="road-label setup-road-label"><span>EP-52</span> VENTANILLA DE DECISIONES CUESTIONABLES</p>
+        <h1 id="setup-title">A ver qué montamos.</h1>
         <p className="setup-copy">
-          Elige compañía, ruta y baraja. La siguiente salida depende de tu suerte.
+          Elige jugadores, modo, dificultad y baraja. Esto último no ayuda a ganar, pero queda bonito.
         </p>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>01 / Compañeros de viaje</legend>
+          <legend>01 / ¿Cuántos vais a jugar?</legend>
           <div className="setup-option-grid mode-grid">
             {MODE_OPTIONS.map((option) => (
               <label
@@ -266,8 +297,25 @@ function ModeSelection({
           </div>
         </fieldset>
 
+        {isPotato ? (
+          <fieldset className="setup-choice-fieldset">
+            <legend>Personas en el grupo</legend>
+            <div className="setup-option-grid potato-player-grid">
+              {[3, 4, 5, 6, 7, 8].map(count => (
+                <label className="setup-option" data-selected={settings.playerCount === count} key={count}>
+                  <input className="sr-only" type="radio" name="player-count" value={count}
+                    checked={settings.playerCount === count}
+                    onChange={() => onSettingsChange({ ...settings, playerCount: count })} />
+                  <strong>{count} jugadores</strong>
+                </label>
+              ))}
+            </div>
+            <p className="helper-copy">Repartíos los números del 1 al {settings.playerCount ?? 3}. Empieza el jugador 1. Compartís ruta: unas 2 de cada 5 cartas permiten pasar el móvil si aciertas, pero no sabréis cuáles hasta entonces. Puedes pasarlo a cualquier otra persona o quedártelo. Si fallas, retrocedes y sigues tú. Los peajes los cumple quien tenga el móvil antes de pasarlo.</p>
+          </fieldset>
+        ) : null}
+
         <fieldset className="setup-choice-fieldset">
-          <legend>02 / Elige tu ruta</legend>
+          <legend>02 / ¿Cómo jugamos?</legend>
           <div className="setup-option-grid variant-grid">
             {VARIANT_OPTIONS.map((option) => {
               const disabled =
@@ -286,13 +334,11 @@ function ModeSelection({
                     value={option.id}
                     checked={settings.variant === option.id}
                     disabled={disabled}
-                    onChange={() =>
-                      onSettingsChange({ ...settings, variant: option.id })
-                    }
+                    onChange={() => changeVariant(option.id)}
                   />
                   <strong>{option.name}</strong>
                   <span>{option.description}</span>
-                  {disabled ? <small>Disponible con 2 jugadores</small> : null}
+                  {disabled ? <small>Hace falta otra persona: 2 jugadores</small> : null}
                 </label>
               );
             })}
@@ -300,9 +346,9 @@ function ModeSelection({
         </fieldset>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>03 / Dificultad del trayecto</legend>
+          <legend>03 / ¿Lo ponemos difícil?</legend>
           <div className="setup-option-grid difficulty-grid">
-            {DIFFICULTY_OPTIONS.map((option) => (
+            {difficulties.map((option) => (
               <label
                 className="setup-option difficulty-option"
                 data-selected={settings.difficulty === option.id}
@@ -323,6 +369,7 @@ function ModeSelection({
               </label>
             ))}
           </div>
+          {isPotato && settings.difficulty === "hard" ? <p className="helper-copy">Par o impar usa el valor de la carta: J = 11, Q = 12, K = 13 y A = 14. El as cuenta como par.</p> : null}
         </fieldset>
 
         <CardStyleSelector
@@ -330,14 +377,14 @@ function ModeSelection({
           onChange={onCardStyleChange}
         />
         <button className="primary-button start-game-button" onClick={onStart}>
-          Comenzar partida
+          Reparte ya
         </button>
         <p className="setup-summary" aria-live="polite">
           {VARIANT_LABELS[settings.variant]} · {DIFFICULTY_LABELS[settings.difficulty]}
-          {settings.mode === "one-player" ? " · 1 jugador" : " · 2 jugadores"}
+          {` · ${playerCountLabel(settings)}`}
         </p>
         <Link className="rules-shortcut" href="/como-jugar">
-          Consultar las reglas antes de jugar
+          Espera, cómo se juega
         </Link>
       </section>
     </section>
@@ -383,6 +430,7 @@ function ActionPanel({
                 mode: game.mode,
                 variant: game.variant,
                 difficulty: game.difficulty,
+                playerCount: game.playerCount,
               }),
             );
           }}
@@ -408,8 +456,28 @@ function ActionPanel({
               : setGame(confirmToll(game))
           }
         >
-          {game.variant === "safe-toll" ? "Reto completado" : "Ya he bebido"}
+          {game.variant === "safe-toll" || game.variant === "hot-potato" ? "Reto completado" : "Ya he bebido"}
         </button>
+      </div>
+    );
+  }
+
+  if (game.hotPotato?.passAvailable) {
+    return (
+      <div className="action-content">
+        <p className="eyebrow">La patata · Jugador {game.activePlayer}</p>
+        <h2>Esta carta te deja pasar el móvil.</h2>
+        <p>Has acertado una carta de pase. Elige quién sigue desde esta posición o quédate el móvil.</p>
+        <div className="button-row answer-grid">
+          {Array.from({ length: game.playerCount ?? 3 }, (_, i) => i + 1)
+            .filter(player => player !== game.activePlayer)
+            .map(player => (
+              <button className="primary-button" key={player} onClick={() => setGame(resolvePotatoPass(game, player))}>
+                Pasar al jugador {player}
+              </button>
+            ))}
+        </div>
+        <button className="secondary-button" onClick={() => setGame(resolvePotatoPass(game, game.activePlayer))}>Me lo quedo</button>
       </div>
     );
   }
@@ -420,6 +488,7 @@ function ActionPanel({
         <p className="eyebrow">Respuesta incorrecta</p>
         <h2>La carta queda revelada</h2>
         <p>{game.message}</p>
+        {game.variant === "hot-potato" ? <p>El móvil sigue con el jugador {game.activePlayer}. Fallar no permite pasarlo.</p> : null}
         <button
           className="primary-button"
           onClick={() =>
@@ -468,19 +537,21 @@ function ActionPanel({
     .slice(0, game.position + 1)
     .filter((step) => step !== "toll").length;
 
-  const automaticValidation = game.mode === "one-player" || Boolean(quickTurns);
+  const automaticValidation = game.mode === "one-player" || game.mode === "group" || Boolean(quickTurns);
 
   return (
     <div className="action-content">
       <p className="eyebrow">
         Pregunta {questionNumber} de {getQuestionCount(game.route)}
-        {game.variant === "quick-turns" ? ` · Jugador ${game.activePlayer}` : ""}
+        {game.variant === "quick-turns" || game.variant === "hot-potato" ? ` · Jugador ${game.activePlayer}` : ""}
       </p>
       <h2>{getQuestion(currentStep)}</h2>
       {automaticValidation ? (
         <>
           <p className="helper-copy">
-            {quickTurns
+            {currentStep === "even-odd"
+              ? "J = 11, Q = 12, K = 13 y A = 14. J y K son impares; Q y A son pares."
+              : quickTurns
               ? "La web comprueba el resultado. Si fallas, guarda tu partida y pasa el turno al otro jugador."
               : currentStep === "higher-lower"
                 ? "El as es la carta más alta; un empate cuenta como fallo."
@@ -710,7 +781,7 @@ export default function Game() {
       ? { label: "Puntos", value: String(getScore(game)) }
       : game.variant === "cooperative"
         ? { label: "Margen", value: String(Math.max(0, 6 - game.failures)) }
-        : game.variant === "quick-turns"
+        : game.variant === "quick-turns" || game.variant === "hot-potato"
           ? { label: "Turno", value: `J${quickTurns?.activePlayer ?? game.activePlayer}` }
           : {
               label: "Dificultad",
@@ -729,7 +800,7 @@ export default function Game() {
         <div>
           <p className="eyebrow">
             {VARIANT_LABELS[game.variant]} · {DIFFICULTY_LABELS[game.difficulty]} ·{" "}
-            {game.mode === "one-player" ? "1 jugador" : "2 jugadores"}
+            {playerCountLabel(game)}
           </p>
           <h1><span className="game-route-badge">EP-52</span> En ruta.</h1>
         </div>

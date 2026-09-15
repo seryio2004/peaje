@@ -21,7 +21,6 @@
 .privacy-settings-trigger { background: transparent; border: 1px solid #718c76; border-radius: 4px; color: #f4cc75; padding: 8px; font: inherit; cursor: pointer; min-height: 36px; }
 .privacy-settings-trigger.compact { width: 32px; min-height: 32px; padding: 2px; font-size: 18px; }
 .game-header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-.consent-notice > p { color: #e1e8db; font: .85rem/1.5 Arial, sans-serif; }
 .consent-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .consent-links a { color: #f4cc75; }
 .consent-actions button:focus-visible, .privacy-settings-trigger:focus-visible { outline: 3px solid #fff2d6; outline-offset: 3px; }

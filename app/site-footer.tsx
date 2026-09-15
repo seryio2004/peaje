@@ -7,7 +7,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div>
         <strong>El Peaje</strong>
-        <p>Juego de cartas gratuito para uno o dos jugadores.</p>
+        <p>Juego de cartas gratuito para jugar solo, en pareja o en grupo.</p>
       </div>
       <nav aria-label="Navegación del pie de página">
         {FOOTER_PATHS.map(path => <Link href={path} key={path}>{SITE_PAGES[path].label}</Link>)}
