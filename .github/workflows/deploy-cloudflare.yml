@@ -1,4 +1,4 @@
-name: Deploy Next.js site to Cloudflare
+name: Deploy El Peaje to Cloudflare
 
 on:
   push:
@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: cloudflare
-  cancel-in-progress: false
+  group: cloudflare-production
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -31,10 +31,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint source code
+      - name: Lint
         run: npm run lint
 
-      - name: Run tests
+      - name: Test
         run: npm test
 
       - name: Restore Next.js cache
@@ -45,10 +45,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-      - name: Build static site
+      - name: Build production site
         run: npm run build
 
-      - name: Deploy to Cloudflare
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
