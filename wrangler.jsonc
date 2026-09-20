@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "el-peaje",
+  "compatibility_date": "2026-09-20",
+
+  "assets": {
+    "directory": "./out"
+  },
+
+  "routes": [
+    {
+      "pattern": "elpeaje.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.elpeaje.com",
+      "custom_domain": true
+    }
+  ]
+}
