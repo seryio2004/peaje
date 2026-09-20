@@ -1,25 +1,28 @@
-export type GameMode = "one-player" | "two-players";
+export type GameMode = "one-player" | "two-players" | "group";
 
 export type GameVariant =
   | "classic"
   | "points"
   | "cooperative"
   | "quick-turns"
-  | "safe-toll";
+  | "safe-toll"
+  | "hot-potato";
 
-export type GameDifficulty = "easy" | "medium" | "hard";
+export type GameDifficulty = "easy" | "medium" | "hard" | "normal";
 
 export type RouteStep =
   | "higher-lower"
   | "rounded-pointed"
   | "toll"
   | "red-black"
-  | "exact-suit";
+  | "exact-suit"
+  | "even-odd";
 
 export type GameSettings = {
   mode: GameMode;
   variant: GameVariant;
   difficulty: GameDifficulty;
+  playerCount?: number;
 };
 
 export type Suit = "hearts" | "diamonds" | "clubs" | "spades";
@@ -31,6 +34,8 @@ export type Prediction =
   | "pointed"
   | "red"
   | "black"
+  | "even"
+  | "odd"
   | Suit;
 
 export type GamePhase =
@@ -55,11 +60,20 @@ export type GameState = GameSettings & {
   failures: number;
   failureStreakFromLast: number;
   tolls: number;
-  activePlayer: 1 | 2;
+  activePlayer: number;
+  hotPotato?: {
+    passCardIds: string[];
+    passAvailable: boolean;
+  };
   phase: GamePhase;
   message: string;
   pendingPosition: number | null;
   endReason: "route-completed" | "deck-empty" | "failure-limit" | null;
+};
+
+export type QuickTurnsState = {
+  players: Record<1 | 2, GameState>;
+  activePlayer: 1 | 2;
 };
 
 export type AnswerOption = {
@@ -73,9 +87,10 @@ export const STEP_NAMES: Record<RouteStep, string> = {
   toll: "El Peaje",
   "red-black": "Roja o negra",
   "exact-suit": "Palo exacto",
+  "even-odd": "Par o impar",
 };
 
-const ROUTES: Record<GameDifficulty, RouteStep[]> = {
+const ROUTES: Record<Exclude<GameDifficulty, "normal">, RouteStep[]> = {
   easy: ["higher-lower", "toll", "red-black", "exact-suit"],
   medium: [
     "higher-lower",
@@ -101,6 +116,7 @@ const QUESTIONS: Record<Exclude<RouteStep, "toll">, string> = {
   "rounded-pointed": "¿El palo de la siguiente carta será redondo o picudo?",
   "red-black": "¿La siguiente carta será roja o negra?",
   "exact-suit": "¿Cuál será el palo de la siguiente carta?",
+  "even-odd": "¿La siguiente carta será par o impar?",
 };
 
 const ANSWERS: Record<Exclude<RouteStep, "toll">, AnswerOption[]> = {
@@ -122,6 +138,10 @@ const ANSWERS: Record<Exclude<RouteStep, "toll">, AnswerOption[]> = {
     { label: "Tréboles ♣", value: "clubs" },
     { label: "Picas ♠", value: "spades" },
   ],
+  "even-odd": [
+    { label: "Par", value: "even" },
+    { label: "Impar", value: "odd" },
+  ],
 };
 
 export const SUIT_SYMBOLS: Record<Suit, string> = {
@@ -138,8 +158,30 @@ export const SUIT_NAMES: Record<Suit, string> = {
   spades: "picas",
 };
 
-export function getRoute(difficulty: GameDifficulty): RouteStep[] {
-  return [...ROUTES[difficulty]];
+export function getRoute(difficulty: GameDifficulty, variant?: GameVariant): RouteStep[] {
+  if (variant === "hot-potato") {
+    const route = [...ROUTES.hard];
+    if (difficulty === "hard") route.splice(route.length - 1, 0, "even-odd");
+    return route;
+  }
+  return [...ROUTES[difficulty === "normal" ? "hard" : difficulty]];
+}
+
+export function normalizeGameSettings(settings: GameSettings): GameSettings {
+  if (settings.variant === "hot-potato") {
+    return {
+      mode: "group",
+      variant: "hot-potato",
+      difficulty: settings.difficulty === "hard" ? "hard" : "normal",
+      playerCount: Number.isInteger(settings.playerCount)
+        ? Math.min(8, Math.max(3, settings.playerCount ?? 3)) : 3,
+    };
+  }
+  return {
+    mode: settings.variant === "quick-turns" ? "two-players" : settings.mode === "group" ? "one-player" : settings.mode,
+    variant: settings.variant,
+    difficulty: settings.difficulty === "normal" ? "hard" : settings.difficulty,
+  };
 }
 
 export function getQuestionCount(route: RouteStep[]): number {
@@ -177,14 +219,12 @@ export function startGame(
   settings: GameSettings | GameMode,
   random = Math.random,
 ): GameState {
-  const normalizedSettings: GameSettings =
+  const normalizedSettings = normalizeGameSettings(
     typeof settings === "string"
-      ? { mode: settings, variant: "classic", difficulty: "medium" }
-      : {
-          ...settings,
-          mode: settings.variant === "quick-turns" ? "two-players" : settings.mode,
-        };
-  const route = getRoute(normalizedSettings.difficulty);
+      ? { mode: settings, variant: settings === "group" ? "hot-potato" : "classic", difficulty: "medium" }
+      : settings,
+  );
+  const route = getRoute(normalizedSettings.difficulty, normalizedSettings.variant);
   const [initialCard, ...deck] = shuffleDeck(createDeck(), random);
 
   return {
@@ -198,10 +238,36 @@ export function startGame(
     failureStreakFromLast: 0,
     tolls: 0,
     activePlayer: 1,
+    ...(normalizedSettings.variant === "hot-potato" ? {
+      hotPotato: {
+        // Pick a fixed hidden subset independently of the draw order, once per game.
+        passCardIds: shuffleDeck(deck, random).slice(0, Math.round(deck.length * 2 / 5)).map(card => card.id),
+        passAvailable: false,
+      },
+    } : {}),
     phase: "playing",
     message: "Partida iniciada. Elige una respuesta.",
     pendingPosition: null,
     endReason: null,
+  };
+}
+
+export function startQuickTurnsGame(
+  settings: GameSettings,
+  random = Math.random,
+): QuickTurnsState {
+  const quickTurnsSettings: GameSettings = {
+    ...settings,
+    mode: "two-players",
+    variant: "quick-turns",
+  };
+
+  return {
+    players: {
+      1: { ...startGame(quickTurnsSettings, random), activePlayer: 1 },
+      2: { ...startGame(quickTurnsSettings, random), activePlayer: 2 },
+    },
+    activePlayer: 1,
   };
 }
 
@@ -258,13 +324,12 @@ function finishEmptyDeck(state: GameState): GameState {
   };
 }
 
-function nextPlayer(state: GameState): 1 | 2 {
-  if (state.variant !== "quick-turns") return state.activePlayer;
-  return state.activePlayer === 1 ? 2 : 1;
+function nextPlayer(state: GameState): number {
+  return state.activePlayer;
 }
 
 function tollMessage(state: GameState, backwards = false): string {
-  if (state.variant === "safe-toll") {
+  if (state.variant === "safe-toll" || state.variant === "hot-potato") {
     return backwards
       ? "Atraviesas El Peaje al retroceder: completa el reto acordado."
       : "Has llegado a El Peaje: completa el reto acordado para continuar.";
@@ -296,6 +361,8 @@ function isPredictionCorrect(
     }
     case "exact-suit":
       return prediction === card.suit;
+    case "even-odd":
+      return prediction === (card.rank % 2 === 0 ? "even" : "odd");
     case "toll":
       return false;
   }
@@ -392,7 +459,12 @@ export function answerSinglePlayer(
   state: GameState,
   prediction: Prediction,
 ): GameState {
-  if (state.mode !== "one-player" || state.phase !== "playing") return state;
+  if (
+    (state.mode !== "one-player" && state.variant !== "quick-turns" && state.variant !== "hot-potato") ||
+    state.phase !== "playing" || state.hotPotato?.passAvailable
+  ) {
+    return state;
+  }
 
   const step = state.route[state.position];
   if (!step || step === "toll") return state;
@@ -403,9 +475,31 @@ export function answerSinglePlayer(
   const reference = getReferenceCard(state);
   const nextState = withDrawnCard(state, drawn.card, drawn.deck);
 
-  return isPredictionCorrect(step, prediction, reference, drawn.card)
-    ? registerSuccess(nextState)
-    : registerFailure(nextState);
+  const correct = isPredictionCorrect(step, prediction, reference, drawn.card);
+  const result = correct ? registerSuccess(nextState) : registerFailure(nextState);
+  if (state.hotPotato) {
+    return {
+      ...result,
+      hotPotato: {
+        ...state.hotPotato,
+        passAvailable: correct && result.phase !== "complete" && result.deck.length > 0 &&
+          state.hotPotato.passCardIds.includes(drawn.card.id),
+      },
+    };
+  }
+  return result;
+}
+
+/** Resolve an earned pass; choosing the current player means keeping the phone. */
+export function resolvePotatoPass(state: GameState, player: number): GameState {
+  if (state.variant !== "hot-potato" || !state.hotPotato?.passAvailable || state.phase !== "playing" ||
+    !Number.isInteger(player) || player < 1 || player > (state.playerCount ?? 3)) return state;
+  return {
+    ...state,
+    activePlayer: player,
+    hotPotato: { ...state.hotPotato, passAvailable: false },
+    message: player === state.activePlayer ? "Te quedas el móvil. Sigue jugando." : `Móvil para el jugador ${player}. Sigue desde aquí.`,
+  };
 }
 
 export function revealForJudge(state: GameState): GameState {
@@ -427,6 +521,50 @@ export function revealForJudge(state: GameState): GameState {
 export function judgeAnswer(state: GameState, correct: boolean): GameState {
   if (state.mode !== "two-players" || state.phase !== "judging") return state;
   return correct ? registerSuccess(state) : registerFailure(state);
+}
+
+function updateActiveQuickTurnsPlayer(
+  state: QuickTurnsState,
+  game: GameState,
+): QuickTurnsState {
+  return {
+    ...state,
+    players: {
+      ...state.players,
+      [state.activePlayer]: game,
+    },
+  };
+}
+
+export function answerQuickTurns(
+  state: QuickTurnsState,
+  prediction: Prediction,
+): QuickTurnsState {
+  const player = state.activePlayer;
+  const nextGame = answerSinglePlayer(state.players[player], prediction);
+  const nextState = updateActiveQuickTurnsPlayer(state, nextGame);
+
+  return nextGame.phase === "failed"
+    ? { ...nextState, activePlayer: player === 1 ? 2 : 1 }
+    : nextState;
+}
+
+export function continueQuickTurnsAfterFailure(
+  state: QuickTurnsState,
+): QuickTurnsState {
+  return updateActiveQuickTurnsPlayer(
+    state,
+    continueAfterFailure(state.players[state.activePlayer]),
+  );
+}
+
+export function confirmQuickTurnsToll(
+  state: QuickTurnsState,
+): QuickTurnsState {
+  return updateActiveQuickTurnsPlayer(
+    state,
+    confirmToll(state.players[state.activePlayer]),
+  );
 }
 
 export function continueAfterFailure(state: GameState): GameState {

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { DIFFICULTIES, GAME_MODES } from "../../lib/site-content";
 import AdPlacement from "../ad-placement";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Modos de juego y dificultades",
-  description:
-    "Compara los cinco modos de El Peaje y elige entre dificultad fácil, media o difícil con rutas y peajes adaptados.",
-};
+export const metadata = pageMetadata("/modos-de-juego");
 
 export default function ModesPage() {
   return (
@@ -24,7 +20,7 @@ export default function ModesPage() {
 
         <section className="content-section" aria-labelledby="modes-title">
           <div className="content-heading">
-            <p className="content-kicker">Cinco formas de jugar</p>
+            <p className="content-kicker">Seis formas de jugar</p>
             <h2 id="modes-title">Elige el ritmo y el objetivo</h2>
           </div>
           <div className="variants-grid mode-detail-grid">
@@ -43,8 +39,13 @@ export default function ModesPage() {
         <section className="content-section" aria-labelledby="difficulty-title">
           <div className="content-heading">
             <p className="content-kicker">Longitud de la ruta</p>
-            <h2 id="difficulty-title">Tres dificultades reales</h2>
-            <p>Cada nivel modifica la baraja visible, las preguntas y el número de peajes del recorrido.</p>
+            <h2 id="difficulty-title">La dificultad cambia la ruta</h2>
+            <p>Los cinco modos originales tienen tres niveles. La patata usa dos: Normal y Difícil.</p>
+          </div>
+          <div className="choice-guide">
+            <h3>Las dos dificultades de La patata</h3>
+            <p><strong>Normal:</strong> el recorrido difícil habitual, con 4 preguntas y 2 peajes.</p>
+            <p><strong>Difícil:</strong> 5 preguntas y 2 peajes. Añade par o impar antes del palo exacto: J = 11, Q = 12, K = 13 y A = 14.</p>
           </div>
           <div className="difficulty-guide difficulty-guide-standalone">
             <div className="difficulty-guide-heading"><h3>Comparativa rápida</h3></div>
@@ -64,7 +65,7 @@ export default function ModesPage() {
           <h2 id="choice-title">¿Cuál conviene elegir?</h2>
           <p><strong>Para aprender:</strong> clásico y fácil.</p>
           <p><strong>Para competir:</strong> por puntos y dificultad media.</p>
-          <p><strong>Para grupos experimentados:</strong> cooperativo o turnos rápidos en difícil.</p>
+          <p><strong>Para grupos de 3 a 8:</strong> La patata, con un móvil compartido y pases sorpresa al acertar.</p>
         </section>
       </div>
     </main>

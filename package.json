@@ -3,26 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build --webpack",
-    "start": "next start",
+    "dev": "node scripts/run-next.mjs dev development",
+    "build": "node scripts/run-next.mjs build production",
+    "start": "wrangler pages dev out",
     "lint": "eslint",
-    "test": "node --import tsx --test tests/*.test.ts"
+    "test": "node --import tsx --test tests/*.test.ts",
+    "build:production": "node scripts/run-next.mjs build production",
+    "build:staging": "node scripts/run-next.mjs build staging",
+    "preview": "wrangler pages dev out",
+    "check:site": "tsx scripts/verify-export.ts"
   },
   "dependencies": {
     "next": "16.3.3",
+    "qrcode": "1.5.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
+    "jsqr": "1.4.0",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "4.129.1"
   }
 }

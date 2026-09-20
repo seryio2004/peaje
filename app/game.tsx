@@ -2,12 +2,19 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { type CSSProperties, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { createGameAnalytics } from "@/lib/game-analytics";
+import { hasConsent, subscribeConsent } from "@/lib/consent";
+import PrivacySettingsButton from "./privacy-settings-button";
+import ShareGame from "./share-game";
+import RouteBoard, { type TollCrossing } from "./route-board";
 import {
   answerSinglePlayer,
-  Card,
+  answerQuickTurns,
   confirmToll,
+  confirmQuickTurnsToll,
   continueAfterFailure,
+  continueQuickTurnsAfterFailure,
   GameDifficulty,
   GameMode,
   GameSettings,
@@ -16,22 +23,20 @@ import {
   getAnswerOptions,
   getQuestion,
   getQuestionCount,
-  getReferenceCard,
   getScore,
-  isRed,
   judgeAnswer,
-  rankLabel,
+  normalizeGameSettings,
+  type QuickTurnsState,
   reachesStartFromLastFailureStreak,
   revealForJudge,
-  STEP_NAMES,
+  resolvePotatoPass,
   startGame,
-  SUIT_NAMES,
-  SUIT_SYMBOLS,
+  startQuickTurnsGame,
 } from "@/lib/game";
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-type CardStyle = "classic" | "burgundy" | "midnight";
+type CardStyle = "classic" | "burgundy" | "midnight" | "pixel-toll";
 
 const CARD_STYLES: Array<{
   id: CardStyle;
@@ -41,17 +46,22 @@ const CARD_STYLES: Array<{
   {
     id: "classic",
     name: "Clásica",
-    description: "Marfil y verde",
+    description: "Marfil y verde. Las de toda la vida.",
   },
   {
     id: "burgundy",
     name: "Granate",
-    description: "Cálida y elegante",
+    description: "Granate. Parece que sabes jugar.",
   },
   {
     id: "midnight",
     name: "Medianoche",
-    description: "Oscura y moderna",
+    description: "Oscura, por si ya es muy tarde.",
+  },
+  {
+    id: "pixel-toll",
+    name: "Peaje pixel",
+    description: "La autopista en cuatro píxeles.",
   },
 ];
 
@@ -63,12 +73,17 @@ const MODE_OPTIONS: Array<{
   {
     id: "one-player",
     name: "1 jugador",
-    description: "La web comprueba automáticamente cada respuesta.",
+    description: "Sin testigos. La web comprueba cada respuesta.",
   },
   {
     id: "two-players",
     name: "2 jugadores",
-    description: "Una persona responde y la otra valida la carta revelada.",
+    description: "Uno responde y el otro valida la carta. Procurad seguir siendo amigos.",
+  },
+  {
+    id: "group",
+    name: "Grupo · 3–8 jugadores",
+    description: "La patata: un móvil que solo puedes pasar cuando la carta te deja.",
   },
 ];
 
@@ -80,27 +95,32 @@ const VARIANT_OPTIONS: Array<{
   {
     id: "classic",
     name: "Clásico",
-    description: "Recorre la baraja con las reglas originales.",
+    description: "Las reglas originales. Ya dan bastante trabajo.",
   },
   {
     id: "points",
     name: "Por puntos",
-    description: "Cada fallo suma 1 punto y cada peaje suma 2.",
+    description: "Llevamos la cuenta: +1 punto por fallo, +2 por peaje.",
   },
   {
     id: "cooperative",
     name: "Cooperativo",
-    description: "Completad la ruta antes de alcanzar 6 fallos.",
+    description: "Completad la ruta antes de 6 fallos. Las culpas se reparten después.",
   },
   {
     id: "quick-turns",
     name: "Turnos rápidos",
-    description: "Alterna el jugador activo después de cada respuesta.",
+    description: "Fallas y le toca al otro. Cada uno conserva su ruta.",
   },
   {
     id: "safe-toll",
     name: "Peaje seguro",
-    description: "Los peajes son retos o pruebas sin bebidas.",
+    description: "Retos y pruebas sin bebidas. Acordadlos antes, que luego hay quejas.",
+  },
+  {
+    id: "hot-potato",
+    name: "La patata",
+    description: "Acierta una carta de pase y elige a quién darle el móvil. Si fallas, te lo quedas.",
   },
 ];
 
@@ -132,94 +152,23 @@ const VARIANT_LABELS: Record<GameVariant, string> = {
   cooperative: "Cooperativo",
   "quick-turns": "Turnos rápidos",
   "safe-toll": "Peaje seguro",
+  "hot-potato": "La patata",
 };
 
 const DIFFICULTY_LABELS: Record<GameDifficulty, string> = {
   easy: "Fácil",
   medium: "Media",
   hard: "Difícil",
+  normal: "Normal",
 };
 
-function PlayingCard({
-  card,
-  reference = false,
-  label,
-  dealIndex = 0,
-}: {
-  card: Card;
-  reference?: boolean;
-  label?: string;
-  dealIndex?: number;
-}) {
-  const red = isRed(card);
-  const animationStyle = {
-    "--deal-index": dealIndex,
-  } as CSSProperties;
+const POTATO_DIFFICULTIES: typeof DIFFICULTY_OPTIONS = [
+  { id: "normal", name: "Normal", description: "4 preguntas · 2 peajes · El difícil de siempre" },
+  { id: "hard", name: "Difícil", description: "5 preguntas · 2 peajes · Añade par o impar" },
+];
 
-  return (
-    <div className="card-wrap">
-      <div className="card-motion is-revealing" style={animationStyle}>
-        <div className="card-flip">
-          <div
-            className="playing-card card-back card-face card-face-back"
-            aria-hidden="true"
-          >
-            <span className="back-mark">P</span>
-          </div>
-          <div
-            className={`playing-card card-face card-face-front ${red ? "card-red" : "card-black"} ${reference ? "is-reference" : ""}`}
-            aria-label={`${rankLabel(card.rank)} de ${SUIT_NAMES[card.suit]}${reference ? ", carta de referencia" : ""}`}
-          >
-            <span className="card-corner card-corner-top">
-              <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
-            </span>
-            <span className="card-suit" aria-hidden="true">
-              {SUIT_SYMBOLS[card.suit]}
-            </span>
-            <span className="card-corner card-corner-bottom" aria-hidden="true">
-              <strong>{rankLabel(card.rank)}</strong>
-              <span>{SUIT_SYMBOLS[card.suit]}</span>
-            </span>
-            <span className="card-shine" aria-hidden="true" />
-          </div>
-        </div>
-      </div>
-      {label ? <span className="card-label">{label}</span> : null}
-    </div>
-  );
-}
-
-function HiddenCard({
-  toll = false,
-  safeToll = false,
-  dealIndex = 0,
-}: {
-  toll?: boolean;
-  safeToll?: boolean;
-  dealIndex?: number;
-}) {
-  const animationStyle = {
-    "--deal-index": dealIndex,
-  } as CSSProperties;
-
-  return (
-    <div className="card-wrap">
-      <div className="card-motion is-dealing" style={animationStyle}>
-        <div className={`playing-card card-back ${toll ? "toll-card" : ""}`}>
-          <span className="back-mark" aria-hidden="true">
-            {toll ? "×1" : "P"}
-          </span>
-          <span className="sr-only">
-            {toll ? "El Peaje, carta oculta" : "Carta oculta"}
-          </span>
-        </div>
-      </div>
-      {toll ? (
-        <span className="card-label">{safeToll ? "Reto" : "Bebe"}</span>
-      ) : null}
-    </div>
-  );
+function playerCountLabel(settings: GameSettings) {
+  return settings.mode === "group" ? `${settings.playerCount ?? 3} jugadores` : settings.mode === "one-player" ? "1 jugador" : "2 jugadores";
 }
 
 function RetreatChainEffect() {
@@ -249,7 +198,7 @@ function CardStyleSelector({
 }) {
   return (
     <fieldset className="card-style-fieldset">
-      <legend>Elige el estilo de las cartas</legend>
+      <legend>04 / El aspecto de las cartas</legend>
       <div className="card-style-grid">
         {CARD_STYLES.map((style) => (
           <label
@@ -296,28 +245,36 @@ function ModeSelection({
   cardStyle: CardStyle;
   onCardStyleChange: (style: CardStyle) => void;
 }) {
+  const isPotato = settings.variant === "hot-potato";
+  const difficulties = isPotato ? POTATO_DIFFICULTIES : DIFFICULTY_OPTIONS;
   function changeMode(mode: GameMode) {
-    onSettingsChange({
+    onSettingsChange(normalizeGameSettings({
       ...settings,
       mode,
-      variant:
-        mode === "one-player" && settings.variant === "quick-turns"
-          ? "classic"
-          : settings.variant,
-    });
+      variant: mode === "group" ? "hot-potato" : isPotato || (mode === "one-player" && settings.variant === "quick-turns") ? "classic" : settings.variant,
+      difficulty: mode === "group" && !isPotato ? "normal" : settings.difficulty,
+    }));
+  }
+
+  function changeVariant(variant: GameVariant) {
+    onSettingsChange(normalizeGameSettings({
+      ...settings,
+      variant,
+      difficulty: variant === "hot-potato" && !isPotato ? "normal" : settings.difficulty,
+    }));
   }
 
   return (
     <section className="setup-shell" aria-labelledby="setup-title">
       <section className="setup-panel" aria-labelledby="setup-title">
-        <p className="eyebrow">Juego de cartas</p>
-        <h1 id="setup-title">El Peaje</h1>
+        <p className="road-label setup-road-label"><span>EP-52</span> VENTANILLA DE DECISIONES CUESTIONABLES</p>
+        <h1 id="setup-title">A ver qué montamos.</h1>
         <p className="setup-copy">
-          Configura la partida y la ruta se adaptará a vuestra forma de jugar.
+          Elige jugadores, modo, dificultad y baraja. Esto último no ayuda a ganar, pero queda bonito.
         </p>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>Jugadores</legend>
+          <legend>01 / ¿Cuántos vais a jugar?</legend>
           <div className="setup-option-grid mode-grid">
             {MODE_OPTIONS.map((option) => (
               <label
@@ -340,8 +297,25 @@ function ModeSelection({
           </div>
         </fieldset>
 
+        {isPotato ? (
+          <fieldset className="setup-choice-fieldset">
+            <legend>Personas en el grupo</legend>
+            <div className="setup-option-grid potato-player-grid">
+              {[3, 4, 5, 6, 7, 8].map(count => (
+                <label className="setup-option" data-selected={settings.playerCount === count} key={count}>
+                  <input className="sr-only" type="radio" name="player-count" value={count}
+                    checked={settings.playerCount === count}
+                    onChange={() => onSettingsChange({ ...settings, playerCount: count })} />
+                  <strong>{count} jugadores</strong>
+                </label>
+              ))}
+            </div>
+            <p className="helper-copy">Repartíos los números del 1 al {settings.playerCount ?? 3}. Empieza el jugador 1. Compartís ruta: unas 2 de cada 5 cartas permiten pasar el móvil si aciertas, pero no sabréis cuáles hasta entonces. Puedes pasarlo a cualquier otra persona o quedártelo. Si fallas, retrocedes y sigues tú. Los peajes los cumple quien tenga el móvil antes de pasarlo.</p>
+          </fieldset>
+        ) : null}
+
         <fieldset className="setup-choice-fieldset">
-          <legend>Modo de juego</legend>
+          <legend>02 / ¿Cómo jugamos?</legend>
           <div className="setup-option-grid variant-grid">
             {VARIANT_OPTIONS.map((option) => {
               const disabled =
@@ -360,13 +334,11 @@ function ModeSelection({
                     value={option.id}
                     checked={settings.variant === option.id}
                     disabled={disabled}
-                    onChange={() =>
-                      onSettingsChange({ ...settings, variant: option.id })
-                    }
+                    onChange={() => changeVariant(option.id)}
                   />
                   <strong>{option.name}</strong>
                   <span>{option.description}</span>
-                  {disabled ? <small>Disponible con 2 jugadores</small> : null}
+                  {disabled ? <small>Hace falta otra persona: 2 jugadores</small> : null}
                 </label>
               );
             })}
@@ -374,9 +346,9 @@ function ModeSelection({
         </fieldset>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>Dificultad</legend>
+          <legend>03 / ¿Lo ponemos difícil?</legend>
           <div className="setup-option-grid difficulty-grid">
-            {DIFFICULTY_OPTIONS.map((option) => (
+            {difficulties.map((option) => (
               <label
                 className="setup-option difficulty-option"
                 data-selected={settings.difficulty === option.id}
@@ -397,6 +369,7 @@ function ModeSelection({
               </label>
             ))}
           </div>
+          {isPotato && settings.difficulty === "hard" ? <p className="helper-copy">Par o impar usa el valor de la carta: J = 11, Q = 12, K = 13 y A = 14. El as cuenta como par.</p> : null}
         </fieldset>
 
         <CardStyleSelector
@@ -404,14 +377,14 @@ function ModeSelection({
           onChange={onCardStyleChange}
         />
         <button className="primary-button start-game-button" onClick={onStart}>
-          Comenzar partida
+          Reparte ya
         </button>
         <p className="setup-summary" aria-live="polite">
           {VARIANT_LABELS[settings.variant]} · {DIFFICULTY_LABELS[settings.difficulty]}
-          {settings.mode === "one-player" ? " · 1 jugador" : " · 2 jugadores"}
+          {` · ${playerCountLabel(settings)}`}
         </p>
         <Link className="rules-shortcut" href="/como-jugar">
-          Consultar las reglas antes de jugar
+          Espera, cómo se juega
         </Link>
       </section>
     </section>
@@ -421,9 +394,17 @@ function ModeSelection({
 function ActionPanel({
   game,
   setGame,
+  onShared,
+  quickTurns,
+  onQuickTurnsChange,
+  onRestart,
 }: {
   game: GameState;
   setGame: (state: GameState) => void;
+  onShared: (method: "native" | "clipboard") => void;
+  quickTurns?: QuickTurnsState;
+  onQuickTurnsChange?: (state: QuickTurnsState) => void;
+  onRestart?: () => void;
 }) {
   if (game.phase === "complete") {
     const title =
@@ -439,18 +420,24 @@ function ActionPanel({
         <p>{game.message}</p>
         <button
           className="primary-button"
-          onClick={() =>
+          onClick={() => {
+            if (onRestart) {
+              onRestart();
+              return;
+            }
             setGame(
               startGame({
                 mode: game.mode,
                 variant: game.variant,
                 difficulty: game.difficulty,
+                playerCount: game.playerCount,
               }),
-            )
-          }
+            );
+          }}
         >
           Jugar otra vez
         </button>
+        <ShareGame game={game} onShared={onShared} />
       </div>
     );
   }
@@ -463,10 +450,34 @@ function ActionPanel({
         <p>{game.message}</p>
         <button
           className="primary-button danger-button"
-          onClick={() => setGame(confirmToll(game))}
+          onClick={() =>
+            quickTurns && onQuickTurnsChange
+              ? onQuickTurnsChange(confirmQuickTurnsToll(quickTurns))
+              : setGame(confirmToll(game))
+          }
         >
-          {game.variant === "safe-toll" ? "Reto completado" : "Ya he bebido"}
+          {game.variant === "safe-toll" || game.variant === "hot-potato" ? "Reto completado" : "Ya he bebido"}
         </button>
+      </div>
+    );
+  }
+
+  if (game.hotPotato?.passAvailable) {
+    return (
+      <div className="action-content">
+        <p className="eyebrow">La patata · Jugador {game.activePlayer}</p>
+        <h2>Esta carta te deja pasar el móvil.</h2>
+        <p>Has acertado una carta de pase. Elige quién sigue desde esta posición o quédate el móvil.</p>
+        <div className="button-row answer-grid">
+          {Array.from({ length: game.playerCount ?? 3 }, (_, i) => i + 1)
+            .filter(player => player !== game.activePlayer)
+            .map(player => (
+              <button className="primary-button" key={player} onClick={() => setGame(resolvePotatoPass(game, player))}>
+                Pasar al jugador {player}
+              </button>
+            ))}
+        </div>
+        <button className="secondary-button" onClick={() => setGame(resolvePotatoPass(game, game.activePlayer))}>Me lo quedo</button>
       </div>
     );
   }
@@ -477,9 +488,14 @@ function ActionPanel({
         <p className="eyebrow">Respuesta incorrecta</p>
         <h2>La carta queda revelada</h2>
         <p>{game.message}</p>
+        {game.variant === "hot-potato" ? <p>El móvil sigue con el jugador {game.activePlayer}. Fallar no permite pasarlo.</p> : null}
         <button
           className="primary-button"
-          onClick={() => setGame(continueAfterFailure(game))}
+          onClick={() =>
+            quickTurns && onQuickTurnsChange
+              ? onQuickTurnsChange(continueQuickTurnsAfterFailure(quickTurns))
+              : setGame(continueAfterFailure(game))
+          }
         >
           Continuar
         </button>
@@ -521,19 +537,25 @@ function ActionPanel({
     .slice(0, game.position + 1)
     .filter((step) => step !== "toll").length;
 
+  const automaticValidation = game.mode === "one-player" || game.mode === "group" || Boolean(quickTurns);
+
   return (
     <div className="action-content">
       <p className="eyebrow">
         Pregunta {questionNumber} de {getQuestionCount(game.route)}
-        {game.variant === "quick-turns" ? ` · Jugador ${game.activePlayer}` : ""}
+        {game.variant === "quick-turns" || game.variant === "hot-potato" ? ` · Jugador ${game.activePlayer}` : ""}
       </p>
       <h2>{getQuestion(currentStep)}</h2>
-      {game.mode === "one-player" ? (
+      {automaticValidation ? (
         <>
           <p className="helper-copy">
-            {currentStep === "higher-lower"
-              ? "El as es la carta más alta; un empate cuenta como fallo."
-              : "Elige una opción para revelar la siguiente carta."}
+            {currentStep === "even-odd"
+              ? "J = 11, Q = 12, K = 13 y A = 14. J y K son impares; Q y A son pares."
+              : quickTurns
+              ? "La web comprueba el resultado. Si fallas, guarda tu partida y pasa el turno al otro jugador."
+              : currentStep === "higher-lower"
+                ? "El as es la carta más alta; un empate cuenta como fallo."
+                : "Elige una opción para revelar la siguiente carta."}
           </p>
           <div className="button-row answer-grid">
             {options.map((option) => (
@@ -541,7 +563,9 @@ function ActionPanel({
                 className="primary-button"
                 key={option.value}
                 onClick={() =>
-                  setGame(answerSinglePlayer(game, option.value))
+                  quickTurns && onQuickTurnsChange
+                    ? onQuickTurnsChange(answerQuickTurns(quickTurns, option.value))
+                    : setGame(answerSinglePlayer(game, option.value))
                 }
               >
                 {option.label}
@@ -567,81 +591,60 @@ function ActionPanel({
   );
 }
 
-function Board({ game }: { game: GameState }) {
-  const reference = getReferenceCard(game);
-  const routeStyle = {
-    "--route-slots": game.route.length,
-  } as CSSProperties;
-
-  return (
-    <section className="board-panel" aria-label="Tablero de juego">
-      <div className="initial-card">
-        <p className="slot-title">Carta inicial</p>
-        <PlayingCard
-          card={game.initialCard}
-          reference={reference.id === game.initialCard.id}
-          label={reference.id === game.initialCard.id ? "Referencia" : undefined}
-          dealIndex={0}
-        />
-      </div>
-
-      <div
-        className="route"
-        role="list"
-        aria-label="Recorrido"
-        style={routeStyle}
-      >
-        {game.route.map((step, index) => {
-          const card = game.slots[index];
-          const active = game.position === index && game.phase !== "complete";
-          const toll = step === "toll";
-          return (
-            <article
-              className={`route-slot ${active ? "is-active" : ""} ${toll ? "is-toll" : ""}`}
-              key={`${step}-${index}`}
-              role="listitem"
-            >
-              <div className="slot-heading">
-                <span className="slot-number">{index + 1}</span>
-                <p className="slot-title">{STEP_NAMES[step]}</p>
-              </div>
-              {toll ? (
-                <HiddenCard
-                  toll
-                  safeToll={game.variant === "safe-toll"}
-                  dealIndex={index + 1}
-                />
-              ) : card ? (
-                <PlayingCard
-                  key={card.id}
-                  card={card}
-                  reference={reference.id === card.id}
-                  label={reference.id === card.id ? "Referencia" : undefined}
-                />
-              ) : (
-                <HiddenCard dealIndex={index + 1} />
-              )}
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
 export default function Game() {
+  const [gameAnalytics] = useState(() => createGameAnalytics());
+  const [journeyRun, setJourneyRun] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const [crossing, setCrossing] = useState<TollCrossing | null>(null);
+  const crossingTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const crossingLock = useRef(false);
   const [game, setGame] = useState<GameState | null>(null);
+  const [quickTurns, setQuickTurns] = useState<QuickTurnsState | null>(null);
   const [settings, setSettings] = useState<GameSettings>({
     mode: "one-player",
     variant: "classic",
     difficulty: "medium",
   });
   const [cardStyle, setCardStyle] = useState<CardStyle>("classic");
+  const cardStyleVariables = cardStyle === "pixel-toll"
+    ? ({
+        "--pixel-toll-back": "url(" + BASE_PATH + "/images/peaje-pixel-back.png)",
+        "--pixel-toll-suits": "url(" + BASE_PATH + "/images/peaje-pixel-suits.png)",
+        "--pixel-toll-references": "url(" + BASE_PATH + "/images/peaje-pixel-references.png)",
+      } as CSSProperties)
+    : undefined;
   const [showRetreatEffect, setShowRetreatEffect] = useState(false);
   const [retreatEffectRun, setRetreatEffectRun] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const effectImagePreloadRef = useRef<HTMLImageElement | null>(null);
   const effectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    crossingTimers.current.forEach(clearTimeout);
+    if (effectTimeoutRef.current) clearTimeout(effectTimeoutRef.current);
+  }, []);
+
+  useEffect(() => {
+    const onPageHide = (event: PageTransitionEvent) => {
+      if (!event.persisted) gameAnalytics.abandon("page_exit");
+    };
+    window.addEventListener("pagehide", onPageHide);
+    const unsubscribe = subscribeConsent(() => {
+      if (!hasConsent("analytics")) gameAnalytics.forget();
+    });
+    return () => {
+      unsubscribe();
+      window.removeEventListener("pagehide", onPageHide);
+      gameAnalytics.abandon("navigation");
+    };
+  }, [gameAnalytics]);
+
+  function cancelCrossing() {
+    crossingTimers.current.forEach(clearTimeout);
+    crossingTimers.current = [];
+    crossingLock.current = false;
+    setCrossing(null);
+  }
 
   function stopRetreatEffect(stopAudio = false) {
     if (effectTimeoutRef.current) {
@@ -658,13 +661,72 @@ export default function Game() {
   }
 
   function startNewGame() {
+    cancelCrossing();
+    setDirection(1);
     stopRetreatEffect(true);
     effectImagePreloadRef.current = new window.Image();
     effectImagePreloadRef.current.src = `${BASE_PATH}/images/cinco-fallos.webp`;
-    setGame(startGame(settings));
+    if (settings.variant === "quick-turns") {
+      const nextSession = startQuickTurnsGame(settings);
+      gameAnalytics.start(nextSession.players[1]);
+      setQuickTurns(nextSession);
+      setGame(nextSession.players[1]);
+      return;
+    }
+
+    const nextGame = startGame(settings);
+    gameAnalytics.start(nextGame);
+    setQuickTurns(null);
+    setGame(nextGame);
+  }
+
+  function updateQuickTurns(nextSession: QuickTurnsState) {
+    const nextGame = nextSession.players[nextSession.activePlayer];
+    gameAnalytics.update(nextGame);
+    setDirection(1);
+    setQuickTurns(nextSession);
+    setGame(nextGame);
   }
 
   function updateGame(nextGame: GameState) {
+    if (crossingLock.current) return;
+
+    if (game?.phase === "complete" && nextGame.phase === "playing") {
+      gameAnalytics.start(nextGame, "repeat");
+      stopRetreatEffect(true);
+      setDirection(1);
+      setJourneyRun((run) => run + 1);
+      setGame(nextGame);
+      return;
+    }
+
+    if (game?.phase === "toll" && nextGame.phase === "playing") {
+      const passage: TollCrossing = {
+        position: game.position,
+        direction: nextGame.position < game.position ? -1 : 1,
+        departing: false,
+      };
+      setDirection(passage.direction);
+      crossingLock.current = true;
+      setCrossing(passage);
+
+      // Open the arm fully before the car moves; keep it open until it clears.
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      crossingTimers.current = [
+        setTimeout(() => {
+          setCrossing({ ...passage, departing: true });
+          gameAnalytics.update(nextGame);
+          setGame(nextGame);
+        }, reducedMotion ? 0 : 520),
+        setTimeout(() => {
+          setCrossing(null);
+          crossingLock.current = false;
+          crossingTimers.current = [];
+        }, reducedMotion ? 0 : 1300),
+      ];
+      return;
+    }
+
     if (reachesStartFromLastFailureStreak(nextGame)) {
       stopRetreatEffect();
       setRetreatEffectRun((run) => run + 1);
@@ -683,17 +745,26 @@ export default function Game() {
       }
     }
 
+    if (nextGame.endReason === "route-completed" || !game || nextGame.position > game.position) {
+      setDirection(1);
+    } else if (nextGame.position < game.position) {
+      setDirection(-1);
+    }
+    gameAnalytics.update(nextGame);
     setGame(nextGame);
   }
 
   function returnToSetup() {
+    gameAnalytics.abandon("new_game");
+    cancelCrossing();
     stopRetreatEffect(true);
+    setQuickTurns(null);
     setGame(null);
   }
 
   if (!game) {
     return (
-      <div className="game-root" data-card-style={cardStyle}>
+      <div className="game-root" data-card-style={cardStyle} style={cardStyleVariables}>
         <ModeSelection
           onStart={startNewGame}
           settings={settings}
@@ -710,8 +781,8 @@ export default function Game() {
       ? { label: "Puntos", value: String(getScore(game)) }
       : game.variant === "cooperative"
         ? { label: "Margen", value: String(Math.max(0, 6 - game.failures)) }
-        : game.variant === "quick-turns"
-          ? { label: "Turno", value: `J${game.activePlayer}` }
+        : game.variant === "quick-turns" || game.variant === "hot-potato"
+          ? { label: "Turno", value: `J${quickTurns?.activePlayer ?? game.activePlayer}` }
           : {
               label: "Dificultad",
               value: DIFFICULTY_LABELS[game.difficulty],
@@ -721,24 +792,26 @@ export default function Game() {
     <section
       className="game-shell game-root"
       data-card-style={cardStyle}
+      data-complete={game.phase === "complete"}
+      style={cardStyleVariables}
       aria-label="Partida de El Peaje"
     >
       <header className="game-header">
         <div>
           <p className="eyebrow">
             {VARIANT_LABELS[game.variant]} · {DIFFICULTY_LABELS[game.difficulty]} ·{" "}
-            {game.mode === "one-player" ? "1 jugador" : "2 jugadores"}
+            {playerCountLabel(game)}
           </p>
-          <h1>El Peaje</h1>
+          <h1><span className="game-route-badge">EP-52</span> En ruta.</h1>
         </div>
-        <button className="text-button" onClick={returnToSetup}>
+        <div className="game-header-actions"><PrivacySettingsButton compact /><button className="text-button" onClick={returnToSetup}>
           Nueva partida
-        </button>
+        </button></div>
       </header>
 
       <section className="stats" aria-label="Estado de la partida">
         <div>
-          <span>Cartas restantes</span>
+          <span>En el mazo</span>
           <strong>{game.deck.length}</strong>
         </div>
         <div>
@@ -764,10 +837,24 @@ export default function Game() {
         </aside>
       ) : null}
 
-      <Board game={game} />
+      <RouteBoard key={journeyRun} game={game} crossing={crossing} direction={direction} />
 
       <section className="action-panel" aria-live="polite">
-        <ActionPanel game={game} setGame={updateGame} />
+        {crossing ? (
+          <p className="crossing-status" role="status">
+            {crossing.departing ? "Buen viaje. Cruzando el peaje…" : "Penalización cumplida. Levantando la barrera…"}
+          </p>
+        ) : null}
+        <fieldset className="action-controls" disabled={crossing !== null} aria-label="Acciones de la partida">
+          <ActionPanel
+            game={game}
+            setGame={updateGame}
+            onShared={gameAnalytics.share}
+            quickTurns={quickTurns ?? undefined}
+            onQuickTurnsChange={updateQuickTurns}
+            onRestart={quickTurns ? startNewGame : undefined}
+          />
+        </fieldset>
       </section>
 
       <audio

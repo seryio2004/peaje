@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { FAQS } from "../../lib/site-content";
 import AdPlacement from "../ad-placement";
 import PageHero from "../page-hero";
 
-export const metadata: Metadata = {
-  title: "Preguntas frecuentes",
-  description:
-    "Respuestas sobre las reglas, cartas, jugadores, final de partida y privacidad de El Peaje.",
-};
+export const metadata = pageMetadata("/preguntas-frecuentes");
 
 export default function FaqPage() {
   return (

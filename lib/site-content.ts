@@ -53,14 +53,20 @@ export const GAME_MODES = [
   {
     number: "04",
     title: "Turnos rápidos",
-    summary: "Dos jugadores alternos",
-    text: "La web alterna automáticamente el jugador activo después de validar cada respuesta. Está disponible al seleccionar dos jugadores.",
+    summary: "Dos partidas · Cambio al fallar",
+    text: "Cada jugador tiene su propia ruta, cartas, fallos y peajes. La web valida cada respuesta automáticamente; al fallar, la partida queda guardada y el turno pasa al otro jugador.",
   },
   {
     number: "05",
     title: "Peaje seguro",
     summary: "Retos sin bebidas",
     text: "Sustituye las instrucciones del peaje por una prueba breve, una pregunta divertida o un reto seguro acordado por el grupo.",
+  },
+  {
+    number: "06",
+    title: "La patata",
+    summary: "3–8 personas · Cartas de pase ocultas",
+    text: "Compartís móvil y recorrido. Al empezar se eligen al azar 20 de las 51 cartas del mazo: si aciertas una de ellas, puedes pasar el móvil a otra persona o quedártelo. Si fallas, retrocedes y sigues tú. Los peajes se cumplen antes de pasar. No hay temporizador: termina al completar la ruta o agotar la baraja.",
   },
 ];
 
@@ -116,11 +122,24 @@ export const FAQS = [
   {
     question: "¿En qué se diferencian uno y dos jugadores?",
     answer:
-      "En un jugador, la web comprueba la respuesta. En dos jugadores, una persona responde en voz alta y la otra revela la carta y valida el resultado.",
+      "En un jugador, la web comprueba la respuesta. En el modo normal de dos jugadores, una persona responde en voz alta y la otra revela la carta y valida el resultado. Turnos rápidos es distinto: la web valida y cada jugador conserva su propia partida.",
+  },
+  {
+    question: "¿Cómo funcionan los turnos rápidos?",
+    answer:
+      "Hay dos partidas independientes, una por jugador. Un acierto permite seguir jugando con la misma partida; un fallo guarda ese estado y cede el turno a la otra persona. Cuando el turno vuelve, puedes retomar tu ruta exactamente donde la dejaste.",
   },
   {
     question: "¿Se guardan mis partidas?",
     answer:
       "No. El estado se mantiene únicamente mientras la partida está abierta y se descarta al recargar o cerrar la página.",
+  },
+  {
+    question: "¿Cómo se juega a La patata?",
+    answer: "Elegid entre 3 y 8 jugadores y repartíos los números. Empieza el jugador 1. Aproximadamente el 40 % de las cartas permite pasar el móvil si aciertas; no se indican antes de responder. Puedes elegir a cualquier otra persona o quedártelo. Al fallar, retrocedes según las reglas habituales y mantienes el móvil. Cumple los peajes antes de cederlo. Normal tiene el recorrido difícil habitual; Difícil añade par o impar antes del palo exacto.",
+  },
+  {
+    question: "¿Las figuras y el as cuentan como pares o impares?",
+    answer: "En La patata difícil, J vale 11 y K vale 13: son impares. Q vale 12 y A vale 14: son pares. Las demás cartas usan su número. El as sigue siendo la carta más alta en mayor o menor.",
   },
 ];
