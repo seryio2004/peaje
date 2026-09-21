@@ -1743,15 +1743,38 @@ h2 {
 
 .ad-placement {
   display: grid;
-  min-height: 112px;
+  width: min(100%, 970px);
+  min-height: 120px;
   place-content: center;
-  margin: 0;
+  margin: 32px auto;
   padding: 18px;
   border: 1px dashed rgba(213, 235, 218, 0.19);
   border-radius: 13px;
   background: rgba(0, 0, 0, 0.1);
   color: #849188;
   text-align: center;
+}
+
+.content-ad-layout:has(.ad-placement) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
+  align-items: start;
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.content-ad-layout > .ad-placement[data-ad-format="vertical"] {
+  width: 100%;
+  min-height: 280px;
+  margin-top: clamp(42px, 7vw, 82px);
+}
+
+@media (max-width: 850px) {
+  .content-ad-layout:has(.ad-placement) { grid-template-columns: minmax(0, 1fr); }
+  .content-ad-layout > .ad-placement[data-ad-format="vertical"] {
+    width: min(100%, 970px);
+    min-height: 120px;
+    margin: 12px auto 32px;
+  }
 }
 
 .ad-placement span {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import PageHero from "../page-hero";
+import AdPlacement from "../ad-placement";
 
 export const metadata = pageMetadata("/previa");
 
@@ -35,6 +36,8 @@ export default function PreviaPage() {
             <p>Consulta <Link href="/modos-de-juego">todos los modos y dificultades</Link> o lee <Link href="/como-jugar">las reglas completas</Link> antes de empezar.</p>
           </div>
         </section>
+
+        <AdPlacement position="after-previa" />
 
         <section className="responsible-section" aria-labelledby="bebidas-title">
           <p className="content-kicker">Bebidas y alternativas</p>

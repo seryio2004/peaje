@@ -3,6 +3,7 @@ import { pageMetadata, siteUrl } from "@/lib/seo";
 import { createShareQr } from "@/lib/share-qr";
 import PageHero from "../page-hero";
 import ShareSiteActions from "../share-site-actions";
+import AdPlacement from "../ad-placement";
 export const metadata = pageMetadata("/compartir");
 export default function SharePage() {
   const url = siteUrl();
@@ -25,6 +26,7 @@ export default function SharePage() {
         <Link href="/jugar">Seguir jugando en la web →</Link>
       </div>
     </section>
+    <AdPlacement position="after-share" />
     <section className="content-section" aria-labelledby="apps-title">
       <div className="content-heading"><p className="content-kicker">Próximas salidas</p>
         <h2 id="apps-title">También estamos preparando las apps.</h2>

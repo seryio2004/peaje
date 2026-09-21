@@ -2,6 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
 import Link from "next/link";
 import PageHero from "../page-hero";
+import AdPlacement from "../ad-placement";
 
 export const metadata = pageMetadata("/privacidad");
 
@@ -12,7 +13,8 @@ export default function PrivacyPage() {
         <PageHero kicker="Información legal" title="Política de privacidad">
           <p>Última actualización: 21 de septiembre de 2026.</p>
         </PageHero>
-        <div className="legal-copy">
+        <div className="content-ad-layout">
+          <div className="legal-copy">
           <section>
             <h2>Contacto</h2>
             <p>Para consultas sobre el tratamiento de datos personales o para ejercer tus derechos, escribe a <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. También puedes consultar el <Link href="/aviso-legal">aviso legal</Link>.</p>
@@ -38,6 +40,8 @@ export default function PrivacyPage() {
             <h2>Tus derechos</h2>
             <p>Puedes solicitar el acceso, rectificación, supresión, oposición o limitación del tratamiento, así como la portabilidad cuando proceda, escribiendo a <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>. Puedes retirar el permiso de analítica desde la <Link href="/cookies">página de cookies</Link> y gestionar las preferencias publicitarias desde el enlace de privacidad de su panel de consentimiento. La retirada no afecta al tratamiento anterior. Si consideras que no se han atendido tus derechos, puedes reclamar ante la <a href="https://www.aepd.es/" target="_blank" rel="noreferrer">Agencia Española de Protección de Datos</a>.</p>
           </section>
+          </div>
+          <AdPlacement position="privacy-rail" />
         </div>
       </div>
     </main>

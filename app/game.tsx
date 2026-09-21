@@ -591,7 +591,10 @@ function ActionPanel({
   );
 }
 
-export default function Game() {
+export default function Game({ onCompleted, onStart }: {
+  onCompleted?: (difficulty: GameDifficulty) => void;
+  onStart?: () => void;
+}) {
   const [gameAnalytics] = useState(() => createGameAnalytics());
   const [journeyRun, setJourneyRun] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
@@ -661,6 +664,7 @@ export default function Game() {
   }
 
   function startNewGame() {
+    onStart?.();
     cancelCrossing();
     setDirection(1);
     stopRetreatEffect(true);
@@ -682,6 +686,7 @@ export default function Game() {
 
   function updateQuickTurns(nextSession: QuickTurnsState) {
     const nextGame = nextSession.players[nextSession.activePlayer];
+    if (game?.phase !== "complete" && nextGame.phase === "complete") onCompleted?.(nextGame.difficulty);
     gameAnalytics.update(nextGame);
     setDirection(1);
     setQuickTurns(nextSession);
@@ -692,6 +697,7 @@ export default function Game() {
     if (crossingLock.current) return;
 
     if (game?.phase === "complete" && nextGame.phase === "playing") {
+      onStart?.();
       gameAnalytics.start(nextGame, "repeat");
       stopRetreatEffect(true);
       setDirection(1);
@@ -750,11 +756,13 @@ export default function Game() {
     } else if (nextGame.position < game.position) {
       setDirection(-1);
     }
+    if (game?.phase !== "complete" && nextGame.phase === "complete") onCompleted?.(nextGame.difficulty);
     gameAnalytics.update(nextGame);
     setGame(nextGame);
   }
 
   function returnToSetup() {
+    onStart?.();
     gameAnalytics.abandon("new_game");
     cancelCrossing();
     stopRetreatEffect(true);
