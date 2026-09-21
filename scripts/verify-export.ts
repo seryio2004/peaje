@@ -27,6 +27,10 @@ for (const path of pages) {
  assert.ok(title); assert.ok(!titles.has(title), "Repeated title: " + title); titles.add(title);
  assert.equal((html.match(/<h1\b/g) || []).length, 1, path + " must contain one primary heading");
  assert.ok(attribute(html, "meta", 'name="description"', "content").length > 0);
+ assert.equal(attribute(html, "meta", 'name="robots"', "content"), production ? "index, follow" : "noindex, nofollow");
+ if (production && process.env.GOOGLE_SITE_VERIFICATION) {
+   assert.equal(attribute(html, "meta", 'name="google-site-verification"', "content"), process.env.GOOGLE_SITE_VERIFICATION);
+ }
  const expected = canonicalRoot + (path === "/" ? "" : path.slice(1) + "/");
  assert.equal(attribute(html, "link", 'rel="canonical"', "href"), expected);
  assert.equal(attribute(html, "meta", 'property="og:url"', "content"), expected);
@@ -68,6 +72,8 @@ const headers = read("out/_headers");
 assert.ok(headers.includes("frame-ancestors 'none'"));
 assert.equal(headers.includes("X-Robots-Tag: noindex"), !production);
 assert.ok(read("out/404.html").includes("noindex"));
-assert.ok(read("out/robots.txt").includes("Allow: /"));
+const robots = read("out/robots.txt");
+assert.ok(robots.includes("User-Agent: *\nAllow: /"));
+assert.ok(robots.includes("User-Agent: OAI-SearchBot\nAllow: /"));
 assert.ok(existsSync("out/share-image.png"));
 console.log("SEO/security: " + pages.length + " routes, canonical URLs, links, sitemap, metadata and CSP verified.");

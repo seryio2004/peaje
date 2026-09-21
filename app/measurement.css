@@ -1,5 +1,6 @@
 .consent-controls { font: .85rem/1.5 Arial, sans-serif; color: #e1e8db; }
 .consent-controls label { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0; }
+.consent-controls label span { min-width: 0; overflow-wrap: anywhere; }
 .consent-controls input { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; accent-color: #f4cc75; }
 .consent-controls small { display: block; color: #bdccc1; }
 .consent-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }

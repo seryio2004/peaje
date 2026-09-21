@@ -14,7 +14,7 @@
 .platform-mark { display: grid; place-items: center; flex-shrink: 0; width: 58px; height: 68px; border: 2px solid #f4cc75; border-radius: 12px; color: #f4cc75; font: 700 2rem monospace; }
 .development-status { display: inline-block; padding: 6px 10px; border: 1px solid #dfb665; border-radius: 4px; color: #f4cc75; font: 700 .75rem "Courier New", monospace; }
 @media (max-width: 650px) { .qr-share-panel, .upcoming-apps { grid-template-columns: 1fr; } .qr-ticket { width: min(100%, 320px); justify-self: center; } .upcoming-app { padding: 20px; } .share-site-actions > button { flex: 1 1 160px; } }
-.privacy-dialog { width: min(760px, calc(100% - 24px)); max-height: calc(100dvh - 24px); padding: 24px; border: 2px solid #f4cc75; border-radius: 8px; background: #173931; color: #fff2d6; overflow: auto; }
+.privacy-dialog { width: min(760px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; padding: clamp(16px, 4vw, 24px); border: 2px solid #f4cc75; border-radius: 8px; background: #173931; color: #fff2d6; overflow: auto; overscroll-behavior: contain; }
 .privacy-dialog::backdrop { background: #001b16b8; }
 .privacy-dialog-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
 .privacy-dialog-heading h2 { font: 900 1.25rem "Courier New", monospace; }
@@ -30,4 +30,4 @@
 
 .consent-actions { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
 .consent-actions button { min-width: 0; }
-@media (max-width: 600px) and (min-height: 401px) { .consent-actions { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { .consent-actions { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); } }

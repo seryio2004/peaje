@@ -27,6 +27,15 @@ La única URL pública canónica es `https://elpejae.com`. El build de producci�
 
 Staging lleva `noindex` y un sitemap vacío. Su URL de compilación apunta a la versión canónica de producción, aunque la vista previa se sirva desde otra dirección.
 
+### Search Console y búsquedas con IA
+
+- Crea en Search Console una propiedad de dominio `elpejae.com` y añade a DNS el TXT que Google entregue. Este método cubre también `www` y no necesita un archivo HTML ni una metaetiqueta. Si eliges una propiedad de prefijo `https://elpejae.com/`, puedes verificarla por etiqueta: pon **solo el valor `content`** que te dé Google en `GOOGLE_SITE_VERIFICATION` durante el build de producción. No inventes un token.
+- Tras publicar, envía `https://elpejae.com/sitemap.xml` en el informe Sitemaps. Contiene las doce rutas públicas del catálogo, incluidas `/jugar/`, `/como-jugar/` y `/previa/`. Inspecciona las URLs en Search Console y revisa el informe de indexación; enviar un sitemap ayuda a descubrir páginas, pero no garantiza que Google indexe todas.
+- `robots.txt` permite el rastreo general y declara el sitemap. También permite explícitamente `OAI-SearchBot`, el rastreador que OpenAI usa para la búsqueda de ChatGPT. `ChatGPT-User` atiende acciones iniciadas por usuarios y `GPTBot` tiene una finalidad distinta; la regla general actual los permite sin atribuirles un efecto de posicionamiento.
+- Google indica que AI Overviews y AI Mode usan los fundamentos SEO habituales: páginas indexables con texto útil, enlaces internos y datos estructurados coherentes con lo visible. No exige `llms.txt`, un archivo de «SEO para IA» ni un esquema especial. El sitio ya publica títulos y descripciones por ruta, canonicals, Open Graph y datos estructurados `WebSite` y `VideoGame`.
+
+Referencias: [propiedades de Search Console](https://support.google.com/webmasters/answer/34592), [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [funciones de IA de Google](https://developers.google.com/search/docs/appearance/ai-features), [OpenAI Crawlers](https://developers.openai.com/api/docs/bots).
+
 ### Si Google ya conoce la versión de GitHub Pages
 
 Haz un mapa de URLs: `https://seryio2004.github.io/peaje/como-jugar/` debe llevar a `https://elpejae.com/como-jugar/`.

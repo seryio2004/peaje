@@ -11,7 +11,8 @@ import "./measurement.css";
 import "./sharing.css";
 
 export const metadata: Metadata = {
-  robots: siteConfig.environment === "production" ? undefined : { index: false, follow: false },
+  robots: siteConfig.environment === "production" ? { index: true, follow: true } : { index: false, follow: false },
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
     default: "El Peaje | Juego de cartas online",
