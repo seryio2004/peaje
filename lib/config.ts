@@ -8,6 +8,7 @@ export const appEnvironment: AppEnvironment =
 export const siteConfig = {
   environment: appEnvironment,
   siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "https://elpejae.com").replace(/\/$/, ""),
+  contactEmail: "help@elpejae.com",
   analyticsEnabled: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
   analyticsDebug: appEnvironment !== "production" && process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true",
   cloudflareEnabled: process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED === "true",

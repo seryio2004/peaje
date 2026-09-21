@@ -17,7 +17,7 @@ export default function PrivacyRuntime() {
   const [dismissed, setDismissed] = useState(false);
   const allowed = consent?.analytics === true;
   const isCookiesPage = pathname.replace(/\/$/, "").endsWith("/cookies");
-  const open = manuallyOpened || (!isCookiesPage && !dismissed);
+  const open = manuallyOpened || (!isCookiesPage && !consent && !dismissed);
   function showDialog() {
     setDismissed(false);
     setManuallyOpened(true);
