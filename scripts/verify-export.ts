@@ -16,6 +16,7 @@ const attribute = (html: string, tag: string, selector: string, field: string) =
 const canonicalRoot = attribute(home, "link", 'rel="canonical"', "href");
 if (process.env.NEXT_PUBLIC_SITE_URL) assert.equal(canonicalRoot, process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "") + "/");
 const production = !/<meta name="robots" content="[^"]*noindex/.test(home);
+if (production) assert.equal(canonicalRoot, "https://elpejae.com/");
 const titles = new Set<string>();
 const pages = Object.keys(SITE_PAGES) as SitePath[];
 for (const path of pages) {
@@ -29,12 +30,21 @@ for (const path of pages) {
  const expected = canonicalRoot + (path === "/" ? "" : path.slice(1) + "/");
  assert.equal(attribute(html, "link", 'rel="canonical"', "href"), expected);
  assert.equal(attribute(html, "meta", 'property="og:url"', "content"), expected);
+ assert.equal(attribute(html, "meta", 'property="og:image"', "content"), canonicalRoot + "share-image.png");
+ assert.equal(attribute(html, "meta", 'name="twitter:image"', "content"), canonicalRoot + "share-image.png");
  assert.equal(attribute(html, "meta", 'name="twitter:card"', "content"), "summary_large_image");
+ if (production) assert.ok(!/https?:\/\/(?:www\.)?(?:elpeaje\.com|seryio2004\.github\.io)/i.test(html), path + " contains a legacy domain");
  const policy = attribute(html, "meta", 'data-peaje-csp="true"', "content");
  for (const hash of inlineScriptHashes(html)) assert.ok(policy.includes(hash), "Inline script hash missing on " + path);
  assert.ok(!/script-src [^;]*'unsafe-(inline|eval)'/.test(policy));
  assert.ok(html.indexOf('data-peaje-csp="true"') < html.indexOf("<script"));
- for (const script of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(script[1]);
+ for (const script of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+   const structuredData = JSON.parse(script[1]);
+   if (production) for (const node of structuredData["@graph"] || []) {
+     assert.ok(node["@id"]?.startsWith(canonicalRoot), path + " has an off-domain structured-data ID");
+     assert.ok(node.url?.startsWith(canonicalRoot), path + " has an off-domain structured-data URL");
+   }
+ }
  for (const match of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
    const href = decode(match[1]);
    if (!href.startsWith("/") || href.startsWith("//")) continue;
@@ -49,6 +59,11 @@ for (const entry of readdirSync("app", { withFileTypes: true })) {
 const sitemap = read("out/sitemap.xml");
 assert.equal((sitemap.match(/<loc>/g) || []).length, production ? pages.length : 0);
 for (const path of pages) if (production) assert.ok(sitemap.includes(canonicalRoot + (path === "/" ? "" : path.slice(1) + "/")));
+if (production) {
+ for (const [, url] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) assert.equal(new URL(url).origin, "https://elpejae.com");
+ assert.ok(read("out/robots.txt").includes("Sitemap: https://elpejae.com/sitemap.xml"));
+ assert.ok(read("out/compartir/index.html").includes("https://elpejae.com/"));
+}
 const headers = read("out/_headers");
 assert.ok(headers.includes("frame-ancestors 'none'"));
 assert.equal(headers.includes("X-Robots-Tag: noindex"), !production);

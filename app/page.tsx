@@ -15,7 +15,7 @@ export default function Home() {
       <section className="landing-hero">
         <div className="landing-copy">
           <p className="road-label"><span>EP-52</span> UN PEAJE. SÍ, EN INTERNET.</p>
-          <h1>Es una carta.<br /><em>Cómo vas a fallar.</em></h1>
+          <h1>El Peaje.<br /><em>Cómo vas a fallar.</em></h1>
           <p>El Peaje es un juego de cartas gratis para jugar solo, en pareja o en grupo. Predice la siguiente carta: si aciertas, avanzas; si fallas, te comes el peaje. Puedes explicarle a la pantalla por qué tenías razón. Le da igual.</p>
           <div className="landing-actions">
             <Link className="primary-button" href="/jugar">Venga, reparte <span aria-hidden="true">↗</span></Link>
@@ -61,7 +61,7 @@ export default function Home() {
 
       <section className="landing-responsible">
         <div><p className="content-kicker">Un segundo de seriedad</p><h2>Que mañana<br />os sigáis hablando.</h2></div>
-        <div><p>El peaje lo ponéis vosotros: puntos, preguntas o retos cortos. Acordad algo seguro y que os apetezca a todos. Si alguien pasa, se respeta. No hace falta alcohol ni montar un interrogatorio por una carta.</p><Link href="/sobre-el-juego">De qué va El Peaje <span aria-hidden="true">↗</span></Link></div>
+        <div><p>El peaje lo ponéis vosotros: puntos, preguntas o retos cortos. Acordad algo seguro y que os apetezca a todos. Si alguien pasa, se respeta. No hace falta alcohol ni montar un interrogatorio por una carta.</p><Link href="/previa">El Peaje para la previa <span aria-hidden="true">↗</span></Link></div>
       </section>
       <section className="landing-section share-invitation"><p className="content-kicker">Para el grupo de los 400 mensajes sin leer</p><h2>Mándales algo que se pueda jugar.</h2><p>Pásales el QR. No hay que hacerse una cuenta ni descargarse nada. También puedes ver las apps que estamos preparando, que todavía no están.</p><Link className="secondary-button" href="/compartir">Compartir QR y ver las apps →</Link></section>
     </main>

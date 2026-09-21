@@ -18,10 +18,10 @@ test("CSP permits only exact inline contents and configured analytics origins", 
  assert.ok(documentPolicy(html, true).includes("connect-src 'self' https://cloudflareinsights.com"));
  assert.ok(securityHeaders("staging").includes("noindex")); assert.ok(!securityHeaders("production").includes("noindex"));
 });
-test("deployment URLs reject credentials, non-HTTPS production and mismatching base paths", () => {
- for (const url of ["javascript:alert(1)", "https://user:pass@example.com", "https://example.com?x=1", "https://example.com/#a", "http://example.com", "https://localhost", "https://example.com/wrong"]) assert.throws(()=>validateSiteUrl(url,"production",""));
- assert.equal(validateSiteUrl("https://example.com/","production",""),"https://example.com");
- assert.equal(validateSiteUrl("https://example.com/peaje/","production","/peaje"),"https://example.com/peaje");
+test("production URLs use the one canonical domain", () => {
+ for (const url of ["javascript:alert(1)", "https://user:pass@elpejae.com", "https://elpejae.com?x=1", "https://elpejae.com/#a", "http://elpejae.com", "https://localhost", "https://elpeaje.com", "https://www.elpejae.com", "https://elpejae.com:8443", "https://elpejae.com/wrong"]) assert.throws(()=>validateSiteUrl(url,"production",""));
+ assert.equal(validateSiteUrl("https://elpejae.com/","production",""),"https://elpejae.com");
+ assert.throws(()=>validateSiteUrl("https://elpejae.com/peaje/","production","/peaje"));
  assert.equal(validateSiteUrl("http://localhost:3000","development",""),"http://localhost:3000");
 });
 test("JSON-LD cannot escape its script element and each route has its own canonical", () => {

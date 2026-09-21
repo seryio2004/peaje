@@ -71,6 +71,7 @@ export default function RulesPage() {
             El juego no exige alcohol. Utiliza puntos, agua, preguntas o retos
             breves adecuados para todas las personas del grupo.
           </p>
+          <Link href="/previa">Cómo organizar El Peaje para una previa →</Link>
         </section>
       </div>
     </main>

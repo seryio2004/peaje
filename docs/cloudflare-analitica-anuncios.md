@@ -1,5 +1,7 @@
 # Cloudflare, analítica y anuncios de El Peaje
 
+> **Despliegue actual (Workers):** `wrangler.jsonc` sirve `out/` como Workers Static Assets y asocia el Worker a `elpejae.com`. Las instrucciones de Cloudflare Pages y GitHub Actions más abajo describen una configuración anterior y no deben usarse para publicar esta versión. Para el dominio y el SEO sigue [SEO y seguridad](seo-y-seguridad.md).
+
 Actualizado: 8 de septiembre de 2026.
 
 ## Estado de la implementación

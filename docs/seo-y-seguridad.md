@@ -15,24 +15,23 @@ Actualizado: 8 de septiembre de 2026.
 
 Estas medidas no garantizan posiciones en Google ni aprobación de AdSense. El dominio, Search Console y la configuración de la cuenta Cloudflare requieren pasos externos.
 
-## 1. Cuando compres el dominio en Cloudflare
+## 1. Dominio de producción y publicación
 
-1. Publica primero el proyecto Pages y añade el dominio en **Custom domains**. Espera a que DNS y certificado estén activos.
-2. Elige una única versión principal: por ejemplo `https://tudominio.es` o `https://www.tudominio.es`.
-3. En el entorno production de GitHub establece `SITE_URL` con esa URL. Para builds locales usa `NEXT_PUBLIC_SITE_URL` en `.env.production.local`. Deja `PAGES_BASE_PATH` vacío en Cloudflare.
-4. Ejecuta el build de production y despliega. Esa URL alimenta canonicals, sitemap, datos estructurados, imagen social, compartir y aviso legal.
-5. Comprueba las URLs directamente, sin depender de navegar desde el inicio: inicio, /jugar/, /como-jugar/, /cookies/ y /share-image.png.
-6. Configura redirecciones permanentes desde las otras variantes del dominio. Conserva ruta y query cuando corresponda; evita bucles.
-7. Redirige el hostname de producción pages.dev al dominio principal siguiendo la configuración de Cloudflare. No redirijas los alias de staging al sitio público.
-8. Añade una propiedad de dominio en Google Search Console, verifica por DNS y envía `https://tudominio.es/sitemap.xml`. Inspecciona inicio, juego y reglas.
+La única URL pública canónica es `https://elpejae.com`. El build de producción rechaza otros dominios y subdirectorios. `wrangler.jsonc` registra ese dominio personalizado para el Worker que sirve `out/`; el dominio debe pertenecer a una zona de Cloudflare a la que tenga acceso la cuenta que despliega. Consulta [Custom Domains de Workers](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
 
-La documentación de [dominios de Pages](https://developers.cloudflare.com/pages/configuration/custom-domains/) explica el alta y DNS; la de [redirección desde pages.dev](https://developers.cloudflare.com/pages/how-to/redirect-to-custom-domain/) describe el traslado al dominio propio.
+1. Comprueba que `elpejae.com` está activo en Cloudflare con DNS y certificado válidos.
+2. Ejecuta `npm run build:production` y después `npx wrangler deploy` en la cuenta correcta. El build genera canonicals, sitemap, datos estructurados, imagen social, QR y enlaces compartidos con el dominio canónico.
+3. Comprueba directamente `https://elpejae.com/`, `/jugar/`, `/como-jugar/`, `/previa/`, `/cookies/`, `/share-image.png`, `/robots.txt` y `/sitemap.xml`. Las páginas públicas deben responder 200 sin `noindex`.
+4. Configura en Cloudflare redirecciones permanentes desde `www.elpejae.com`, `elpeaje.com` si controlas ese dominio, y cualquier alojamiento público anterior. Conserva la ruta y la query. La configuración del Worker solo sirve `elpejae.com`; las redirecciones de otros hosts necesitan acceso a esos hosts.
+5. Verifica la propiedad de dominio en Google Search Console por DNS, envía `https://elpejae.com/sitemap.xml` e inspecciona inicio, juego, reglas y previa.
+
+Staging lleva `noindex` y un sitemap vacío. Su URL de compilación apunta a la versión canónica de producción, aunque la vista previa se sirva desde otra dirección.
 
 ### Si Google ya conoce la versión de GitHub Pages
 
-Haz un mapa de URLs: `https://seryio2004.github.io/peaje/como-jugar/` debe llevar a `https://tudominio.es/como-jugar/`.
+Haz un mapa de URLs: `https://seryio2004.github.io/peaje/como-jugar/` debe llevar a `https://elpejae.com/como-jugar/`.
 
-GitHub Pages no interpreta el archivo Cloudflare `_redirects` ni permite configurar estas cabeceras HTTP. La redirección debe resolverse en el alojamiento de origen con las posibilidades disponibles. No supongas que cambiar SITE_URL redirige el sitio antiguo.
+GitHub Pages no interpreta el archivo Cloudflare `_redirects`. La redirección debe resolverse en el alojamiento de origen con las posibilidades disponibles. Cambiar `NEXT_PUBLIC_SITE_URL` solo cambia las URLs generadas, no redirige el sitio antiguo.
 
 Mantén una señal de traslado en el origen y evita dejar dos sitios indexables indefinidamente. Un canonical ayuda a consolidar señales, pero no sustituye una redirección. La herramienta Cambio de dirección de Search Console tiene limitaciones para traslados de subdirectorios como /peaje; comprueba su aplicabilidad a las propiedades que controles. No cambies simultáneamente dominio, rutas y toda la estructura de contenido si puedes hacer la migración por fases. Sigue la [guía de Google para migraciones](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
 
@@ -47,7 +46,7 @@ Mantén una señal de traslado en el origen y evita dejar dos sitios indexables 
 | Construcción de canonicals y datos estructurados | `lib/seo.ts` |
 | Diseño de tarjeta social | `app/share-image.png/route.tsx` |
 | Lógica del sitemap y robots | `app/sitemap.ts`, `app/robots.ts` |
-| Redirecciones de rutas antiguas en Cloudflare | `public/_redirects` |
+| Redirecciones de rutas antiguas en Workers Static Assets | `public/_redirects` |
 | CSP y cabeceras de seguridad exportadas | `scripts/security.mjs` |
 | Comprobación del HTML final | `scripts/verify-export.ts` |
 

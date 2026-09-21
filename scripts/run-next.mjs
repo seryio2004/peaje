@@ -19,7 +19,7 @@ env.NEXT_PUBLIC_APP_ENV = profile;
 env.NODE_ENV = command === "dev" ? "development" : "production";
 if (profile === "production") env.NEXT_PUBLIC_ANALYTICS_DEBUG = "false";
 const basePath = env.PAGES_BASE_PATH || "";
-env.NEXT_PUBLIC_SITE_URL = validateSiteUrl(env.NEXT_PUBLIC_SITE_URL || (basePath ? "https://seryio2004.github.io" + basePath : profile === "development" ? "http://localhost:3000" : "https://seryio2004.github.io/peaje"), profile, basePath || (!env.NEXT_PUBLIC_SITE_URL && profile !== "development" ? "/peaje" : ""));
+env.NEXT_PUBLIC_SITE_URL = validateSiteUrl(env.NEXT_PUBLIC_SITE_URL || (profile === "development" ? "http://localhost:3000" : "https://elpejae.com"), profile, basePath);
 for (const key of ["NEXT_PUBLIC_ANALYTICS_ENABLED", "NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED", "NEXT_PUBLIC_ADS_ENABLED", "NEXT_PUBLIC_ANALYTICS_DEBUG"]) {
   if (!["true", "false"].includes(env[key])) throw new Error(key + " debe ser true o false");
 }

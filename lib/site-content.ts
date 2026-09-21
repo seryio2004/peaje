@@ -107,7 +107,7 @@ export const FAQS = [
   {
     question: "¿Se puede jugar sin consumir alcohol?",
     answer:
-      "Sí. El Peaje no exige una bebida concreta. Podéis utilizar puntos, pruebas breves, preguntas, agua o cualquier penalización segura acordada por el grupo.",
+      "Sí. Aunque algunas personas buscan El Peaje como juego de beber para la previa, la web no asigna bebidas ni exige consumir alcohol. Podéis utilizar puntos, pruebas breves, preguntas, agua o cualquier penalización segura acordada por el grupo.",
   },
   {
     question: "¿Cuándo termina una partida?",

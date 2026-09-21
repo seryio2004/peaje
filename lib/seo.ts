@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "./config";
 import { SITE_PAGES, type SitePath } from "./site-routes";
 
-/** Concatenation preserves GitHub Pages' /peaje base path. */
+/** All public routes share one canonical origin and use trailing slashes. */
 export function siteUrl(path = "/"): string {
   return siteConfig.siteUrl + (path === "/" ? "/" : "/" + path.replace(/^\/+|\/+$/g, "") + "/");
 }
@@ -23,7 +23,7 @@ export function siteStructuredData() {
     { "@type": "WebSite", "@id": siteUrl() + "#website", url: siteUrl(), name: "El Peaje", inLanguage: "es", description: SITE_PAGES["/"].description },
     { "@type": "VideoGame", "@id": siteUrl() + "#game", name: "El Peaje", url: siteUrl("/jugar"),
       description: SITE_PAGES["/jugar"].description, inLanguage: "es", genre: "Juego de cartas",
-      gamePlatform: "Navegador web", isAccessibleForFree: true, numberOfPlayers: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2 } },
+      gamePlatform: "Navegador web", isAccessibleForFree: true, numberOfPlayers: { "@type": "QuantitativeValue", minValue: 1, maxValue: 8 } },
   ] };
 }
 export function serializeJsonLd(value: unknown): string {

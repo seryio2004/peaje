@@ -7,7 +7,7 @@ export const appEnvironment: AppEnvironment =
 // Keep literal process.env accesses: Next.js replaces these at build time.
 export const siteConfig = {
   environment: appEnvironment,
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "https://seryio2004.github.io/peaje").replace(/\/$/, ""),
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "https://elpejae.com").replace(/\/$/, ""),
   analyticsEnabled: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
   analyticsDebug: appEnvironment !== "production" && process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true",
   cloudflareEnabled: process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED === "true",
