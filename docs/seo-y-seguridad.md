@@ -30,7 +30,7 @@ Staging lleva `noindex` y un sitemap vacío. Su URL de compilación apunta a la 
 ### Search Console y búsquedas con IA
 
 - Crea en Search Console una propiedad de dominio `elpejae.com` y añade a DNS el TXT que Google entregue. Este método cubre también `www` y no necesita un archivo HTML ni una metaetiqueta. Si eliges una propiedad de prefijo `https://elpejae.com/`, puedes verificarla por etiqueta: pon **solo el valor `content`** que te dé Google en `GOOGLE_SITE_VERIFICATION` durante el build de producción. No inventes un token.
-- Tras publicar, envía `https://elpejae.com/sitemap.xml` en el informe Sitemaps. Contiene las doce rutas públicas del catálogo, incluidas `/jugar/`, `/como-jugar/` y `/previa/`. Inspecciona las URLs en Search Console y revisa el informe de indexación; enviar un sitemap ayuda a descubrir páginas, pero no garantiza que Google indexe todas.
+- Tras publicar, envía `https://elpejae.com/sitemap.xml` en el informe Sitemaps. Contiene las trece rutas públicas del catálogo, incluidas `/jugar/`, `/como-jugar/`, `/juegos-de-beber/` y `/previa/`. Inspecciona las URLs en Search Console y revisa el informe de indexación; enviar un sitemap ayuda a descubrir páginas, pero no garantiza que Google indexe todas.
 - `robots.txt` permite el rastreo general y declara el sitemap. También permite explícitamente `OAI-SearchBot`, el rastreador que OpenAI usa para la búsqueda de ChatGPT. `ChatGPT-User` atiende acciones iniciadas por usuarios y `GPTBot` tiene una finalidad distinta; la regla general actual los permite sin atribuirles un efecto de posicionamiento.
 - Google indica que AI Overviews y AI Mode usan los fundamentos SEO habituales: páginas indexables con texto útil, enlaces internos y datos estructurados coherentes con lo visible. No exige `llms.txt`, un archivo de «SEO para IA» ni un esquema especial. El sitio ya publica títulos y descripciones por ruta, canonicals, Open Graph y datos estructurados `WebSite` y `VideoGame`.
 
@@ -43,6 +43,12 @@ Haz un mapa de URLs: `https://seryio2004.github.io/peaje/como-jugar/` debe lleva
 GitHub Pages no interpreta el archivo Cloudflare `_redirects`. La redirección debe resolverse en el alojamiento de origen con las posibilidades disponibles. Cambiar `NEXT_PUBLIC_SITE_URL` solo cambia las URLs generadas, no redirige el sitio antiguo.
 
 Mantén una señal de traslado en el origen y evita dejar dos sitios indexables indefinidamente. Un canonical ayuda a consolidar señales, pero no sustituye una redirección. La herramienta Cambio de dirección de Search Console tiene limitaciones para traslados de subdirectorios como /peaje; comprueba su aplicabilidad a las propiedades que controles. No cambies simultáneamente dominio, rutas y toda la estructura de contenido si puedes hacer la migración por fases. Sigue la [guía de Google para migraciones](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
+
+### Seguimiento de las nuevas búsquedas
+
+- Inspecciona `/juegos-de-beber/` tras publicarla y comprueba que Google la indexa. Revisa en Search Console las consultas «juegos de beber», «juegos de beber gratis», «juego de beber online», «El Peaje juego online» y variantes reales que aparezcan en el informe de rendimiento.
+- Compara impresiones, clics, posición y páginas de destino durante varias semanas. Ajusta contenido según consultas y comportamiento reales; evita crear páginas casi idénticas para errores ortográficos o repetir términos en exceso.
+- La inclusión en resultados con IA y la primera página no se pueden garantizar. Google recomienda contenido original y útil, indexación correcta y los fundamentos SEO habituales; no hay un marcado especial para AI Overviews.
 
 ## 2. Dónde editar cada cosa
 

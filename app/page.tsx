@@ -15,8 +15,8 @@ export default function Home() {
       <section className="landing-hero">
         <div className="landing-copy">
           <p className="road-label"><span>EP-52</span> UN PEAJE. SÍ, EN INTERNET.</p>
-          <h1>El Peaje.<br /><em>Cómo vas a fallar.</em></h1>
-          <p>El Peaje es un juego de cartas gratis para jugar solo, en pareja o en grupo. Predice la siguiente carta: si aciertas, avanzas; si fallas, te comes el peaje. Puedes explicarle a la pantalla por qué tenías razón. Le da igual.</p>
+          <h1>El Peaje.<br /><em>Juego de cartas online gratis.</em></h1>
+          <p>Juega a El Peaje online, gratis y sin registro, solo, en pareja o en grupo. Predice la siguiente carta: si aciertas, avanzas; si fallas, te comes el peaje. Puedes explicarle a la pantalla por qué tenías razón. Le da igual.</p>
           <div className="landing-actions">
             <Link className="primary-button" href="/jugar">Venga, reparte <span aria-hidden="true">↗</span></Link>
             <Link className="secondary-button" href="/como-jugar">Pero cómo se juega</Link>
@@ -56,6 +56,15 @@ export default function Home() {
               <span className="exit-card-action">{exit.action}<span aria-hidden="true">↗</span></span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="landing-section" aria-labelledby="drinking-games-title">
+        <div className="content-heading">
+          <p className="content-kicker">Para la previa o la sobremesa</p>
+          <h2 id="drinking-games-title">¿Buscas juegos de beber gratis?</h2>
+          <p>El Peaje se juega con cartas online y funciona en un solo móvil. El grupo decide qué significa cada peaje: una pregunta, un punto, un reto o, entre adultos, una bebida voluntaria. La partida también funciona sin alcohol.</p>
+          <Link className="secondary-button" href="/juegos-de-beber">Ver cómo jugar en grupo →</Link>
         </div>
       </section>
 

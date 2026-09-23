@@ -1624,6 +1624,15 @@ h2 {
   letter-spacing: -0.02em;
 }
 
+.legal-page .legal-copy section {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.legal-page .legal-copy a {
+  overflow-wrap: anywhere;
+}
+
 .content-shell {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;

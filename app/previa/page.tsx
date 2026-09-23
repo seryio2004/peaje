@@ -43,7 +43,7 @@ export default function PreviaPage() {
           <p className="content-kicker">Bebidas y alternativas</p>
           <h2 id="bebidas-title">¿El Peaje es un juego de beber?</h2>
           <p>Se puede jugar en una reunión donde haya bebidas, pero El Peaje no asigna tragos ni obliga a beber. El peaje es una regla que decide el grupo. Puntos, agua o retos breves funcionan igual, y cualquier persona puede pasar sin dar explicaciones.</p>
-          <Link href="/jugar">Jugar a El Peaje online →</Link>
+          <Link href="/juegos-de-beber">Ver El Peaje entre los juegos de beber gratis →</Link>
         </section>
       </div>
     </main>

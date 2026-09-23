@@ -16,8 +16,8 @@ export default function PlayPage() {
           <h2 id="play-help-title">¿Quieres ajustar la experiencia?</h2>
         </div>
         <p>
-          Consulta las <Link href="/como-jugar">reglas completas</Link> o compara
-          los <Link href="/modos-de-juego">modos y dificultades</Link> antes de
+          Consulta las <Link href="/como-jugar">reglas completas</Link>, compara
+          los <Link href="/modos-de-juego">modos y dificultades</Link> o descubre <Link href="/juegos-de-beber">cómo adaptar El Peaje a una previa</Link> antes de
           elegir una nueva configuración.
         </p>
       </section>
