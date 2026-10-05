@@ -1,0 +1,3852 @@
+{
+  "scope": "local-export",
+  "expectedOrigin": "https://elpejae.com",
+  "routes": 52,
+  "summary": {
+    "PASS": 639,
+    "WARN": 1,
+    "FAIL": 0
+  },
+  "results": [
+    {
+      "status": "PASS",
+      "page": "site",
+      "check": "scope",
+      "detail": "HTTP sobre export local; no verifica el despliegue"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "title",
+      "detail": "Compartir El Peaje por QR y enlace | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "description",
+      "detail": "Invita a otra persona con el QR o el enlace de El Peaje. Aprende qué se comparte y cómo abrir una partida independiente desde otro móvil."
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/compartir/"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "HTML sin JS",
+      "detail": "174 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "title",
+      "detail": "El Peaje: juego online gratis de cartas para grupos"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "description",
+      "detail": "Juega a El Peaje online y gratis, sin registro: predice cartas, supera peajes y elige entre seis modos para 1 a 8 personas. Ideal para una previa o una partida sin bebidas."
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "HTML sin JS",
+      "detail": "499 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "title",
+      "detail": "Jugar a El Peaje online gratis | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "description",
+      "detail": "Empieza una partida gratis de El Peaje en el navegador. Elige modo y dificultad y juega con 52 cartas, solo, en pareja o en grupo, sin registro."
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/jugar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "HTML sin JS",
+      "detail": "268 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "title",
+      "detail": "Cómo jugar a El Peaje: reglas de cartas y peajes | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "description",
+      "detail": "Aprende las reglas de El Peaje: predice las cartas, avanza por la ruta, resuelve los peajes y descubre cuándo termina la partida."
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/como-jugar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "HTML sin JS",
+      "detail": "658 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "title",
+      "detail": "El Peaje para la previa: reglas y formas de jugar | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "description",
+      "detail": "Organiza una partida gratis de El Peaje para la previa: reglas rápidas, modos para grupos y peajes con puntos, preguntas o retos. Las bebidas son opcionales."
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/previa/"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "HTML sin JS",
+      "detail": "323 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "title",
+      "detail": "Peajes con y sin bebidas en El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "description",
+      "detail": "Acuerda peajes voluntarios en El Peaje: preguntas, retos o puntos. Ejemplos para jugar sin alcohol y pautas para respetar la participación del grupo."
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/juegos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "HTML sin JS",
+      "detail": "500 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "title",
+      "detail": "Modos de juego y dificultades | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "description",
+      "detail": "Compara los seis modos de El Peaje, incluido La patata para grupos de 3 a 8 personas, y elige tu dificultad."
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/modos-de-juego/"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "HTML sin JS",
+      "detail": "641 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "title",
+      "detail": "Preguntas frecuentes sobre El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "description",
+      "detail": "Resuelve tus dudas sobre las cartas, los jugadores, los peajes, el final de partida y la privacidad de El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/preguntas-frecuentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "HTML sin JS",
+      "detail": "673 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "title",
+      "detail": "Sobre el juego | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "description",
+      "detail": "Conoce el propósito y el funcionamiento de El Peaje, un juego de cartas online gratuito, sin registro y para jugar solo, en pareja o en grupo."
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/sobre-el-juego/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "HTML sin JS",
+      "detail": "615 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "title",
+      "detail": "Probabilidades en El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "description",
+      "detail": "Consulta los trece valores de mayor o menor, el riesgo de empate y cómo cambian las probabilidades al retirar cartas conocidas de la baraja de El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/probabilidades/"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "HTML sin JS",
+      "detail": "886 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "title",
+      "detail": "Estrategia y decisiones en El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "description",
+      "detail": "Aprende a decidir con cartas centrales y extremas, interpretar el historial y entender el coste de fallar o cruzar un peaje en cada modo de El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/estrategia/"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "HTML sin JS",
+      "detail": "689 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "title",
+      "detail": "Variantes para organizar una sesión de El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "description",
+      "detail": "Seis propuestas de sesión con los modos actuales de El Peaje: duelo, equipos, grupos y peajes de conversación, con preparación y reglas claras."
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/variantes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "HTML sin JS",
+      "detail": "764 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "title",
+      "detail": "Desarrollo técnico de El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "description",
+      "detail": "Descubre cómo El Peaje genera y mezcla las cartas, gestiona las fases de partida y exporta su frontend de Next.js para servirlo desde Cloudflare."
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/desarrollo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "HTML sin JS",
+      "detail": "648 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "title",
+      "detail": "Contacto | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "description",
+      "detail": "Consulta cómo comunicar errores, dudas o sugerencias sobre el juego de cartas El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/contacto/"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "HTML sin JS",
+      "detail": "68 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "title",
+      "detail": "Privacidad | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "description",
+      "detail": "Conoce qué datos utiliza El Peaje, cómo funciona la analítica opcional y cómo gestionar tus preferencias de privacidad."
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/privacidad/"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "HTML sin JS",
+      "detail": "522 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "title",
+      "detail": "Cookies y preferencias de privacidad | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "description",
+      "detail": "Consulta el almacenamiento utilizado por El Peaje y acepta o rechaza por separado la analítica y las preferencias de publicidad."
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/cookies/"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "HTML sin JS",
+      "detail": "655 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "title",
+      "detail": "Aviso legal | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "description",
+      "detail": "Información sobre el sitio El Peaje, el uso del contenido y sus condiciones de utilización."
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "HTML sin JS",
+      "detail": "163 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "title",
+      "detail": "El Peaje: free online card game for parties"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "description",
+      "detail": "Play El Peaje online for free. Predict cards, cross tolls and choose from six modes for 1 to 8 players. No download or sign-up required."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "HTML sin JS",
+      "detail": "203 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "title",
+      "detail": "Play El Peaje online for free"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "description",
+      "detail": "Start a free El Peaje card game in your browser. Pick a mode and difficulty and play solo, as a pair or with up to eight people."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/play/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "HTML sin JS",
+      "detail": "244 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "title",
+      "detail": "How to play El Peaje: card game rules"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "description",
+      "detail": "Learn the rules of El Peaje: predict cards, move along the route, complete tolls and find out how to win or finish a game."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/how-to-play/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "HTML sin JS",
+      "detail": "257 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "title",
+      "detail": "El Peaje game modes and difficulty"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "description",
+      "detail": "Compare six El Peaje game modes, including Hot Potato for 3 to 8 players, and choose a route that fits your group."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/game-modes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "HTML sin JS",
+      "detail": "378 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "title",
+      "detail": "Free online drinking games: play El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "description",
+      "detail": "Looking for free drinking games online? Play El Peaje with cards and group-defined tolls. Learn the rules and play with or without alcohol."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/drinking-games/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "HTML sin JS",
+      "detail": "269 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "title",
+      "detail": "El Peaje: a free online party card game"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "description",
+      "detail": "Set up El Peaje for a party: quick rules, group modes and flexible tolls. Play online for free with one phone and no sign-up."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/party-card-game/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "HTML sin JS",
+      "detail": "196 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "title",
+      "detail": "El Peaje FAQ: rules, players and tolls"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "description",
+      "detail": "Answers about El Peaje's cards, free online play, group size, tolls, alcohol-free options and the end of a game."
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/en/faq/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "HTML sin JS",
+      "detail": "220 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "title",
+      "detail": "El Peaje: gioco di carte online gratis per feste"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "description",
+      "detail": "Gioca a El Peaje online gratis: indovina le carte, supera i pedaggi e scegli tra sei modalità da 1 a 8 giocatori. Senza download né registrazione."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "HTML sin JS",
+      "detail": "191 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "title",
+      "detail": "Gioca a El Peaje online gratis"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "description",
+      "detail": "Avvia una partita gratuita a El Peaje nel browser. Scegli modalità e difficoltà e gioca da solo, in coppia o fino a otto persone."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/gioca/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "HTML sin JS",
+      "detail": "229 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "title",
+      "detail": "Come si gioca a El Peaje: regole del gioco"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "description",
+      "detail": "Impara le regole di El Peaje: indovina le carte, avanza nel percorso, affronta i pedaggi e scopri come termina una partita."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/come-si-gioca/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "HTML sin JS",
+      "detail": "258 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "title",
+      "detail": "Modalità e difficoltà di El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "description",
+      "detail": "Confronta sei modalità di El Peaje, inclusa Patata bollente per 3–8 giocatori, e scegli la difficoltà più adatta."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/modalita-di-gioco/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "HTML sin JS",
+      "detail": "356 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "title",
+      "detail": "Giochi da bere gratis online: El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "description",
+      "detail": "Cerchi giochi da bere gratis? Gioca a El Peaje online con carte e pedaggi scelti dal gruppo. Scopri le regole e gioca anche senza alcol."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/giochi-da-bere/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "HTML sin JS",
+      "detail": "248 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "title",
+      "detail": "El Peaje: gioco di carte online per feste"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "description",
+      "detail": "Prepara El Peaje per una festa: regole rapide, modalità per gruppi e pedaggi flessibili. Gioca online gratis con un telefono."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/gioco-per-feste/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "HTML sin JS",
+      "detail": "184 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "title",
+      "detail": "Domande frequenti su El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "description",
+      "detail": "Risposte su carte, gioco online gratis, giocatori, pedaggi, alternative senza alcol e fine della partita."
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/it/domande-frequenti/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "HTML sin JS",
+      "detail": "196 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "title",
+      "detail": "El Peaje: kostenloses Online-Kartenspiel für Partys"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "description",
+      "detail": "Spiele El Peaje kostenlos online. Sage Karten voraus, passiere Mautstellen und wähle aus sechs Modi für 1 bis 8 Personen. Ohne Download und Anmeldung."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "HTML sin JS",
+      "detail": "165 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "title",
+      "detail": "El Peaje kostenlos online spielen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "description",
+      "detail": "Starte El Peaje kostenlos im Browser. Wähle Modus und Schwierigkeitsgrad und spiele allein, zu zweit oder mit bis zu acht Personen."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/spielen/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "HTML sin JS",
+      "detail": "220 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "title",
+      "detail": "El Peaje Spielregeln: So geht das Kartenspiel"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "description",
+      "detail": "Lerne die Regeln von El Peaje: Karten vorhersagen, auf der Strecke vorrücken, Mautstellen meistern und eine Partie abschließen."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/spielregeln/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "HTML sin JS",
+      "detail": "233 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "title",
+      "detail": "El Peaje: Spielmodi und Schwierigkeitsgrade"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "description",
+      "detail": "Vergleiche sechs El-Peaje-Modi, darunter Heiße Kartoffel für 3 bis 8 Personen, und wähle deine Strecke."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/spielmodi/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "HTML sin JS",
+      "detail": "344 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "title",
+      "detail": "Kostenlose Trinkspiele online: El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "description",
+      "detail": "Kostenlose Trinkspiele gesucht? Spiele El Peaje online mit Karten und selbst bestimmten Mautstellen. Regeln für Runden mit oder ohne Alkohol."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/trinkspiele/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "HTML sin JS",
+      "detail": "219 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "title",
+      "detail": "El Peaje: kostenloses Online-Party-Kartenspiel"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "description",
+      "detail": "Bereite El Peaje für eine Party vor: schnelle Regeln, Gruppenmodi und flexible Mautstellen. Kostenlos online mit einem Handy spielen."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/party-kartenspiel/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "HTML sin JS",
+      "detail": "165 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "title",
+      "detail": "El Peaje FAQ: Regeln, Personen und Mautstellen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "description",
+      "detail": "Antworten zu Karten, kostenlosem Online-Spiel, Gruppengröße, Mautstellen und Spielen ohne Alkohol."
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/de/haeufige-fragen/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "HTML sin JS",
+      "detail": "185 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "title",
+      "detail": "El Peaje : jeu de cartes gratuit en ligne pour soirées"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "description",
+      "detail": "Jouez gratuitement à El Peaje en ligne. Devinez les cartes, franchissez les péages et choisissez parmi six modes pour 1 à 8 personnes. Sans inscription."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "HTML sin JS",
+      "detail": "193 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "title",
+      "detail": "Jouer à El Peaje gratuitement en ligne"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "description",
+      "detail": "Lancez une partie gratuite d'El Peaje dans votre navigateur. Choisissez un mode et jouez seul, à deux ou jusqu'à huit personnes."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/jouer/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "HTML sin JS",
+      "detail": "241 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "title",
+      "detail": "Règles d'El Peaje : comment jouer"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "description",
+      "detail": "Apprenez les règles d'El Peaje : prédisez les cartes, avancez sur le parcours, franchissez les péages et terminez la partie."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/regles-du-jeu/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "HTML sin JS",
+      "detail": "263 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "title",
+      "detail": "Modes de jeu et difficulté d'El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "description",
+      "detail": "Comparez les six modes d'El Peaje, dont Patate chaude pour 3 à 8 joueurs, et choisissez votre difficulté."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/modes-de-jeu/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "HTML sin JS",
+      "detail": "394 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "title",
+      "detail": "Jeux à boire gratuits en ligne : El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "description",
+      "detail": "Vous cherchez des jeux à boire gratuits ? Jouez à El Peaje en ligne avec des cartes et des péages définis par le groupe, avec ou sans alcool."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/jeux-a-boire/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "HTML sin JS",
+      "detail": "265 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "title",
+      "detail": "El Peaje : jeu de cartes gratuit pour soirées"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "description",
+      "detail": "Préparez El Peaje pour votre soirée : règles rapides, modes de groupe et péages souples. Jouez gratuitement sur un téléphone."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/jeu-de-soiree/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "HTML sin JS",
+      "detail": "198 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "title",
+      "detail": "El Peaje : questions sur les règles et les péages"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "description",
+      "detail": "Réponses sur les cartes, le jeu gratuit en ligne, le nombre de joueurs, les péages et les options sans alcool."
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/fr/questions-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "HTML sin JS",
+      "detail": "218 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "title",
+      "detail": "El Peaje: jogo de cartas online grátis para festas"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "description",
+      "detail": "Joga El Peaje online grátis. Adivinha as cartas, atravessa portagens e escolhe entre seis modos para 1 a 8 pessoas. Sem descarregar nem criar conta."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "HTML sin JS",
+      "detail": "185 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "title",
+      "detail": "Jogar El Peaje online grátis"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "description",
+      "detail": "Começa uma partida grátis de El Peaje no navegador. Escolhe modo e dificuldade e joga sozinho, a dois ou com até oito pessoas."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "HTML sin JS",
+      "detail": "232 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "title",
+      "detail": "Como jogar El Peaje: regras do jogo de cartas"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "description",
+      "detail": "Aprende as regras de El Peaje: adivinha cartas, avança no percurso, cumpre portagens e descobre como acaba uma partida."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "HTML sin JS",
+      "detail": "251 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "title",
+      "detail": "Modos de jogo e dificuldades de El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "description",
+      "detail": "Compara seis modos de El Peaje, incluindo Batata quente para 3 a 8 pessoas, e escolhe a dificuldade ideal."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "HTML sin JS",
+      "detail": "370 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "title",
+      "detail": "Jogos de beber grátis online: El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "description",
+      "detail": "Procuras jogos de beber grátis? Joga El Peaje online com cartas e portagens escolhidas pelo grupo. Regras para jogar com ou sem álcool."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "HTML sin JS",
+      "detail": "246 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "title",
+      "detail": "El Peaje para festas: regras e modos em grupo"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "description",
+      "detail": "Prepara El Peaje para uma festa: regras rápidas, modos de grupo e portagens flexíveis. Joga grátis com um telemóvel."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "HTML sin JS",
+      "detail": "182 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "title",
+      "detail": "Perguntas frequentes sobre El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "description",
+      "detail": "Respostas sobre cartas, jogo online grátis, número de pessoas, portagens, alternativas sem álcool e fim da partida."
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "HTML sin JS",
+      "detail": "200 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /it/, /de/, /fr/, /pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/play/, /it/gioca/, /de/spielen/, /fr/jouer/, /pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/how-to-play/, /it/come-si-gioca/, /de/spielregeln/, /fr/regles-du-jeu/, /pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/game-modes/, /it/modalita-di-gioco/, /de/spielmodi/, /fr/modes-de-jeu/, /pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/faq/, /it/domande-frequenti/, /de/haeufige-fragen/, /fr/questions-frequentes/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /de/, /fr/, /pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /fr/, /pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /it/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /it/, /de/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /it/, /de/, /fr/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/drinking-games/, /it/giochi-da-bere/, /de/trinkspiele/, /fr/jeux-a-boire/, /pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/party-card-game/, /it/gioco-per-feste/, /de/party-kartenspiel/, /fr/jeu-de-soiree/, /pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /probabilidades/, /estrategia/, /variantes/, /desarrollo/, /contacto/, /privacidad/, /cookies/, /aviso-legal/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "internal link",
+      "detail": "200; desde /jugar/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/gioca/, /de/spielen/, /fr/jouer/, /pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "internal link",
+      "detail": "200; desde /jugar/, /en/play/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/spielen/, /fr/jouer/, /pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "internal link",
+      "detail": "200; desde /jugar/, /en/play/, /it/gioca/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/jouer/, /pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "internal link",
+      "detail": "200; desde /jugar/, /en/play/, /it/gioca/, /de/spielen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "internal link",
+      "detail": "200; desde /jugar/, /en/play/, /it/gioca/, /de/spielen/, /fr/jouer/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "internal link",
+      "detail": "200; desde /como-jugar/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/come-si-gioca/, /de/spielregeln/, /fr/regles-du-jeu/, /pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "internal link",
+      "detail": "200; desde /como-jugar/, /en/how-to-play/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/spielregeln/, /fr/regles-du-jeu/, /pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "internal link",
+      "detail": "200; desde /como-jugar/, /en/how-to-play/, /it/come-si-gioca/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/regles-du-jeu/, /pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "internal link",
+      "detail": "200; desde /como-jugar/, /en/how-to-play/, /it/come-si-gioca/, /de/spielregeln/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/como-jogar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "internal link",
+      "detail": "200; desde /como-jugar/, /en/how-to-play/, /it/come-si-gioca/, /de/spielregeln/, /fr/regles-du-jeu/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "internal link",
+      "detail": "200; desde /previa/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/gioco-per-feste/, /de/party-kartenspiel/, /fr/jeu-de-soiree/, /pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "internal link",
+      "detail": "200; desde /previa/, /en/party-card-game/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/party-kartenspiel/, /fr/jeu-de-soiree/, /pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "internal link",
+      "detail": "200; desde /previa/, /en/party-card-game/, /it/gioco-per-feste/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/jeu-de-soiree/, /pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "internal link",
+      "detail": "200; desde /previa/, /en/party-card-game/, /it/gioco-per-feste/, /de/party-kartenspiel/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/jogo-para-festas/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "internal link",
+      "detail": "200; desde /previa/, /en/party-card-game/, /it/gioco-per-feste/, /de/party-kartenspiel/, /fr/jeu-de-soiree/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "internal link",
+      "detail": "200; desde /juegos-de-beber/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/giochi-da-bere/, /de/trinkspiele/, /fr/jeux-a-boire/, /pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "internal link",
+      "detail": "200; desde /juegos-de-beber/, /en/drinking-games/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/trinkspiele/, /fr/jeux-a-boire/, /pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "internal link",
+      "detail": "200; desde /juegos-de-beber/, /en/drinking-games/, /it/giochi-da-bere/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/jeux-a-boire/, /pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "internal link",
+      "detail": "200; desde /juegos-de-beber/, /en/drinking-games/, /it/giochi-da-bere/, /de/trinkspiele/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/jogos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "internal link",
+      "detail": "200; desde /juegos-de-beber/, /en/drinking-games/, /it/giochi-da-bere/, /de/trinkspiele/, /fr/jeux-a-boire/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "internal link",
+      "detail": "200; desde /modos-de-juego/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/modalita-di-gioco/, /de/spielmodi/, /fr/modes-de-jeu/, /pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "internal link",
+      "detail": "200; desde /modos-de-juego/, /en/game-modes/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/spielmodi/, /fr/modes-de-jeu/, /pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "internal link",
+      "detail": "200; desde /modos-de-juego/, /en/game-modes/, /it/modalita-di-gioco/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/modes-de-jeu/, /pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "internal link",
+      "detail": "200; desde /modos-de-juego/, /en/game-modes/, /it/modalita-di-gioco/, /de/spielmodi/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/modos-de-jogo/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "internal link",
+      "detail": "200; desde /modos-de-juego/, /en/game-modes/, /it/modalita-di-gioco/, /de/spielmodi/, /fr/modes-de-jeu/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "internal link",
+      "detail": "200; desde /preguntas-frecuentes/, /en/, /en/play/, /en/how-to-play/, /en/game-modes/, /en/drinking-games/, /en/party-card-game/, /en/faq/, /it/domande-frequenti/, /de/haeufige-fragen/, /fr/questions-frequentes/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "internal link",
+      "detail": "200; desde /preguntas-frecuentes/, /en/faq/, /it/, /it/gioca/, /it/come-si-gioca/, /it/modalita-di-gioco/, /it/giochi-da-bere/, /it/gioco-per-feste/, /it/domande-frequenti/, /de/haeufige-fragen/, /fr/questions-frequentes/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "internal link",
+      "detail": "200; desde /preguntas-frecuentes/, /en/faq/, /it/domande-frequenti/, /de/, /de/spielen/, /de/spielregeln/, /de/spielmodi/, /de/trinkspiele/, /de/party-kartenspiel/, /de/haeufige-fragen/, /fr/questions-frequentes/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "internal link",
+      "detail": "200; desde /preguntas-frecuentes/, /en/faq/, /it/domande-frequenti/, /de/haeufige-fragen/, /fr/, /fr/jouer/, /fr/regles-du-jeu/, /fr/modes-de-jeu/, /fr/jeux-a-boire/, /fr/jeu-de-soiree/, /fr/questions-frequentes/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "internal link",
+      "detail": "200; desde /preguntas-frecuentes/, /en/faq/, /it/domande-frequenti/, /de/haeufige-fragen/, /fr/questions-frequentes/, /pt/, /pt/jogar/, /pt/como-jogar/, /pt/modos-de-jogo/, /pt/jogos-de-beber/, /pt/jogo-para-festas/, /pt/perguntas-frequentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sitemap.xml",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/sitemap.xml",
+      "check": "coverage",
+      "detail": "52 URLs; esperadas 52"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "crawl",
+      "detail": "Rastreo público permitido"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "sitemap",
+      "detail": "Origen correcto"
+    },
+    {
+      "status": "PASS",
+      "page": "404",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "404",
+      "check": "noindex",
+      "detail": "Errores fuera del índice"
+    },
+    {
+      "status": "PASS",
+      "page": "/ads.txt",
+      "check": "syntax",
+      "detail": "Registro de Google válido en formato"
+    },
+    {
+      "status": "WARN",
+      "page": "/ads.txt",
+      "check": "ownership",
+      "detail": "Confirmar identificador en la cuenta AdSense; la sintaxis no prueba titularidad"
+    }
+  ]
+}

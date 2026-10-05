@@ -1,23 +1,7 @@
-"use client";
-
-import { useRef, useState } from "react";
-import type { GameDifficulty } from "@/lib/game";
-import { advanceAdCadence } from "@/lib/ad-cadence";
-import AdSlot from "./ad-slot";
+import type { Locale } from "@/lib/i18n";
 import Game from "./game";
 
-export default function GameWithAds() {
-  const shortGameCredit = useRef<0 | 1>(0);
-  const [showPostGameAd, setShowPostGameAd] = useState(false);
-
-  function handleCompletedGame(difficulty: GameDifficulty) {
-    const next = advanceAdCadence(shortGameCredit.current, difficulty);
-    shortGameCredit.current = next.shortGameCredit;
-    setShowPostGameAd(next.showAd);
-  }
-
-  return <>
-    <Game onCompleted={handleCompletedGame} onStart={() => setShowPostGameAd(false)} />
-    {showPostGameAd ? <div className="post-game-ad"><AdSlot id="after-game" /></div> : null}
-  </>;
+/** Kept for existing localized imports. All game routes remain ad-free. */
+export default function GameWithAds({ locale = "es" }: { locale?: Locale }) {
+  return <Game locale={locale} />;
 }

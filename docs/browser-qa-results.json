@@ -1,0 +1,1551 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/probabilidades/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/estrategia/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/variantes/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/desarrollo/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/como-jugar/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/modos-de-juego/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/preguntas-frecuentes/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/sobre-el-juego/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/compartir/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/cookies/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Home",
+          "inViewport": true
+        },
+        {
+          "text": "Play",
+          "inViewport": true
+        },
+        {
+          "text": "How to play",
+          "inViewport": true
+        },
+        {
+          "text": "Game modes",
+          "inViewport": true
+        },
+        {
+          "text": "Drinking games",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/en/play/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Home",
+          "inViewport": true
+        },
+        {
+          "text": "Play",
+          "inViewport": true
+        },
+        {
+          "text": "How to play",
+          "inViewport": true
+        },
+        {
+          "text": "Game modes",
+          "inViewport": true
+        },
+        {
+          "text": "Drinking games",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/jugar/ after answer",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "interaction": "EP-52\nEn ruta.",
+      "ads": 0,
+      "overflow": false
+    },
+    {
+      "route": "/jugar/ preferences",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dialogVisible": true
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/probabilidades/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/estrategia/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/variantes/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/desarrollo/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/como-jugar/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/modos-de-juego/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/preguntas-frecuentes/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/sobre-el-juego/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/compartir/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/cookies/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Inicio",
+          "inViewport": true
+        },
+        {
+          "text": "Jugar",
+          "inViewport": true
+        },
+        {
+          "text": "Reglas",
+          "inViewport": true
+        },
+        {
+          "text": "Modos",
+          "inViewport": true
+        },
+        {
+          "text": "Preguntas",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/en/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Home",
+          "inViewport": true
+        },
+        {
+          "text": "Play",
+          "inViewport": true
+        },
+        {
+          "text": "How to play",
+          "inViewport": true
+        },
+        {
+          "text": "Game modes",
+          "inViewport": true
+        },
+        {
+          "text": "Drinking games",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/en/play/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "overflow": false,
+      "modal": false,
+      "h1": 1,
+      "nav": [
+        {
+          "text": "Home",
+          "inViewport": true
+        },
+        {
+          "text": "Play",
+          "inViewport": true
+        },
+        {
+          "text": "How to play",
+          "inViewport": true
+        },
+        {
+          "text": "Game modes",
+          "inViewport": true
+        },
+        {
+          "text": "Drinking games",
+          "inViewport": true
+        },
+        {
+          "text": "ES",
+          "inViewport": true
+        },
+        {
+          "text": "EN",
+          "inViewport": true
+        },
+        {
+          "text": "IT",
+          "inViewport": true
+        },
+        {
+          "text": "DE",
+          "inViewport": true
+        },
+        {
+          "text": "FR",
+          "inViewport": true
+        },
+        {
+          "text": "PT",
+          "inViewport": true
+        }
+      ]
+    },
+    {
+      "route": "/jugar/ after answer",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "interaction": "EP-52\nEn ruta.",
+      "ads": 0,
+      "overflow": false
+    },
+    {
+      "route": "/jugar/ preferences",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "dialogVisible": true
+    },
+    {
+      "route": "/probabilidades/",
+      "javaScript": false,
+      "h1": "Probabilidades en El Peaje",
+      "tableRows": 13,
+      "mainTextLength": 4432
+    },
+    {
+      "route": "/estrategia/",
+      "javaScript": false,
+      "h1": "Estrategia y decisiones en El Peaje",
+      "tableRows": 0,
+      "mainTextLength": 4172
+    },
+    {
+      "route": "/variantes/",
+      "javaScript": false,
+      "h1": "Variantes para organizar una sesión",
+      "tableRows": 0,
+      "mainTextLength": 4832
+    },
+    {
+      "route": "/desarrollo/",
+      "javaScript": false,
+      "h1": "Cómo está construido El Peaje",
+      "tableRows": 0,
+      "mainTextLength": 4126
+    },
+    {
+      "route": "/como-jugar/",
+      "javaScript": false,
+      "h1": "Cómo jugar a El Peaje",
+      "tableRows": 0,
+      "mainTextLength": 3908
+    },
+    {
+      "route": "/preguntas-frecuentes/",
+      "javaScript": false,
+      "h1": "Preguntas frecuentes",
+      "tableRows": 0,
+      "mainTextLength": 780
+    },
+    {
+      "route": "/compartir/",
+      "javaScript": false,
+      "h1": "El Peaje se comparte.",
+      "tableRows": 0,
+      "mainTextLength": 989
+    },
+    {
+      "route": "/preguntas-frecuentes/",
+      "javaScript": false,
+      "detailsOpen": 1
+    }
+  ],
+  "errors": []
+}

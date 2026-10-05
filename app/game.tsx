@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n";
+import { localPath } from "@/lib/i18n";
+import { gameText as t, gameFormat as fmt, gameMessage } from "@/lib/game-i18n";
 import Image from "next/image";
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { createGameAnalytics } from "@/lib/game-analytics";
@@ -167,8 +170,8 @@ const POTATO_DIFFICULTIES: typeof DIFFICULTY_OPTIONS = [
   { id: "hard", name: "Difícil", description: "5 preguntas · 2 peajes · Añade par o impar" },
 ];
 
-function playerCountLabel(settings: GameSettings) {
-  return settings.mode === "group" ? `${settings.playerCount ?? 3} jugadores` : settings.mode === "one-player" ? "1 jugador" : "2 jugadores";
+function playerCountLabel(settings: GameSettings, locale: Locale) {
+  return settings.mode === "group" ? fmt(locale, "{n} jugadores", { n: settings.playerCount ?? 3 }) : t(locale, settings.mode === "one-player" ? "1 jugador" : "2 jugadores");
 }
 
 function RetreatChainEffect() {
@@ -190,15 +193,17 @@ function RetreatChainEffect() {
 }
 
 function CardStyleSelector({
+  locale,
   value,
   onChange,
 }: {
+  locale: Locale;
   value: CardStyle;
   onChange: (style: CardStyle) => void;
 }) {
   return (
     <fieldset className="card-style-fieldset">
-      <legend>04 / El aspecto de las cartas</legend>
+      <legend>{t(locale, "04 / El aspecto de las cartas")}</legend>
       <div className="card-style-grid">
         {CARD_STYLES.map((style) => (
           <label
@@ -219,8 +224,8 @@ function CardStyleSelector({
               <span>P</span>
             </span>
             <span className="card-style-copy">
-              <strong>{style.name}</strong>
-              <small>{style.description}</small>
+              <strong>{t(locale, style.name)}</strong>
+              <small>{t(locale, style.description)}</small>
             </span>
             <span className="card-style-check" aria-hidden="true">
               {value === style.id ? "✓" : ""}
@@ -233,12 +238,14 @@ function CardStyleSelector({
 }
 
 function ModeSelection({
+  locale,
   onStart,
   settings,
   onSettingsChange,
   cardStyle,
   onCardStyleChange,
 }: {
+  locale: Locale;
   onStart: () => void;
   settings: GameSettings;
   onSettingsChange: (settings: GameSettings) => void;
@@ -267,14 +274,14 @@ function ModeSelection({
   return (
     <section className="setup-shell" aria-labelledby="setup-title">
       <section className="setup-panel" aria-labelledby="setup-title">
-        <p className="road-label setup-road-label"><span>EP-52</span> VENTANILLA DE DECISIONES CUESTIONABLES</p>
-        <h1 id="setup-title">A ver qué montamos.</h1>
+        <p className="road-label setup-road-label"><span>EP-52</span> {t(locale, "VENTANILLA DE DECISIONES CUESTIONABLES")}</p>
+        <h1 id="setup-title">{t(locale, "A ver qué montamos.")}</h1>
         <p className="setup-copy">
-          Elige jugadores, modo, dificultad y baraja. Esto último no ayuda a ganar, pero queda bonito.
+          {t(locale, "Elige jugadores, modo, dificultad y baraja. Esto último no ayuda a ganar, pero queda bonito.")}
         </p>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>01 / ¿Cuántos vais a jugar?</legend>
+          <legend>{t(locale, "01 / ¿Cuántos vais a jugar?")}</legend>
           <div className="setup-option-grid mode-grid">
             {MODE_OPTIONS.map((option) => (
               <label
@@ -290,8 +297,8 @@ function ModeSelection({
                   checked={settings.mode === option.id}
                   onChange={() => changeMode(option.id)}
                 />
-                <strong>{option.name}</strong>
-                <span>{option.description}</span>
+                <strong>{t(locale, option.name)}</strong>
+                <span>{t(locale, option.description)}</span>
               </label>
             ))}
           </div>
@@ -299,23 +306,23 @@ function ModeSelection({
 
         {isPotato ? (
           <fieldset className="setup-choice-fieldset">
-            <legend>Personas en el grupo</legend>
+            <legend>{t(locale, "Personas en el grupo")}</legend>
             <div className="setup-option-grid potato-player-grid">
               {[3, 4, 5, 6, 7, 8].map(count => (
                 <label className="setup-option" data-selected={settings.playerCount === count} key={count}>
                   <input className="sr-only" type="radio" name="player-count" value={count}
                     checked={settings.playerCount === count}
                     onChange={() => onSettingsChange({ ...settings, playerCount: count })} />
-                  <strong>{count} jugadores</strong>
+                  <strong>{fmt(locale, "{n} jugadores", { n: count })}</strong>
                 </label>
               ))}
             </div>
-            <p className="helper-copy">Repartíos los números del 1 al {settings.playerCount ?? 3}. Empieza el jugador 1. Compartís ruta: unas 2 de cada 5 cartas permiten pasar el móvil si aciertas, pero no sabréis cuáles hasta entonces. Puedes pasarlo a cualquier otra persona o quedártelo. Si fallas, retrocedes y sigues tú. Los peajes los cumple quien tenga el móvil antes de pasarlo.</p>
+            <p className="helper-copy">{fmt(locale, "Repartíos los números del 1 al {n}. Empieza el jugador 1. Compartís ruta: unas 2 de cada 5 cartas permiten pasar el móvil si aciertas, pero no sabréis cuáles hasta entonces. Puedes pasarlo a cualquier otra persona o quedártelo. Si fallas, retrocedes y sigues tú. Los peajes los cumple quien tenga el móvil antes de pasarlo.", { n: settings.playerCount ?? 3 })}</p>
           </fieldset>
         ) : null}
 
         <fieldset className="setup-choice-fieldset">
-          <legend>02 / ¿Cómo jugamos?</legend>
+          <legend>{t(locale, "02 / ¿Cómo jugamos?")}</legend>
           <div className="setup-option-grid variant-grid">
             {VARIANT_OPTIONS.map((option) => {
               const disabled =
@@ -336,9 +343,9 @@ function ModeSelection({
                     disabled={disabled}
                     onChange={() => changeVariant(option.id)}
                   />
-                  <strong>{option.name}</strong>
-                  <span>{option.description}</span>
-                  {disabled ? <small>Hace falta otra persona: 2 jugadores</small> : null}
+                  <strong>{t(locale, option.name)}</strong>
+                  <span>{t(locale, option.description)}</span>
+                  {disabled ? <small>{t(locale, "Hace falta otra persona: 2 jugadores")}</small> : null}
                 </label>
               );
             })}
@@ -346,7 +353,7 @@ function ModeSelection({
         </fieldset>
 
         <fieldset className="setup-choice-fieldset">
-          <legend>03 / ¿Lo ponemos difícil?</legend>
+          <legend>{t(locale, "03 / ¿Lo ponemos difícil?")}</legend>
           <div className="setup-option-grid difficulty-grid">
             {difficulties.map((option) => (
               <label
@@ -364,27 +371,28 @@ function ModeSelection({
                     onSettingsChange({ ...settings, difficulty: option.id })
                   }
                 />
-                <strong>{option.name}</strong>
-                <span>{option.description}</span>
+                <strong>{t(locale, option.name)}</strong>
+                <span>{t(locale, option.description)}</span>
               </label>
             ))}
           </div>
-          {isPotato && settings.difficulty === "hard" ? <p className="helper-copy">Par o impar usa el valor de la carta: J = 11, Q = 12, K = 13 y A = 14. El as cuenta como par.</p> : null}
+          {isPotato && settings.difficulty === "hard" ? <p className="helper-copy">{t(locale, "Par o impar usa el valor de la carta: J = 11, Q = 12, K = 13 y A = 14. El as cuenta como par.")}</p> : null}
         </fieldset>
 
         <CardStyleSelector
+          locale={locale}
           value={cardStyle}
           onChange={onCardStyleChange}
         />
         <button className="primary-button start-game-button" onClick={onStart}>
-          Reparte ya
+          {t(locale, "Reparte ya")}
         </button>
         <p className="setup-summary" aria-live="polite">
-          {VARIANT_LABELS[settings.variant]} · {DIFFICULTY_LABELS[settings.difficulty]}
-          {` · ${playerCountLabel(settings)}`}
+          {t(locale, VARIANT_LABELS[settings.variant])} · {t(locale, DIFFICULTY_LABELS[settings.difficulty])}
+          {` · ${playerCountLabel(settings, locale)}`}
         </p>
-        <Link className="rules-shortcut" href="/como-jugar">
-          Espera, cómo se juega
+        <Link className="rules-shortcut" href={localPath(locale, "rules")}>
+          {t(locale, "Espera, cómo se juega")}
         </Link>
       </section>
     </section>
@@ -392,6 +400,7 @@ function ModeSelection({
 }
 
 function ActionPanel({
+  locale,
   game,
   setGame,
   onShared,
@@ -399,6 +408,7 @@ function ActionPanel({
   onQuickTurnsChange,
   onRestart,
 }: {
+  locale: Locale;
   game: GameState;
   setGame: (state: GameState) => void;
   onShared: (method: "native" | "clipboard") => void;
@@ -415,9 +425,9 @@ function ActionPanel({
           : "Mazo agotado";
     return (
       <div className="action-content">
-        <p className="eyebrow">Fin de la partida</p>
-        <h2>{title}</h2>
-        <p>{game.message}</p>
+        <p className="eyebrow">{t(locale, "Fin de la partida")}</p>
+        <h2>{t(locale, title)}</h2>
+        <p>{gameMessage(locale, game.message)}</p>
         <button
           className="primary-button"
           onClick={() => {
@@ -435,9 +445,9 @@ function ActionPanel({
             );
           }}
         >
-          Jugar otra vez
+          {t(locale, "Jugar otra vez")}
         </button>
-        <ShareGame game={game} onShared={onShared} />
+        <ShareGame locale={locale} game={game} onShared={onShared} />
       </div>
     );
   }
@@ -445,9 +455,9 @@ function ActionPanel({
   if (game.phase === "toll") {
     return (
       <div className="action-content toll-action">
-        <p className="eyebrow">Parada obligatoria</p>
+        <p className="eyebrow">{t(locale, "Parada obligatoria")}</p>
         <h2>El Peaje</h2>
-        <p>{game.message}</p>
+        <p>{gameMessage(locale, game.message)}</p>
         <button
           className="primary-button danger-button"
           onClick={() =>
@@ -456,7 +466,7 @@ function ActionPanel({
               : setGame(confirmToll(game))
           }
         >
-          {game.variant === "safe-toll" || game.variant === "hot-potato" ? "Reto completado" : "Ya he bebido"}
+          {game.variant === "safe-toll" || game.variant === "hot-potato" ? t(locale, "Reto completado") : t(locale, "Peaje completado")}
         </button>
       </div>
     );
@@ -465,19 +475,19 @@ function ActionPanel({
   if (game.hotPotato?.passAvailable) {
     return (
       <div className="action-content">
-        <p className="eyebrow">La patata · Jugador {game.activePlayer}</p>
-        <h2>Esta carta te deja pasar el móvil.</h2>
-        <p>Has acertado una carta de pase. Elige quién sigue desde esta posición o quédate el móvil.</p>
+        <p className="eyebrow">{fmt(locale, "La patata · Jugador {n}", { n: game.activePlayer })}</p>
+        <h2>{t(locale, "Esta carta te deja pasar el móvil.")}</h2>
+        <p>{t(locale, "Has acertado una carta de pase. Elige quién sigue desde esta posición o quédate el móvil.")}</p>
         <div className="button-row answer-grid">
           {Array.from({ length: game.playerCount ?? 3 }, (_, i) => i + 1)
             .filter(player => player !== game.activePlayer)
             .map(player => (
               <button className="primary-button" key={player} onClick={() => setGame(resolvePotatoPass(game, player))}>
-                Pasar al jugador {player}
+                {fmt(locale, "Pasar al jugador {n}", { n: player })}
               </button>
             ))}
         </div>
-        <button className="secondary-button" onClick={() => setGame(resolvePotatoPass(game, game.activePlayer))}>Me lo quedo</button>
+        <button className="secondary-button" onClick={() => setGame(resolvePotatoPass(game, game.activePlayer))}>{t(locale, "Me lo quedo")}</button>
       </div>
     );
   }
@@ -485,10 +495,10 @@ function ActionPanel({
   if (game.phase === "failed") {
     return (
       <div className="action-content failure-action">
-        <p className="eyebrow">Respuesta incorrecta</p>
-        <h2>La carta queda revelada</h2>
-        <p>{game.message}</p>
-        {game.variant === "hot-potato" ? <p>El móvil sigue con el jugador {game.activePlayer}. Fallar no permite pasarlo.</p> : null}
+        <p className="eyebrow">{t(locale, "Respuesta incorrecta")}</p>
+        <h2>{t(locale, "La carta queda revelada")}</h2>
+        <p>{gameMessage(locale, game.message)}</p>
+        {game.variant === "hot-potato" ? <p>{fmt(locale, "El móvil sigue con el jugador {n}. Fallar no permite pasarlo.", { n: game.activePlayer })}</p> : null}
         <button
           className="primary-button"
           onClick={() =>
@@ -497,7 +507,7 @@ function ActionPanel({
               : setGame(continueAfterFailure(game))
           }
         >
-          Continuar
+          {t(locale, "Continuar")}
         </button>
       </div>
     );
@@ -508,23 +518,23 @@ function ActionPanel({
       <div className="action-content">
         <p className="eyebrow">
           {game.variant === "quick-turns"
-            ? `Respuesta del jugador ${game.activePlayer}`
-            : "Solo el preguntador"}
+            ? fmt(locale, "Respuesta del jugador {n}", { n: game.activePlayer })
+            : t(locale, "Solo el preguntador")}
         </p>
-        <h2>¿Ha acertado?</h2>
-        <p>{game.message}</p>
+        <h2>{t(locale, "¿Ha acertado?")}</h2>
+        <p>{gameMessage(locale, game.message)}</p>
         <div className="button-row">
           <button
             className="primary-button success-button"
             onClick={() => setGame(judgeAnswer(game, true))}
           >
-            Acierto
+            {t(locale, "Acierto")}
           </button>
           <button
             className="secondary-button"
             onClick={() => setGame(judgeAnswer(game, false))}
           >
-            Fallo
+            {t(locale, "Fallo")}
           </button>
         </div>
       </div>
@@ -542,20 +552,20 @@ function ActionPanel({
   return (
     <div className="action-content">
       <p className="eyebrow">
-        Pregunta {questionNumber} de {getQuestionCount(game.route)}
-        {game.variant === "quick-turns" || game.variant === "hot-potato" ? ` · Jugador ${game.activePlayer}` : ""}
+        {fmt(locale, "Pregunta {n} de {total}", { n: questionNumber, total: getQuestionCount(game.route) })}
+        {game.variant === "quick-turns" || game.variant === "hot-potato" ? ` · ${fmt(locale, "Jugador {n}", { n: game.activePlayer })}` : ""}
       </p>
-      <h2>{getQuestion(currentStep)}</h2>
+      <h2>{t(locale, getQuestion(currentStep))}</h2>
       {automaticValidation ? (
         <>
           <p className="helper-copy">
             {currentStep === "even-odd"
-              ? "J = 11, Q = 12, K = 13 y A = 14. J y K son impares; Q y A son pares."
+              ? t(locale, "J = 11, Q = 12, K = 13 y A = 14. J y K son impares; Q y A son pares.")
               : quickTurns
-              ? "La web comprueba el resultado. Si fallas, guarda tu partida y pasa el turno al otro jugador."
+              ? t(locale, "La web comprueba el resultado. Si fallas, guarda tu partida y pasa el turno al otro jugador.")
               : currentStep === "higher-lower"
-                ? "El as es la carta más alta; un empate cuenta como fallo."
-                : "Elige una opción para revelar la siguiente carta."}
+                ? t(locale, "El as es la carta más alta; un empate cuenta como fallo.")
+                : t(locale, "Elige una opción para revelar la siguiente carta.")}
           </p>
           <div className="button-row answer-grid">
             {options.map((option) => (
@@ -568,7 +578,7 @@ function ActionPanel({
                     : setGame(answerSinglePlayer(game, option.value))
                 }
               >
-                {option.label}
+                {t(locale, option.label)}
               </button>
             ))}
           </div>
@@ -576,14 +586,13 @@ function ActionPanel({
       ) : (
         <>
           <p className="helper-copy">
-            El jugador responde en voz alta. Después, revela la carta y valida el
-            resultado.
+            {t(locale, "El jugador responde en voz alta. Después, revela la carta y valida el resultado.")}
           </p>
           <button
             className="primary-button"
             onClick={() => setGame(revealForJudge(game))}
           >
-            Revelar carta
+            {t(locale, "Revelar carta")}
           </button>
         </>
       )}
@@ -591,7 +600,8 @@ function ActionPanel({
   );
 }
 
-export default function Game({ onCompleted, onStart }: {
+export default function Game({ locale = "es", onCompleted, onStart }: {
+  locale?: Locale;
   onCompleted?: (difficulty: GameDifficulty) => void;
   onStart?: () => void;
 }) {
@@ -774,6 +784,7 @@ export default function Game({ onCompleted, onStart }: {
     return (
       <div className="game-root" data-card-style={cardStyle} style={cardStyleVariables}>
         <ModeSelection
+          locale={locale}
           onStart={startNewGame}
           settings={settings}
           onSettingsChange={setSettings}
@@ -786,14 +797,14 @@ export default function Game({ onCompleted, onStart }: {
 
   const variantMetric =
     game.variant === "points"
-      ? { label: "Puntos", value: String(getScore(game)) }
+      ? { label: t(locale, "Puntos"), value: String(getScore(game)) }
       : game.variant === "cooperative"
-        ? { label: "Margen", value: String(Math.max(0, 6 - game.failures)) }
+        ? { label: t(locale, "Margen"), value: String(Math.max(0, 6 - game.failures)) }
         : game.variant === "quick-turns" || game.variant === "hot-potato"
-          ? { label: "Turno", value: `J${quickTurns?.activePlayer ?? game.activePlayer}` }
+          ? { label: t(locale, "Turno"), value: String(quickTurns?.activePlayer ?? game.activePlayer) }
           : {
-              label: "Dificultad",
-              value: DIFFICULTY_LABELS[game.difficulty],
+              label: t(locale, "Dificultad"),
+              value: t(locale, DIFFICULTY_LABELS[game.difficulty]),
             };
 
   return (
@@ -802,32 +813,32 @@ export default function Game({ onCompleted, onStart }: {
       data-card-style={cardStyle}
       data-complete={game.phase === "complete"}
       style={cardStyleVariables}
-      aria-label="Partida de El Peaje"
+      aria-label={t(locale, "Partida de El Peaje")}
     >
       <header className="game-header">
         <div>
           <p className="eyebrow">
-            {VARIANT_LABELS[game.variant]} · {DIFFICULTY_LABELS[game.difficulty]} ·{" "}
-            {playerCountLabel(game)}
+            {t(locale, VARIANT_LABELS[game.variant])} · {t(locale, DIFFICULTY_LABELS[game.difficulty])} ·{" "}
+            {playerCountLabel(game, locale)}
           </p>
-          <h1><span className="game-route-badge">EP-52</span> En ruta.</h1>
+          <h1><span className="game-route-badge">EP-52</span> {t(locale, "En ruta.")}</h1>
         </div>
-        <div className="game-header-actions"><PrivacySettingsButton compact /><button className="text-button" onClick={returnToSetup}>
-          Nueva partida
+        <div className="game-header-actions"><PrivacySettingsButton compact locale={locale} /><button className="text-button" onClick={returnToSetup}>
+          {t(locale, "Nueva partida")}
         </button></div>
       </header>
 
-      <section className="stats" aria-label="Estado de la partida">
+      <section className="stats" aria-label={t(locale, "Estado de la partida")}>
         <div>
-          <span>En el mazo</span>
+          <span>{t(locale, "En el mazo")}</span>
           <strong>{game.deck.length}</strong>
         </div>
         <div>
-          <span>Fallos</span>
+          <span>{t(locale, "Fallos")}</span>
           <strong>{game.failures}</strong>
         </div>
         <div>
-          <span>Peajes</span>
+          <span>{t(locale, "Peajes")}</span>
           <strong>{game.tolls}</strong>
         </div>
         <div>
@@ -840,21 +851,22 @@ export default function Game({ onCompleted, onStart }: {
         <aside className="retreat-chain-notice" aria-live="polite">
           <span aria-hidden="true">!</span>
           <strong>
-            Racha desde la última: {game.failureStreakFromLast}
+            {fmt(locale, "Racha desde la última: {n}", { n: game.failureStreakFromLast })}
           </strong>
         </aside>
       ) : null}
 
-      <RouteBoard key={journeyRun} game={game} crossing={crossing} direction={direction} />
+      <RouteBoard locale={locale} key={journeyRun} game={game} crossing={crossing} direction={direction} />
 
       <section className="action-panel" aria-live="polite">
         {crossing ? (
           <p className="crossing-status" role="status">
-            {crossing.departing ? "Buen viaje. Cruzando el peaje…" : "Penalización cumplida. Levantando la barrera…"}
+            {t(locale, crossing.departing ? "Buen viaje. Cruzando el peaje…" : "Penalización cumplida. Levantando la barrera…")}
           </p>
         ) : null}
-        <fieldset className="action-controls" disabled={crossing !== null} aria-label="Acciones de la partida">
+        <fieldset className="action-controls" disabled={crossing !== null} aria-label={t(locale, "Acciones de la partida")}>
           <ActionPanel
+            locale={locale}
             game={game}
             setGame={updateGame}
             onShared={gameAnalytics.share}

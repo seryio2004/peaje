@@ -2,13 +2,13 @@
 
 > **Despliegue actual (Workers):** `wrangler.jsonc` sirve `out/` como Workers Static Assets y asocia el Worker a `elpejae.com`. Las instrucciones de Cloudflare Pages y GitHub Actions más abajo describen una configuración anterior y no deben usarse para publicar esta versión. Para el dominio y el SEO sigue [SEO y seguridad](seo-y-seguridad.md).
 
-Actualizado: 8 de septiembre de 2026.
+Actualizado: 5 de octubre de 2026.
 
 ## Estado de la implementación
 
 La aplicación sigue siendo una exportación estática de Next.js (`out/`). No necesita un servidor Next ni un dominio comprado para publicarse en Cloudflare Pages.
 
-Implementado: registro central de eventos, IDs estables, almacenamiento aislado, preferencias por finalidad, carga condicional de Cloudflare Web Analytics, espacios de anuncios, perfiles de entorno y workflow de despliegue. Todas las métricas y espacios publicitarios están desactivados por defecto.
+Implementado: registro central de eventos, IDs estables, almacenamiento aislado, preferencias por finalidad, carga condicional de Cloudflare Web Analytics, puntos de integración editorial sin anuncios ni placeholders, perfiles de entorno y workflow de despliegue. Todas las métricas y espacios publicitarios están desactivados por defecto.
 
 Pendiente en servicios externos: crear el proyecto Pages, conectar credenciales, publicar y obtener el token de Web Analytics. No se ha publicado automáticamente ni se ha conectado una cuenta. CMP certificada, GA4/Zaraz y AdSense son fases posteriores; no hay scripts de Google ni anuncios reales en esta versión.
 
@@ -44,7 +44,7 @@ Las variables NEXT_PUBLIC se incorporan al JavaScript durante el build: cambiar 
 | NEXT_PUBLIC_ANALYTICS_DEBUG | Consola local; forzado a false en build de production |
 | NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED | Habilita el beacon, junto con el maestro y consentimiento |
 | NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN | Token público del fragmento Web Analytics; 32 caracteres hexadecimales |
-| NEXT_PUBLIC_ADS_ENABLED | Solo muestra placeholders AdSlot, sin SDK ni ingresos |
+| NEXT_PUBLIC_ADS_ENABLED | Reservada; no muestra anuncios ni placeholders |
 | PAGES_BASE_PATH | Vacío en Cloudflare; /peaje para el alojamiento actual de GitHub |
 
 Para Cloudflare, copia `.env.production.example` a `.env.production.local` y `.env.staging.example` a `.env.staging.local`. Sustituye los nombres de proyecto de ejemplo por los reales. No conserves localhost como URL de producción. Staging usa un sitemap vacío y noindex en HTML y cabecera `X-Robots-Tag`; esto no restringe el acceso. Si necesitas staging privado, añade control de acceso.
@@ -169,14 +169,14 @@ Referencia: [Dominios personalizados de Pages](https://developers.cloudflare.com
 
 ## 8. AdSense y medición de impacto (fase final)
 
-`AdSlot` reserva posiciones estables: after-rules, after-modes, after-faq y after-game. ADS_ENABLED=true solo muestra marcadores: no solicita anuncios, no mide impresiones y no genera ingresos. En partida activa no se muestra el espacio after-game; en móvil se mantiene oculto para preservar la pantalla de juego.
+`AdSlot` conserva puntos de integración editorial: after-rules, after-modes, after-faq, after-previa y about-rail. No renderiza nada, aunque ADS_ENABLED=true. Se han retirado los anuncios pospartida y se excluyen contacto, compartir y políticas del conjunto elegible. Todas las rutas del juego permanecen sin publicidad. Consulta [el informe de preparación](adsense-readiness.md) antes de integrar un proveedor.
 
 Pasos pendientes:
 1. Tener contenido y páginas legales completas y solicitar revisión de AdSense. La aprobación y los ingresos no están garantizados.
 2. Para servir anuncios a usuarios del EEE, Reino Unido y Suiza, implementar una CMP certificada por Google compatible con TCF según sus requisitos vigentes.
 3. Obtener publisher ID y unidades reales, publicar ads.txt con el valor indicado por AdSense y verificar dominio.
 4. Crear un adaptador publicitario que solo cargue el SDK con las señales adecuadas de la CMP. Incorporar estados de carga, sin inventario, error y retirada de consentimiento.
-5. Mantener tamaños reservados para evitar saltos de diseño y probar vertical/horizontal. Empezar por páginas informativas y pausas entre partidas.
+5. Mantener tamaños reservados para evitar saltos de diseño y probar vertical/horizontal. Empezar por artículos con contenido suficiente, fuera de navegación y controles. Mantener todas las rutas del juego sin anuncios.
 6. Medir impresiones reales reportadas por el proveedor, nunca contar la mera presencia del placeholder como impresión.
 
 Referencia: [Requisitos de CMP certificada de Google](https://support.google.com/adsense/answer/13554116?hl=en-GB).
@@ -190,7 +190,7 @@ Con un receptor de eventos ya conectado:
 - Abandono por modo, dificultad y paso; considerar los cierres que no llegan a notificarse.
 - Rendimiento: LCP, INP y CLS junto con ingresos por sesión y partidas por sesión.
 
-Actualmente ad_variant distingue off de placeholder para depurar; no existe un experimento de anuncios reales ni asignación aleatoria. Antes de comparar ingresos, añade variantes reales, exposición confirmada y asignación estable por sesión. Separa dispositivos y fuentes de tráfico, y evita sacar conclusiones de diferencias entre fechas con públicos distintos.
+Actualmente ad_variant es off porque no se renderizan anuncios ni placeholders; no existe un experimento de anuncios reales ni asignación aleatoria. Antes de comparar ingresos, añade variantes reales, exposición confirmada y asignación estable por sesión. Separa dispositivos y fuentes de tráfico, y evita sacar conclusiones de diferencias entre fechas con públicos distintos.
 
 La retención D1/D7 necesita reconocer retornos entre sesiones con un mecanismo y consentimiento apropiados. Esta base deliberadamente no lo implementa: no puede calcularla a partir de su sessionStorage ni solo de Cloudflare Web Analytics. Define esa fase con el proveedor elegido y documenta el sesgo de usuarios que rechazan medición.
 

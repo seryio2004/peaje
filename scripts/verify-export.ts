@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { FOREIGN_LOCALES, LOCAL_PAGES, localPath, languageAlternates } from "../lib/i18n";
 import { SITE_PAGES, type SitePath } from "../lib/site-routes";
 import { inlineScriptHashes } from "./security.mjs";
 
@@ -57,11 +58,36 @@ for (const path of pages) {
    assert.ok(target in SITE_PAGES || existsSync("out" + target), path + " broken link: " + href);
  }
 }
-for (const entry of readdirSync("app", { withFileTypes: true })) {
- if (entry.isDirectory() && existsSync("app/" + entry.name + "/page.tsx")) assert.ok("/" + entry.name in SITE_PAGES, "Register new route: " + entry.name);
+for (const entry of readdirSync("app/(es)", { withFileTypes: true })) {
+ if (entry.isDirectory() && existsSync("app/(es)/" + entry.name + "/page.tsx")) assert.ok("/" + entry.name in SITE_PAGES, "Register new route: " + entry.name);
+}
+for (const lang of FOREIGN_LOCALES) for (const page of LOCAL_PAGES) {
+ const path = localPath(lang, page);
+ const html = read("out" + path + "index.html");
+ assert.ok(html.includes(`<html lang="${lang}"`), path + " has wrong HTML language");
+ const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+ assert.ok(title && !titles.has(title), path + " has repeated or missing title"); titles.add(title);
+ const url = canonicalRoot.replace(/\/$/, "") + path;
+ assert.equal(attribute(html, "link", 'rel="canonical"', "href"), url);
+ assert.equal(attribute(html, "meta", 'property="og:url"', "content"), url);
+ assert.equal(attribute(html, "meta", 'name="robots"', "content"), production ? "index, follow" : "noindex, nofollow");
+ assert.equal((html.match(/<h1\b/g) || []).length, 1, path + " needs one H1");
+ assert.ok(attribute(html, "meta", 'name="description"', "content").length > 0);
+ for (const [language, url] of Object.entries(languageAlternates(page))) {
+   assert.ok(html.includes(`hrefLang="${language}"`), path + " missing hreflang " + language);
+   assert.ok(html.includes(url), path + " missing alternate URL " + url);
+ }
+ const policy = attribute(html, "meta", 'data-peaje-csp="true"', "content");
+ for (const hash of inlineScriptHashes(html)) assert.ok(policy.includes(hash), "Inline script hash missing on " + path);
+ for (const match of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
+   const href = decode(match[1]);
+   if (!href.startsWith("/") || href.startsWith("//")) continue;
+   const target = href.split(/[?#]/)[0].replace(/\/$/, "") || "/";
+   assert.ok(target in SITE_PAGES || existsSync("out" + target), path + " broken link: " + href);
+ }
 }
 const sitemap = read("out/sitemap.xml");
-assert.equal((sitemap.match(/<loc>/g) || []).length, production ? pages.length : 0);
+assert.equal((sitemap.match(/<loc>/g) || []).length, production ? pages.length + FOREIGN_LOCALES.length * LOCAL_PAGES.length : 0);
 for (const path of pages) if (production) assert.ok(sitemap.includes(canonicalRoot + (path === "/" ? "" : path.slice(1) + "/")));
 if (production) {
  for (const [, url] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) assert.equal(new URL(url).origin, "https://elpejae.com");
@@ -76,4 +102,4 @@ const robots = read("out/robots.txt");
 assert.ok(robots.includes("User-Agent: *\nAllow: /"));
 assert.ok(robots.includes("User-Agent: OAI-SearchBot\nAllow: /"));
 assert.ok(existsSync("out/share-image.png"));
-console.log("SEO/security: " + pages.length + " routes, canonical URLs, links, sitemap, metadata and CSP verified.");
+console.log("SEO/security: " + (pages.length + FOREIGN_LOCALES.length * LOCAL_PAGES.length) + " routes, canonical URLs, links, sitemap, metadata and CSP verified.");

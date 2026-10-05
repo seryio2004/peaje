@@ -2,3 +2,6 @@
 # Ejemplo (NO activo):
 # /reglas/ /como-jugar/ 301
 # No redirigir todas las rutas al inicio ni activar reglas con dominios de ejemplo.
+
+/modos /modos-de-juego/ 301
+/modos/ /modos-de-juego/ 301

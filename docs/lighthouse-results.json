@@ -1,0 +1,245 @@
+{
+  "scope": "local static export; compressed and uncompressed preview; not deployed production",
+  "results": [
+    {
+      "route": "/",
+      "gzip": false,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T20:54:31.551Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 85,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1203.4771,
+          "display": "1.2 s"
+        },
+        "largest-contentful-paint": {
+          "value": 4332.4771,
+          "display": "4.3 s"
+        },
+        "total-blocking-time": {
+          "value": 69,
+          "display": "70 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    },
+    {
+      "route": "/probabilidades/",
+      "gzip": false,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T20:54:42.687Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 77,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1218.5412,
+          "display": "1.2 s"
+        },
+        "largest-contentful-paint": {
+          "value": 4704.5412,
+          "display": "4.7 s"
+        },
+        "total-blocking-time": {
+          "value": 294.72939999999994,
+          "display": "290 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    },
+    {
+      "route": "/jugar/",
+      "gzip": false,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T20:54:54.999Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 83,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 1203.6048,
+          "display": "1.2 s"
+        },
+        "largest-contentful-paint": {
+          "value": 4774.6048,
+          "display": "4.8 s"
+        },
+        "total-blocking-time": {
+          "value": 62,
+          "display": "60 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    },
+    {
+      "route": "/",
+      "gzip": true,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T20:57:52.973Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 913.8208,
+          "display": "0.9 s"
+        },
+        "largest-contentful-paint": {
+          "value": 2099.8208,
+          "display": "2.1 s"
+        },
+        "total-blocking-time": {
+          "value": 77,
+          "display": "80 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    },
+    {
+      "route": "/probabilidades/",
+      "gzip": true,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T21:01:28.090Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 916.3888,
+          "display": "0.9 s"
+        },
+        "largest-contentful-paint": {
+          "value": 2200.3888,
+          "display": "2.2 s"
+        },
+        "total-blocking-time": {
+          "value": 175,
+          "display": "180 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    },
+    {
+      "route": "/jugar/",
+      "gzip": true,
+      "lighthouseVersion": "13.5.0",
+      "fetchTime": "2026-10-05T20:58:15.891Z",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "value": 911.0744,
+          "display": "0.9 s"
+        },
+        "largest-contentful-paint": {
+          "value": 2248.0744,
+          "display": "2.2 s"
+        },
+        "total-blocking-time": {
+          "value": 77,
+          "display": "80 ms"
+        },
+        "cumulative-layout-shift": {
+          "value": 0,
+          "display": "0"
+        }
+      },
+      "failedBinaryAudits": []
+    }
+  ]
+}

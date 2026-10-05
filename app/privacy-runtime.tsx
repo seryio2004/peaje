@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n";
+import { gameText as t } from "@/lib/game-i18n";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { clearAnalyticsSession } from "@/lib/analytics";
@@ -8,7 +10,7 @@ import { canLoadCloudflareAnalytics, siteConfig } from "@/lib/config";
 import ConsentControls, { useConsent } from "./consent-controls";
 import { OPEN_PRIVACY_SETTINGS } from "./privacy-settings-button";
 
-export default function PrivacyRuntime() {
+export default function PrivacyRuntime({ locale = "es" }: { locale?: Locale }) {
   const consent = useConsent();
   const pathname = usePathname();
   const loaded = useRef(false);
@@ -17,7 +19,7 @@ export default function PrivacyRuntime() {
   const [dismissed, setDismissed] = useState(false);
   const allowed = consent?.analytics === true;
   const isCookiesPage = pathname.replace(/\/$/, "").endsWith("/cookies");
-  const open = manuallyOpened || (!isCookiesPage && !consent && !dismissed);
+  const open = manuallyOpened || (siteConfig.analyticsEnabled && !isCookiesPage && !consent && !dismissed);
   function showDialog() {
     setDismissed(false);
     setManuallyOpened(true);
@@ -68,9 +70,9 @@ export default function PrivacyRuntime() {
   }, [allowed]);
   return <>
     <dialog className="privacy-dialog" ref={dialog} aria-labelledby="privacy-dialog-title" onClose={closeDialog}>
-      <div className="privacy-dialog-heading"><h2 id="privacy-dialog-title">Preferencias de cookies</h2><button type="button" className="privacy-settings-trigger" onClick={closeDialog}>Cerrar sin cambios</button></div>
-      {open ? <ConsentControls onSave={closeDialog} /> : null}
-      <div className="consent-links"><Link href="/cookies" onClick={closeDialog}>Política de cookies</Link><Link href="/privacidad" onClick={closeDialog}>Privacidad</Link></div>
+      <div className="privacy-dialog-heading"><h2 id="privacy-dialog-title">{t(locale, "Preferencias de cookies")}</h2><button type="button" className="privacy-settings-trigger" onClick={closeDialog}>{t(locale, "Cerrar sin cambios")}</button></div>
+      {open ? <ConsentControls locale={locale} onSave={closeDialog} /> : null}
+      <div className="consent-links"><Link href="/cookies" onClick={closeDialog}>{t(locale, "Política de cookies")}</Link><Link href="/privacidad" onClick={closeDialog}>{t(locale, "Privacidad")}</Link></div>
     </dialog>
   </>;
 }

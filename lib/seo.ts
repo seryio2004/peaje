@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LOCAL_PAGES, languageAlternates, localPath } from "./i18n";
 import { siteConfig } from "./config";
 import { SITE_PAGES, type SitePath } from "./site-routes";
 
@@ -10,10 +11,11 @@ export function pageMetadata(path: SitePath): Metadata {
   const page = SITE_PAGES[path];
   const title = path === "/" ? page.title : page.title + " | El Peaje";
   const images = [{ url: siteConfig.siteUrl + "/share-image.png", width: 1200, height: 630, alt: "El Peaje: juego de cartas online gratis para jugar solo, en pareja o en grupo" }];
+  const translatedPage = LOCAL_PAGES.find(page => localPath("es", page) === siteUrl(path).replace(siteConfig.siteUrl, ""));
   return {
     title: { absolute: title },
     description: page.description,
-    alternates: { canonical: siteUrl(path) },
+    alternates: { canonical: siteUrl(path), ...(translatedPage ? { languages: languageAlternates(translatedPage) } : {}) },
     openGraph: { type: "website", locale: "es_ES", siteName: "El Peaje", title, description: page.description, url: siteUrl(path), images },
     twitter: { card: "summary_large_image", title, description: page.description, images: images.map(image => image.url) },
   };

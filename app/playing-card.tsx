@@ -1,13 +1,17 @@
+import type { Locale } from "@/lib/i18n";
+import { gameText as t } from "@/lib/game-i18n";
 import { type CSSProperties } from "react";
 import { type Card, isRed, rankLabel, SUIT_NAMES, SUIT_SYMBOLS } from "@/lib/game";
 
 export default function PlayingCard({
   card,
+  locale = "es",
   reference = false,
   label,
   dealIndex = 0,
 }: {
   card: Card;
+  locale?: Locale;
   reference?: boolean;
   label?: string;
   dealIndex?: number;
@@ -31,7 +35,7 @@ export default function PlayingCard({
           </div>
           <div
             className={`playing-card card-face card-face-front ${red ? "card-red" : "card-black"} ${reference ? "is-reference" : ""}`}
-            aria-label={`${rankLabel(card.rank)} de ${SUIT_NAMES[card.suit]}${reference ? ", carta de referencia" : ""}`}
+            aria-label={`${rankLabel(card.rank)} ${t(locale, SUIT_NAMES[card.suit])}${reference ? `, ${t(locale, "carta de referencia")}` : ""}`}
           >
             <span className="card-corner card-corner-top">
               <strong>{rankLabel(card.rank)}</strong>

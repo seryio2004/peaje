@@ -336,8 +336,8 @@ function tollMessage(state: GameState, backwards = false): string {
   }
 
   return backwards
-    ? "Atraviesas El Peaje al retroceder: bebe."
-    : "Has llegado a El Peaje: bebe para continuar.";
+    ? "Atraviesas El Peaje al retroceder: cumple el peaje acordado."
+    : "Has llegado a El Peaje: cumple el peaje acordado para continuar.";
 }
 
 function isPredictionCorrect(

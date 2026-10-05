@@ -12,7 +12,7 @@ export default function PageHero({
 }) {
   return (
     <header className="content-page-hero">
-      <div className="guide-wayfinding"><Link href="/">← Inicio</Link><span>EP-52 / GUÍA DE RUTA</span></div>
+      <div className="guide-wayfinding"><Link prefetch={false} href="/">← Inicio</Link><span>EP-52 / GUÍA DE RUTA</span></div>
       <p className="content-kicker">{kicker}</p>
       <h1>{title}</h1>
       <div className="content-page-intro">{children}</div>

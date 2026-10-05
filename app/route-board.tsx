@@ -1,5 +1,7 @@
 "use client";
 
+import type { Locale } from "@/lib/i18n";
+import { gameText as t, gameFormat as fmt } from "@/lib/game-i18n";
 import { type CSSProperties, useEffect, useRef } from "react";
 import { type GameState, getReferenceCard, STEP_NAMES } from "@/lib/game";
 import PlayingCard from "./playing-card";
@@ -32,7 +34,7 @@ function RoadCar({ backwards }: { backwards: boolean }) {
   );
 }
 
-export default function RouteBoard({ game, crossing, direction }: { game: GameState; crossing: TollCrossing | null; direction: 1 | -1 }) {
+export default function RouteBoard({ locale = "es", game, crossing, direction }: { locale?: Locale; game: GameState; crossing: TollCrossing | null; direction: 1 | -1 }) {
   const reference = getReferenceCard(game);
   const scrollRef = useRef<HTMLDivElement>(null);
   const carRef = useRef<HTMLDivElement>(null);
@@ -64,21 +66,21 @@ export default function RouteBoard({ game, crossing, direction }: { game: GameSt
   }, [carPosition, carOffset, game.route.length]);
 
   return (
-    <section className="board-panel journey-board" aria-label="Tablero de juego">
+    <section className="board-panel journey-board" aria-label={t(locale, "Tablero de juego")}>
       <div className="journey-heading">
-        <p className="road-label"><span>EP-52</span> DESTINO: LA ÚLTIMA CARTA</p>
-        <span className="journey-direction">{backwards ? "← Sentido regreso" : "Sentido suerte →"}</span>
+        <p className="road-label"><span>EP-52</span> {t(locale, "DESTINO: LA ÚLTIMA CARTA")}</p>
+        <span className="journey-direction">{t(locale, backwards ? "← Sentido regreso" : "Sentido suerte →")}</span>
       </div>
       <div className="journey-layout">
         <div className="initial-card">
-          <p className="slot-title">PUNTO DE PARTIDA</p>
+          <p className="slot-title">{t(locale, "PUNTO DE PARTIDA")}</p>
           <PlayingCard card={game.initialCard} reference={reference.id === game.initialCard.id}
-            label={reference.id === game.initialCard.id ? "Referencia" : undefined} />
-          <span className="departure-caption">Tu primera pista</span>
+            label={reference.id === game.initialCard.id ? t(locale, "Referencia") : undefined} locale={locale} />
+          <span className="departure-caption">{t(locale, "Tu primera pista")}</span>
         </div>
-        <div className="route-scroll" ref={scrollRef} tabIndex={0} role="region" aria-label="Carretera de cartas. Desplaza para explorar la ruta.">
+        <div className="route-scroll" ref={scrollRef} tabIndex={0} role="region" aria-label={t(locale, "Carretera de cartas. Desplaza para explorar la ruta.")}>
           <div className="journey-route" style={routeStyle}>
-            <div className="route" role="list" aria-label="Recorrido">
+            <div className="route" role="list" aria-label={t(locale, "Recorrido")}>
               {game.route.map((step, index) => {
                 const card = game.slots[index];
                 const active = game.position === index && game.phase !== "complete";
@@ -86,25 +88,25 @@ export default function RouteBoard({ game, crossing, direction }: { game: GameSt
                 const open = crossing?.position === index;
                 return (
                   <article className={`route-slot ${active ? "is-active" : ""} ${toll ? "is-toll" : ""}`}
-                    key={`${step}-${index}`} role="listitem" aria-label={`Tramo ${index + 1}: ${STEP_NAMES[step]}`} aria-current={active ? "step" : undefined}>
+                    key={`${step}-${index}`} role="listitem" aria-label={fmt(locale, "Tramo {n}: {step}", { n: index + 1, step: t(locale, STEP_NAMES[step]) })} aria-current={active ? "step" : undefined}>
                     <div className="slot-heading">
                       <span className="slot-number">{String(index + 1).padStart(2, "0")}</span>
-                      <p className="slot-title">{STEP_NAMES[step]}</p>
+                      <p className="slot-title">{t(locale, STEP_NAMES[step])}</p>
                     </div>
                     {toll ? (
                       <div className="toll-plaza" data-open={open}>
-                        <div className="plaza-sign"><span>PEAJE</span><span className="plaza-signal" aria-hidden="true">{open ? "↑" : "×"}</span></div>
-                        <span className="plaza-payment">CONTROL MANUAL</span>
+                        <div className="plaza-sign"><span>{t(locale, "PEAJE")}</span><span className="plaza-signal" aria-hidden="true">{open ? "↑" : "×"}</span></div>
+                        <span className="plaza-payment">{t(locale, "CONTROL MANUAL")}</span>
                         <div className="plaza-cabin" aria-hidden="true"><span /><i /><b>P</b></div>
-                        <span className="plaza-status">{open ? "Buen viaje" : active ? "Cumple el peaje" : "Parada obligatoria"}</span>
+                        <span className="plaza-status">{t(locale, open ? "Buen viaje" : active ? "Cumple el peaje" : "Parada obligatoria")}</span>
                       </div>
                     ) : card ? (
                       <PlayingCard key={card.id} card={card} reference={reference.id === card.id}
-                        label={reference.id === card.id ? "Referencia" : undefined} />
+                        label={reference.id === card.id ? t(locale, "Referencia") : undefined} locale={locale} />
                     ) : (
                       <div className="card-wrap">
                         <div className="card-motion is-dealing" style={{ "--deal-index": index + 1 } as CSSProperties}>
-                          <div className="playing-card card-back"><span className="back-mark" aria-hidden="true">P</span><span className="sr-only">Carta oculta</span></div>
+                          <div className="playing-card card-back"><span className="back-mark" aria-hidden="true">P</span><span className="sr-only">{t(locale, "Carta oculta")}</span></div>
                         </div>
                       </div>
                     )}
@@ -131,8 +133,8 @@ export default function RouteBoard({ game, crossing, direction }: { game: GameSt
         </div>
       </div>
       <div className="journey-legend">
-        <p role="status">{arrived ? "Destino alcanzado. ¡Buen viaje!" : `Estás en el tramo ${game.position + 1}: ${STEP_NAMES[game.route[game.position]]}.`}</p>
-        <span>El coche marca tu posición · Acierta para avanzar</span>
+        <p role="status">{arrived ? t(locale, "Destino alcanzado. ¡Buen viaje!") : fmt(locale, "Estás en el tramo {n}: {step}.", { n: game.position + 1, step: t(locale, STEP_NAMES[game.route[game.position]]) })}</p>
+        <span>{t(locale, "El coche marca tu posición · Acierta para avanzar")}</span>
       </div>
     </section>
   );

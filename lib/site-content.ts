@@ -36,31 +36,31 @@ export const GAME_MODES = [
     number: "01",
     title: "Clásico",
     summary: "El recorrido original",
-    text: "Acierta para avanzar y retrocede cuando falles. La partida termina al superar la última pregunta o al agotar la baraja.",
+    text: "Acierta para avanzar y retrocede cuando falles. La partida termina al superar la última pregunta o al agotar la baraja. Es el punto de partida para aprender: no añade un objetivo de puntuación ni un límite de fallos. Puedes jugar solo con comprobación automática o en pareja con una persona que revela y valida la respuesta verbal.",
   },
   {
     number: "02",
     title: "Por puntos",
     summary: "Fallo +1 · Peaje +2",
-    text: "El marcador calcula automáticamente un punto por fallo y dos por cada peaje. El objetivo es completar la ruta con la puntuación más baja.",
+    text: "El marcador calcula automáticamente un punto por fallo y dos por cada peaje. El objetivo es completar la ruta con la puntuación más baja. Por ejemplo, tres fallos y dos cruces de peaje suman siete puntos. Los cruces hacia atrás también cuentan, por lo que repetir una zona de la ruta puede aumentar el coste. Sirve para comparar partidas de la misma dificultad; las barajas se mezclan de nuevo en cada intento.",
   },
   {
     number: "03",
     title: "Cooperativo",
     summary: "Un equipo · Seis fallos",
-    text: "Todos comparten el mismo recorrido. El equipo debe llegar al final antes de alcanzar el sexto fallo.",
+    text: "Todos comparten el mismo recorrido. El equipo debe llegar al final antes de alcanzar el sexto fallo, que termina la partida inmediatamente. Podéis debatir cada respuesta y dejar que una persona pulse: el motor mantiene un único recorrido, no perfiles individuales. Es apropiado para decidir juntos; no es una competición entre miembros del equipo.",
   },
   {
     number: "04",
     title: "Turnos rápidos",
     summary: "Dos partidas · Cambio al fallar",
-    text: "Cada jugador tiene su propia ruta, cartas, fallos y peajes. La web valida cada respuesta automáticamente; al fallar, la partida queda guardada y el turno pasa al otro jugador.",
+    text: "Cada jugador tiene su propia ruta, cartas, fallos y peajes. La web valida cada respuesta automáticamente; al fallar, la partida queda guardada y el turno pasa al otro jugador. Cada ruta parte de una baraja mezclada por separado; acertar no cede el turno. Cuando te toque de nuevo, continúas tu estado pendiente, incluidos retrocesos y peajes. Es una opción para dos personas que quieren alternar sin que una tenga que actuar como juez.",
   },
   {
     number: "05",
     title: "Peaje seguro",
     summary: "Retos sin bebidas",
-    text: "Sustituye las instrucciones del peaje por una prueba breve, una pregunta divertida o un reto seguro acordado por el grupo.",
+    text: "Sustituye las instrucciones del peaje por una prueba breve, una pregunta divertida o un reto seguro acordado por el grupo. El cambio está en los mensajes y en vuestra consecuencia social: las predicciones, los fallos y los cruces siguen funcionando igual. No hay un catálogo automático de retos. Preparad una pregunta breve o un punto simbólico y permitid omitirlo; también podéis jugar sin alcohol en cualquiera de los otros modos.",
   },
   {
     number: "06",
@@ -89,6 +89,12 @@ export const DIFFICULTIES = [
 ];
 
 export const FAQS = [
+  { question: "¿Funciona en móvil y en ordenador?", answer: "El Peaje se juega desde un navegador actual en ambos dispositivos. La interfaz ajusta el tablero y los controles al tamaño y la orientación. Para una partida en grupo compartid una pantalla; abrir el mismo enlace en dos móviles crea partidas independientes." },
+  { question: "¿Hace falta conexión durante toda la partida?", answer: "Necesitas conexión para abrir la web y descargar sus recursos. Las decisiones y el mazo se gestionan en el navegador, pero no hay un modo offline instalado ni se garantiza que todos los recursos sigan disponibles sin conexión." },
+  { question: "¿Un fallo en la primera pregunta cambia la carta de referencia?", answer: "No. La primera pregunta sigue comparando con la carta inicial. La carta fallada queda visible en la posición del tablero y sale del mazo, pero no sustituye esa referencia." },
+  { question: "¿Un peaje consume una carta?", answer: "No. Confirmarlo cambia la posición y permite continuar. Cada respuesta que revela una carta sí reduce el mazo, incluso si fallas o repites una pregunta." },
+  { question: "¿Cómo se calcula el resultado por puntos?", answer: "Se suma un punto por fallo y dos por cada cruce de peaje, incluyendo los de retroceso. Cuatro fallos y tres peajes son diez puntos. Compara resultados de la misma dificultad y distingue las rutas completadas de las partidas que agotan el mazo." },
+
   {
     question: "¿Necesito una baraja física?",
     answer:

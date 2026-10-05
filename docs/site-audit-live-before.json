@@ -1,0 +1,3618 @@
+{
+  "scope": "https://elpejae.com/",
+  "expectedOrigin": "https://elpejae.com",
+  "routes": 52,
+  "summary": {
+    "PASS": 285,
+    "WARN": 1,
+    "FAIL": 315
+  },
+  "results": [
+    {
+      "status": "PASS",
+      "page": "site",
+      "check": "scope",
+      "detail": "HTTP https://elpejae.com; canonical esperado https://elpejae.com"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "title",
+      "detail": "Compartir El Peaje por QR y próximas apps | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "description",
+      "detail": "Comparte El Peaje con un código QR o un enlace. Conoce el estado de las apps para Google Play y App Store, todavía en desarrollo."
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/compartir/"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "HTML sin JS",
+      "detail": "120 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "FAIL",
+      "page": "/compartir/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "title",
+      "detail": "El Peaje: juego online gratis de cartas para grupos"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "description",
+      "detail": "Juega a El Peaje online y gratis, sin registro: predice cartas, supera peajes y elige entre seis modos para 1 a 8 personas. Ideal para una previa o una partida sin bebidas."
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "HTML sin JS",
+      "detail": "386 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "title",
+      "detail": "Jugar a El Peaje online gratis | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "description",
+      "detail": "Empieza una partida gratis de El Peaje en el navegador. Elige modo y dificultad y juega con 52 cartas, solo, en pareja o en grupo, sin registro."
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/jugar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "HTML sin JS",
+      "detail": "268 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "title",
+      "detail": "Cómo jugar a El Peaje: reglas de cartas y peajes | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "description",
+      "detail": "Aprende las reglas de El Peaje: predice las cartas, avanza por la ruta, resuelve los peajes y descubre cuándo termina la partida."
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/como-jugar/"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "HTML sin JS",
+      "detail": "390 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "title",
+      "detail": "El Peaje para la previa: reglas y formas de jugar | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "description",
+      "detail": "Organiza una partida gratis de El Peaje para la previa: reglas rápidas, modos para grupos y peajes con puntos, preguntas o retos. Las bebidas son opcionales."
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/previa/"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "HTML sin JS",
+      "detail": "274 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "title",
+      "detail": "Juegos de beber gratis online: El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "description",
+      "detail": "¿Buscas juegos de beber gratis? Juega a El Peaje online con cartas y peajes que el grupo decide. Aprende las reglas, elige modo y juega también sin alcohol."
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/juegos-de-beber/"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "HTML sin JS",
+      "detail": "381 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "title",
+      "detail": "Modos de juego y dificultades | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "description",
+      "detail": "Compara los seis modos de El Peaje, incluido La patata para grupos de 3 a 8 personas, y elige tu dificultad."
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/modos-de-juego/"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "HTML sin JS",
+      "detail": "425 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "title",
+      "detail": "Preguntas frecuentes sobre El Peaje | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "description",
+      "detail": "Resuelve tus dudas sobre las cartas, los jugadores, los peajes, el final de partida y la privacidad de El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/preguntas-frecuentes/"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "HTML sin JS",
+      "detail": "460 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "title",
+      "detail": "Sobre el juego | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "description",
+      "detail": "Conoce el propósito y el funcionamiento de El Peaje, un juego de cartas online gratuito, sin registro y para jugar solo, en pareja o en grupo."
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/sobre-el-juego/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "HTML sin JS",
+      "detail": "130 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/probabilidades/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/probabilidades/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/estrategia/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/estrategia/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/variantes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/variantes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/desarrollo/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/desarrollo/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "title",
+      "detail": "Contacto | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "description",
+      "detail": "Consulta cómo comunicar errores, dudas o sugerencias sobre el juego de cartas El Peaje."
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/contacto/"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "HTML sin JS",
+      "detail": "68 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "title",
+      "detail": "Privacidad | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "description",
+      "detail": "Conoce qué datos utiliza El Peaje, cómo funciona la analítica opcional y cómo gestionar tus preferencias de privacidad."
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/privacidad/"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "HTML sin JS",
+      "detail": "485 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "title",
+      "detail": "Cookies y preferencias de privacidad | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "description",
+      "detail": "Consulta el almacenamiento utilizado por El Peaje y acepta o rechaza por separado la analítica y las preferencias de publicidad."
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/cookies/"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "HTML sin JS",
+      "detail": "618 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "title",
+      "detail": "Aviso legal | El Peaje"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "description",
+      "detail": "Información sobre el sitio El Peaje, el uso del contenido y sus condiciones de utilización."
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "canonical",
+      "detail": "https://elpejae.com/aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "H1",
+      "detail": "1"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "indexable",
+      "detail": "index, follow"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "HTML sin JS",
+      "detail": "163 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/play/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/play/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/how-to-play/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/how-to-play/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/game-modes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/game-modes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/drinking-games/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/drinking-games/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/party-card-game/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/party-card-game/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/en/faq/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/en/faq/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioca/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioca/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/come-si-gioca/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/come-si-gioca/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/modalita-di-gioco/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/modalita-di-gioco/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/giochi-da-bere/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/giochi-da-bere/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/gioco-per-feste/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/gioco-per-feste/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/it/domande-frequenti/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/it/domande-frequenti/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielen/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielen/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielregeln/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielregeln/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/spielmodi/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/spielmodi/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/trinkspiele/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/trinkspiele/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/party-kartenspiel/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/party-kartenspiel/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/de/haeufige-fragen/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/de/haeufige-fragen/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jouer/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jouer/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/regles-du-jeu/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/regles-du-jeu/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/modes-de-jeu/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/modes-de-jeu/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeux-a-boire/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeux-a-boire/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/jeu-de-soiree/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/fr/questions-frequentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/fr/questions-frequentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogar/",
+      "check": "juego sin anuncios",
+      "detail": "Sin unidades ni SDK publicitario"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/como-jogar/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/como-jogar/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/modos-de-jogo/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/modos-de-jogo/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogos-de-beber/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogos-de-beber/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/jogo-para-festas/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/jogo-para-festas/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "route",
+      "detail": "La URL final conserva la ruta esperada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "title",
+      "detail": "Ausente o duplicado"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "description",
+      "detail": "Ausente o duplicada"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "canonical",
+      "detail": ""
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "H1",
+      "detail": "0"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "indexable",
+      "detail": "Indexación por defecto"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "OpenGraph",
+      "detail": "URL, título e imagen"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "HTML sin JS",
+      "detail": "1 palabras en main; partida necesita JS"
+    },
+    {
+      "status": "PASS",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "placeholders",
+      "detail": "Sin promesas de funciones inexistentes"
+    },
+    {
+      "status": "FAIL",
+      "page": "/pt/perguntas-frequentes/",
+      "check": "footer",
+      "detail": "Sobre, contacto, privacidad y cookies accesibles"
+    },
+    {
+      "status": "PASS",
+      "page": "/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/jugar/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/como-jugar/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/modos-de-juego/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/preguntas-frecuentes/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/juegos-de-beber/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/previa/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/compartir/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sobre-el-juego/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/contacto/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/privacidad/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/cookies/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/aviso-legal/",
+      "check": "internal link",
+      "detail": "200; desde /compartir/, /, /jugar/, /como-jugar/, /previa/, /juegos-de-beber/, /modos-de-juego/, /preguntas-frecuentes/, /sobre-el-juego/, /contacto/, /privacidad/, /cookies/, /aviso-legal/"
+    },
+    {
+      "status": "PASS",
+      "page": "/sitemap.xml",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "FAIL",
+      "page": "/sitemap.xml",
+      "check": "coverage",
+      "detail": "13 URLs; esperadas 52"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "HTTP",
+      "detail": "200"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "crawl",
+      "detail": "Rastreo público permitido"
+    },
+    {
+      "status": "PASS",
+      "page": "/robots.txt",
+      "check": "sitemap",
+      "detail": "Origen correcto"
+    },
+    {
+      "status": "PASS",
+      "page": "404",
+      "check": "HTTP",
+      "detail": "404"
+    },
+    {
+      "status": "FAIL",
+      "page": "404",
+      "check": "noindex",
+      "detail": "Errores fuera del índice"
+    },
+    {
+      "status": "PASS",
+      "page": "/ads.txt",
+      "check": "syntax",
+      "detail": "Registro de Google válido en formato"
+    },
+    {
+      "status": "WARN",
+      "page": "/ads.txt",
+      "check": "ownership",
+      "detail": "Confirmar identificador en la cuenta AdSense; la sintaxis no prueba titularidad"
+    }
+  ]
+}

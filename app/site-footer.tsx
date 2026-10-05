@@ -10,7 +10,7 @@ export default function SiteFooter() {
         <p>Juego de cartas gratuito para jugar solo, en pareja o en grupo.</p>
       </div>
       <nav aria-label="Navegación del pie de página">
-        {FOOTER_PATHS.map(path => <Link href={path} key={path}>{SITE_PAGES[path].label}</Link>)}
+        {FOOTER_PATHS.map(path => <Link prefetch={false} href={path} key={path}>{SITE_PAGES[path].label}</Link>)}
         <PrivacySettingsButton />
       </nav>
     </footer>

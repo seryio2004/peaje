@@ -13,7 +13,7 @@ export const siteConfig = {
   analyticsDebug: appEnvironment !== "production" && process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true",
   cloudflareEnabled: process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_ENABLED === "true",
   cloudflareToken: process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN || "",
-  // This flag only controls placeholders. No advertising SDK ships in this MVP.
+  // Reserved for a future editorial integration. Does not load an SDK or render placeholders.
   adsEnabled: process.env.NEXT_PUBLIC_ADS_ENABLED === "true",
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
 } as const;

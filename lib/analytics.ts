@@ -18,7 +18,7 @@ export type EventProperties = {
 export type AnalyticsEvent = {
   name: EventName; schema_version: 1; occurred_at: string;
   environment: typeof siteConfig.environment; session_id: string;
-  ad_variant: "off" | "placeholder"; properties: EventProperties;
+  ad_variant: "off"; properties: EventProperties;
 };
 export type AnalyticsAdapter = (event: AnalyticsEvent) => void;
 const adapters = new Set<AnalyticsAdapter>();
@@ -65,7 +65,7 @@ export function trackEvent(name: EventName, properties: EventProperties = {}): b
   if (name === "game_start") clean.session_game_number = session.games;
   const event: AnalyticsEvent = {
     name, schema_version: 1, occurred_at: new Date(now).toISOString(), environment: siteConfig.environment,
-    session_id: session.id, ad_variant: siteConfig.adsEnabled ? "placeholder" : "off", properties: clean,
+    session_id: session.id, ad_variant: "off", properties: clean,
   };
   if (siteConfig.analyticsDebug) console.debug("[peaje:analytics]", event);
   for (const adapter of adapters) {

@@ -1,11 +1,14 @@
 "use client";
 
+import type { Locale } from "@/lib/i18n";
+import { localPath } from "@/lib/i18n";
+import { gameText as t, gameFormat as fmt } from "@/lib/game-i18n";
 import { useState } from "react";
 import type { GameState } from "@/lib/game";
 import { siteConfig } from "@/lib/config";
 
-export default function ShareGame({ game, onShared }: {
-  game: GameState; onShared: (method: "native" | "clipboard") => void;
+export default function ShareGame({ locale = "es", game, onShared }: {
+  locale?: Locale; game: GameState; onShared: (method: "native" | "clipboard") => void;
 }) {
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
@@ -14,28 +17,28 @@ export default function ShareGame({ game, onShared }: {
     setBusy(true);
     setStatus("");
     const data = { title: "El Peaje", text: game.endReason === "route-completed"
-      ? `He cruzado El Peaje con ${game.failures} fallos. ¿Te atreves a intentarlo?`
-      : "¿Te atreves a cruzar El Peaje?", url: `${siteConfig.siteUrl}/jugar/` };
+      ? fmt(locale, "He cruzado El Peaje con {n} fallos. ¿Te atreves a intentarlo?", { n: game.failures })
+      : t(locale, "¿Te atreves a cruzar El Peaje?"), url: siteConfig.siteUrl + localPath(locale, "play") };
     try {
       if (navigator.share) {
         await navigator.share(data);
         onShared("native");
-        setStatus("Compartido.");
+        setStatus(t(locale, "Compartido."));
       } else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(`${data.text} ${data.url}`);
         onShared("clipboard");
-        setStatus("Enlace copiado.");
+        setStatus(t(locale, "Enlace copiado."));
       } else {
-        setStatus("Puedes copiar la dirección desde la barra del navegador.");
+        setStatus(t(locale, "Puedes copiar la dirección desde la barra del navegador."));
       }
     } catch (error) {
       if (!(error instanceof DOMException && error.name === "AbortError"))
-        setStatus("No se ha podido compartir. Inténtalo de nuevo.");
+        setStatus(t(locale, "No se ha podido compartir. Inténtalo de nuevo."));
     } finally { setBusy(false); }
   }
   return (
     <div className="share-game">
-      <button className="text-button" onClick={share} disabled={busy}>Compartir resultado</button>
+      <button className="text-button" onClick={share} disabled={busy}>{t(locale, "Compartir resultado")}</button>
       <span role="status">{status}</span>
     </div>
   );

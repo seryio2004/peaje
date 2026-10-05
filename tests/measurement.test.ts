@@ -57,10 +57,10 @@ test("storage failure, consent gates, session counts and adapter isolation", () 
  const offBroken = registerAnalyticsAdapter(()=>{throw new Error("offline");});
  const off = registerAnalyticsAdapter(e=>received.push(e));
  try {
-  siteConfig.analyticsEnabled = false; siteConfig.analyticsDebug = false;
+  Object.assign(siteConfig, { analyticsEnabled: false }); Object.assign(siteConfig, { analyticsDebug: false });
   saveConsent({analytics:true,advertising:false});
   assert.equal(trackEvent("game_start"),false); assert.equal(session.size,0);
-  siteConfig.analyticsEnabled = true;
+  Object.assign(siteConfig, { analyticsEnabled: true });
   saveConsent({analytics:false,advertising:true});
   assert.equal(trackEvent("game_start"),false); assert.equal(session.size,0);
   saveConsent({analytics:true,advertising:false});
@@ -82,9 +82,9 @@ test("storage failure, consent gates, session counts and adapter isolation", () 
   saveConsent({analytics:true,advertising:false});
   assert.equal(trackEvent("game_start"),true); // Memory fallback still works.
   assert.notEqual(received[2].session_id,received[0].session_id);
-  siteConfig.cloudflareEnabled = true; siteConfig.cloudflareToken = "invalid";
+  Object.assign(siteConfig, { cloudflareEnabled: true }); Object.assign(siteConfig, { cloudflareToken: "invalid" });
   assert.equal(canLoadCloudflareAnalytics(true),false);
-  siteConfig.cloudflareToken = "a".repeat(32);
+  Object.assign(siteConfig, { cloudflareToken: "a".repeat(32) });
   assert.equal(canLoadCloudflareAnalytics(false),false);
   assert.equal(canLoadCloudflareAnalytics(true),true);
  } finally {

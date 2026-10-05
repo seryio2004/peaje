@@ -1,20 +1,13 @@
-import { siteConfig } from "@/lib/config";
-
+/** Editorial integration points only. No SDK or empty ad placeholder is rendered.
+ * Activate only after configuring real units and consent outside game controls.
+ */
 export const AD_SLOT_IDS = [
-  "after-rules", "after-modes", "after-faq", "after-previa", "after-share",
-  "about-rail", "contact-rail", "privacy-rail", "cookies-rail", "legal-rail",
-  "after-game",
+  "after-rules", "after-modes", "after-faq", "after-previa", "about-rail",
 ] as const;
 export type AdSlotId = typeof AD_SLOT_IDS[number];
-
+export const EDITORIAL_AD_SLOTS: ReadonlySet<AdSlotId> = new Set(["after-rules", "after-modes", "after-faq", "after-previa", "about-rail"]);
 export default function AdSlot({ id }: { id: AdSlotId }) {
-  if (!siteConfig.adsEnabled) return null;
-  return (
-    <aside className="ad-placement" aria-label="Espacio reservado para publicidad"
-      data-ad-slot={id} data-ad-format={id.endsWith("-rail") ? "vertical" : "horizontal"}
-      data-ad-state="placeholder">
-      <span>Publicidad</span>
-      <p>Espacio reservado. No hay anuncios activos.</p>
-    </aside>
-  );
+  if (!EDITORIAL_AD_SLOTS.has(id)) return null;
+  // A feature flag alone must never create placeholders or enable advertising.
+  return null;
 }

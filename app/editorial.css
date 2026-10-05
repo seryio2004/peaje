@@ -11,7 +11,7 @@
 .site-brand { font-family: "Courier New", monospace; font-style: normal; font-weight: 900; }
 .site-brand span { border-radius: 5px; background: #285b87; color: #fff3d6; border: 2px solid #e9e6d6; box-shadow: 2px 3px 0 #091a20; }
 .site-header nav a { padding-block: 10px; }
-.site-header nav a:is([href="/jugar"], [href="/jugar/"]) { padding: 10px 16px; border-radius: 4px; background: #df594b; color: #fff9e7; box-shadow: 0 3px 0 #8b322b; }
+.site-header nav a:is([href="/jugar"], [href="/jugar/"]) { padding: 10px 16px; border-radius: 4px; background: #b53f35; color: #fff9e7; box-shadow: 0 3px 0 #8b322b; }
 .site-footer { margin-top: 64px; border-top: 2px dashed #93a49155; }
 .site-footer strong { font-family: "Courier New", monospace; font-style: normal; }
 :is(.landing-page, .content-page, .play-page) { --muted: #bdccc1; }
@@ -20,7 +20,7 @@
 :is(.landing-page, .content-page, .play-page) :is(h1, h2) { font-family: "Courier New", monospace; font-weight: 900; font-style: normal; letter-spacing: -.065em; text-wrap: balance; }
 :is(.landing-page, .content-page, .play-page) h2 { font-size: clamp(1.75rem, 3.7vw, 2.9rem); line-height: 1.12; }
 :is(.landing-page, .content-page, .play-page) :is(.primary-button, .secondary-button) { min-height: 50px; padding: 15px 22px; border-radius: 5px; font-size: .85rem; text-decoration: none; transition: transform 160ms, box-shadow 160ms; }
-:is(.landing-page, .content-page, .play-page) .primary-button { background: #e65f50; color: #fff9e8; border: 2px solid #f58669; box-shadow: 0 5px 0 #86362f, 0 8px 0 #071f2380; }
+:is(.landing-page, .content-page, .play-page) .primary-button { background: #b53f35; color: #fff9e8; border: 2px solid #f58669; box-shadow: 0 5px 0 #86362f, 0 8px 0 #071f2380; }
 :is(.landing-page, .content-page, .play-page) .secondary-button { background: #244a42; border: 2px solid #6d8e78; color: #fff2d6; box-shadow: 0 5px 0 #10211c; }
 :is(.landing-page, .content-page, .play-page) :is(.primary-button, .secondary-button):hover { transform: translateY(-3px); }
 .landing-hero { grid-template-columns: 1.1fr .9fr; gap: 42px; min-height: 650px; padding: 70px 0 65px; }
@@ -131,4 +131,34 @@
 }
 @media (prefers-reduced-motion: reduce) {
   :is(.landing-page, .content-page, .play-page) *, :is(.landing-page, .content-page, .play-page) *::before { transition: none !important; }
+}
+
+.language-switcher { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.language-switcher a { padding: 6px 7px; border: 1px solid #7a9a8466; border-radius: 4px; color: #e9ecdb; font: 700 .65rem/1 "Courier New", monospace; text-decoration: none; }
+.language-switcher a[aria-current="page"] { border-color: #f4cc75; background: #f4cc75; color: #142f29; }
+.localized-page .content-shell { padding-top: 35px; }
+.localized-page .content-section { padding: 46px 0; }
+.localized-page .content-prose article { margin-bottom: 20px; }
+@media (max-width: 850px) { .site-header .language-switcher { width: 100%; justify-content: center; margin-left: 0; } }
+
+/* Editorial content shares the game's palette and stays readable without JS. */
+.article-breadcrumb { padding-top: 24px; color: #d6e0d6; font-size: .85rem; }
+.article-breadcrumb a, .editorial-article a, .article-related a { color: #f4cc75; }
+.article-related { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 32px 0; }
+.article-related a { padding-block: 8px; }
+.editorial-article li { margin-block: 12px; line-height: 1.7; }
+.content-page .editorial-article section { display: block; }
+.editorial-article section h2 { margin-bottom: 20px; }
+.editorial-article section h3 { margin-top: 28px; }
+.editorial-article section p + p { margin-top: 18px; }
+.probability-table-wrap { max-width: 100%; overflow-x: auto; margin-block: 24px; border: 1px solid #779485; border-radius: 4px; }
+.probability-table-wrap:focus-visible { outline: 3px solid #f4cc75; outline-offset: 4px; }
+.probability-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.probability-table caption { text-align: left; padding: 14px; color: #f4cc75; }
+.probability-table th, .probability-table td { padding: 12px; text-align: left; border-top: 1px solid #77948555; white-space: nowrap; }
+.probability-table thead { background: #203d36; }
+.probability-table tbody tr:nth-child(even) { background: #203d3655; }
+@media (max-width: 850px) {
+  .site-header nav { flex-wrap: wrap; overflow: visible; justify-content: center; }
+  .site-header nav a { display: inline-block; padding-block: 10px; }
 }

@@ -22,14 +22,14 @@ test("rendered QR path decodes to the exact public URL, including the base path"
 test("consent never preauthorizes ads or disabled metrics and expires when providers change", () => {
  const original = {...siteConfig};
  try {
-  siteConfig.analyticsEnabled = false;
+  Object.assign(siteConfig, { analyticsEnabled: false });
   const disabled = saveConsent({analytics:true,advertising:true});
   assert.equal(disabled.analytics,false); assert.equal(disabled.advertising,false);
-  siteConfig.analyticsEnabled = true; siteConfig.cloudflareEnabled = false;
+  Object.assign(siteConfig, { analyticsEnabled: true }); Object.assign(siteConfig, { cloudflareEnabled: false });
   assert.equal(isConsent(disabled),false);
   const events = saveConsent({analytics:true,advertising:true});
   assert.equal(events.analytics,true); assert.equal(events.advertising,false);
-  siteConfig.cloudflareEnabled = true;
+  Object.assign(siteConfig, { cloudflareEnabled: true });
   assert.equal(isConsent(events),false);
  } finally { Object.assign(siteConfig,original); }
 });

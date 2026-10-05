@@ -1,13 +1,13 @@
 # SEO y seguridad: publicación y mantenimiento de El Peaje
 
-Actualizado: 8 de septiembre de 2026.
+Actualizado: 23 de septiembre de 2026.
 
 ## Qué está preparado
 
 - Título, descripción, URL canónica, Open Graph y tarjeta social por página.
 - Imagen PNG de 1200 × 630 generada durante el build.
 - Datos estructurados WebSite y VideoGame, sin valoraciones ni cifras inventadas.
-- Catálogo compartido por metadatos, sitemap y menús.
+- Catálogo español compartido por metadatos, sitemap y menús; rutas de juego y guías traducidas a inglés, italiano, alemán, francés y portugués.
 - Página 404 con enlaces útiles.
 - Validación automática de páginas exportadas, enlaces internos y configuración SEO.
 - CSP con hashes de los scripts incluidos en cada HTML, más cabeceras para Cloudflare.
@@ -30,7 +30,7 @@ Staging lleva `noindex` y un sitemap vacío. Su URL de compilación apunta a la 
 ### Search Console y búsquedas con IA
 
 - Crea en Search Console una propiedad de dominio `elpejae.com` y añade a DNS el TXT que Google entregue. Este método cubre también `www` y no necesita un archivo HTML ni una metaetiqueta. Si eliges una propiedad de prefijo `https://elpejae.com/`, puedes verificarla por etiqueta: pon **solo el valor `content`** que te dé Google en `GOOGLE_SITE_VERIFICATION` durante el build de producción. No inventes un token.
-- Tras publicar, envía `https://elpejae.com/sitemap.xml` en el informe Sitemaps. Contiene las trece rutas públicas del catálogo, incluidas `/jugar/`, `/como-jugar/`, `/juegos-de-beber/` y `/previa/`. Inspecciona las URLs en Search Console y revisa el informe de indexación; enviar un sitemap ayuda a descubrir páginas, pero no garantiza que Google indexe todas.
+- Tras publicar, envía `https://elpejae.com/sitemap.xml` en el informe Sitemaps. Contiene 48 rutas: las trece páginas españolas y siete páginas traducidas por cada uno de los cinco idiomas añadidos. Incluye las rutas de juego, reglas y juegos de beber en cada idioma. Inspecciona las URLs en Search Console y revisa el informe de indexación; enviar un sitemap ayuda a descubrir páginas, pero no garantiza que Google indexe todas.
 - `robots.txt` permite el rastreo general y declara el sitemap. También permite explícitamente `OAI-SearchBot`, el rastreador que OpenAI usa para la búsqueda de ChatGPT. `ChatGPT-User` atiende acciones iniciadas por usuarios y `GPTBot` tiene una finalidad distinta; la regla general actual los permite sin atribuirles un efecto de posicionamiento.
 - Google indica que AI Overviews y AI Mode usan los fundamentos SEO habituales: páginas indexables con texto útil, enlaces internos y datos estructurados coherentes con lo visible. No exige `llms.txt`, un archivo de «SEO para IA» ni un esquema especial. El sitio ya publica títulos y descripciones por ruta, canonicals, Open Graph y datos estructurados `WebSite` y `VideoGame`.
 
@@ -44,6 +44,14 @@ GitHub Pages no interpreta el archivo Cloudflare `_redirects`. La redirección d
 
 Mantén una señal de traslado en el origen y evita dejar dos sitios indexables indefinidamente. Un canonical ayuda a consolidar señales, pero no sustituye una redirección. La herramienta Cambio de dirección de Search Console tiene limitaciones para traslados de subdirectorios como /peaje; comprueba su aplicabilidad a las propiedades que controles. No cambies simultáneamente dominio, rutas y toda la estructura de contenido si puedes hacer la migración por fases. Sigue la [guía de Google para migraciones](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
 
+### SEO multilingüe
+
+Las páginas traducidas usan rutas estáticas bajo `/en/`, `/it/`, `/de/`, `/fr/` y `/pt/`, con un solo idioma visible por URL, canonical propio y enlaces `hreflang` recíprocos con `x-default` hacia español. El sitemap declara las mismas variantes. El selector permite cambiar entre versiones de la página equivalente sin redirección automática por IP o navegador.
+
+El contenido traducido incluye inicio, juego interactivo, reglas, modos, juegos de beber, guía para fiestas y preguntas frecuentes. Las páginas legales y de contacto permanecen en español; el enlace al aviso legal se identifica como tal en las versiones traducidas. Traduce y revisa legalmente esos textos antes de crear URLs indexables adicionales.
+
+Tras publicar, inspecciona en Search Console `/en/drinking-games/`, `/it/giochi-da-bere/`, `/de/trinkspiele/`, `/fr/jeux-a-boire/` y `/pt/jogos-de-beber/`. Comprueba que Google elija el canonical de cada idioma y que no haya errores de hreflang. Consulta la [guía de Google para sitios multilingües](https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites).
+
 ### Seguimiento de las nuevas búsquedas
 
 - Inspecciona `/juegos-de-beber/` tras publicarla y comprueba que Google la indexa. Revisa en Search Console las consultas «juegos de beber», «juegos de beber gratis», «juego de beber online», «El Peaje juego online» y variantes reales que aparezcan en el informe de rendimiento.
@@ -56,7 +64,10 @@ Mantén una señal de traslado en el origen y evita dejar dos sitios indexables 
 | --- | --- |
 | Título SEO, descripción o etiqueta de menú | `lib/site-routes.ts` |
 | Qué enlaces aparecen y su orden en los menús | HEADER_PATHS / FOOTER_PATHS en `lib/site-routes.ts` |
-| Texto visible de una página | `app/<ruta>/page.tsx`; inicio en `app/page.tsx` |
+| Texto visible de una página española | `app/(es)/<ruta>/page.tsx`; inicio en `app/(es)/page.tsx` |
+| Traducciones y títulos de páginas | `lib/translations/<idioma>.ts` |
+| Rutas y alternancias de idioma | `lib/i18n.ts`, `app/[lang]/` |
+| Interfaz y estados traducidos del juego | `lib/game-i18n.ts`, `app/game.tsx` |
 | Reglas, FAQ y explicaciones compartidas | `lib/site-content.ts` |
 | Construcción de canonicals y datos estructurados | `lib/seo.ts` |
 | Diseño de tarjeta social | `app/share-image.png/route.tsx` |
@@ -96,14 +107,14 @@ La [guía de enlaces de Google](https://developers.google.com/search/docs/crawli
 
 ### Añadir
 
-1. Crea `app/nueva-ruta/page.tsx` como componente servidor para sus metadatos.
+1. Crea `app/(es)/nueva-ruta/page.tsx` como componente servidor para sus metadatos.
 2. Añade `"/nueva-ruta"` a SITE_PAGES con título, descripción y etiqueta.
 3. Exporta `export const metadata = pageMetadata("/nueva-ruta");`.
 4. Añade un H1 y contenido propio útil.
 5. Enlázala desde un menú o página relacionada.
 6. Ejecuta las comprobaciones. El sitemap se actualiza desde el catálogo.
 
-El catálogo actual contiene páginas públicas e indexables. Si necesitas una ruta privada o noindex, amplía el catálogo para expresar esa condición y exclúyela del sitemap; no la añadas sin revisar esta lógica.
+El catálogo español contiene páginas públicas e indexables. Las páginas traducidas principales se generan desde `lib/i18n.ts` y los diccionarios de `lib/translations/`; añade una nueva variante solo cuando exista contenido completo en ese idioma. Si necesitas una ruta privada o noindex, amplía el catálogo para expresar esa condición y exclúyela del sitemap; no la añadas sin revisar esta lógica.
 
 ### Renombrar
 

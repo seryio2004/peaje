@@ -318,7 +318,7 @@ test("quick turns starts two separate two-player states", () => {
   assert.notEqual(state.players[1], state.players[2]);
 });
 
-test("safe toll replaces the drinking instruction with an agreed challenge", () => {
+test("tolls use agreed rules and safe toll uses an agreed challenge", () => {
   let state = gameState({
     variant: "safe-toll",
     deck: [card("spades", 11), card("clubs", 2)],
@@ -330,6 +330,13 @@ test("safe toll replaces the drinking instruction with an agreed challenge", () 
   assert.equal(state.phase, "toll");
   assert.match(state.message, /reto acordado/i);
   assert.doesNotMatch(state.message, /bebe/i);
+
+  let classic = gameState({ variant: "classic", deck: [card("spades", 11), card("clubs", 2)] });
+  classic = answerSinglePlayer(classic, "higher");
+  classic = answerSinglePlayer(classic, "rounded");
+  assert.equal(classic.phase, "toll");
+  assert.match(classic.message, /peaje acordado/i);
+  assert.doesNotMatch(classic.message, /bebe/i);
 });
 
 test("detects a consecutive retreat from the last to the first medium question", () => {
