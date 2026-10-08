@@ -1,0 +1,2504 @@
+{
+  "target": "https://elpejae.com",
+  "method": "Sequential independent Lighthouse CLI runs against deployed production. Cold browser profile per run. Simulated throttling. Three runs per page/device; not real-user field data.",
+  "results": [
+    {
+      "profile": "mobile",
+      "run": 1,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:22:03.352Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1560,
+        "largest-contentful-paint": 2437,
+        "speed-index": 1560,
+        "total-blocking-time": 65,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 91,
+        "total-byte-weight": 194620
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-home-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3302,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 1,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:22:15.681Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1554.7024999999999,
+        "largest-contentful-paint": 2586.405,
+        "speed-index": 1554.7024999999999,
+        "total-blocking-time": 76,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 38,
+        "total-byte-weight": 213276
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-play-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3249.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 1,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:22:27.599Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1557.0605,
+        "largest-contentful-paint": 2343.121,
+        "speed-index": 1557.0605,
+        "total-blocking-time": 128,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 121,
+        "total-byte-weight": 194852
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-probabilities-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3290.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 2,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:22:39.638Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 74,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 3170.2790000000005,
+        "largest-contentful-paint": 4483.279,
+        "speed-index": 5087.316398001563,
+        "total-blocking-time": 101,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 64,
+        "total-byte-weight": 194493
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-home-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3273.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 2,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:22:53.989Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1568.2725,
+        "largest-contentful-paint": 2286.545,
+        "speed-index": 1568.2725,
+        "total-blocking-time": 51,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 62,
+        "total-byte-weight": 213451
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-play-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3296.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 2,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:23:05.868Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1542.3764999999999,
+        "largest-contentful-paint": 2613.7529999999997,
+        "speed-index": 1542.3764999999999,
+        "total-blocking-time": 130,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 34,
+        "total-byte-weight": 194935
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-probabilities-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3266,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 3,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:23:17.478Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1554.3235,
+        "largest-contentful-paint": 2426.647,
+        "speed-index": 1554.3235,
+        "total-blocking-time": 70,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 39,
+        "total-byte-weight": 194418
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-home-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3312.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 3,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:23:29.178Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1552.4705,
+        "largest-contentful-paint": 2272.941,
+        "speed-index": 1552.4705,
+        "total-blocking-time": 69,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 33,
+        "total-byte-weight": 213294
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-play-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3314,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "mobile",
+      "run": 3,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:23:40.802Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1531.8980000000001,
+        "largest-contentful-paint": 2423.796,
+        "speed-index": 1531.8980000000001,
+        "total-blocking-time": 110,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 32,
+        "total-byte-weight": 194782
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "mobile-probabilities-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Mobile Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3314.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 1,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:23:52.492Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 538.1705,
+        "largest-contentful-paint": 817.3409999999999,
+        "speed-index": 538.1705,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 75,
+        "total-byte-weight": 194429
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-home-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3316.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 1,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:24:04.133Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 480.1875,
+        "largest-contentful-paint": 628.375,
+        "speed-index": 480.1875,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 96,
+        "total-byte-weight": 213230
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-play-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3328.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 1,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:24:16.263Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 513.5215000000001,
+        "largest-contentful-paint": 609.0430000000001,
+        "speed-index": 513.5215000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 91,
+        "total-byte-weight": 194828
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-probabilities-1.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3274.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 2,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:24:28.048Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 499.6945,
+        "largest-contentful-paint": 702.3889999999999,
+        "speed-index": 499.6945,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 38,
+        "total-byte-weight": 194567
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-home-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3295,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 2,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:24:39.847Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 450.37149999999997,
+        "largest-contentful-paint": 650.743,
+        "speed-index": 450.37149999999997,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 36,
+        "total-byte-weight": 213347
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-play-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3307,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 2,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:24:51.487Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 534.2115,
+        "largest-contentful-paint": 613.2115,
+        "speed-index": 579.669312500137,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 36,
+        "total-byte-weight": 194903
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-probabilities-2.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3336,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 3,
+      "path": "/",
+      "url": "https://elpejae.com/",
+      "fetchTime": "2026-10-05T21:25:03.530Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 462.7305,
+        "largest-contentful-paint": 634.461,
+        "speed-index": 462.7305,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 29,
+        "total-byte-weight": 194513
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-S8QAAeL+BeonmwEjfMAZGxRD1OxAE4Kf67NXVpAjh/4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-home-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3250.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 3,
+      "path": "/jugar/",
+      "url": "https://elpejae.com/jugar/",
+      "fetchTime": "2026-10-05T21:25:15.162Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 436.382,
+        "largest-contentful-paint": 577.764,
+        "speed-index": 436.382,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 30,
+        "total-byte-weight": 213293
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-4G0Ny+2LQuaFhTFt1+NyqIyY1v1bAAf92MqAZy6nAXY='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/jugar/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-play-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3355,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    },
+    {
+      "profile": "desktop",
+      "run": 3,
+      "path": "/probabilidades/",
+      "url": "https://elpejae.com/probabilidades/",
+      "fetchTime": "2026-10-05T21:25:26.955Z",
+      "lighthouseVersion": "13.5.0",
+      "userAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": false,
+        "width": 1350,
+        "height": 940,
+        "deviceScaleFactor": 1,
+        "disabled": false
+      },
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 92,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 460,
+        "largest-contentful-paint": 575,
+        "speed-index": 460,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "server-response-time": 33,
+        "total-byte-weight": 195069
+      },
+      "issues": [
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "sourceLocation",
+                "valueType": "source-location",
+                "label": "Source"
+              },
+              {
+                "key": "description",
+                "valueType": "code",
+                "label": "Description"
+              }
+            ],
+            "items": [
+              {
+                "source": "security",
+                "description": "Loading the script 'https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495' violates the following Content Security Policy directive: \"script-src 'self' 'sha256-7Xi4tRZch2/1L46iRtNkZ36wLCf49Ijjuz2DpyzaV5U=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-DOUMVAX8NtA/jqheMH73o7nWptEwV4t3sllIErcQSk4='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+                "sourceLocation": {
+                  "type": "source-location",
+                  "url": "https://elpejae.com/probabilidades/",
+                  "urlProvider": "network",
+                  "line": 0,
+                  "column": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "inspector-issues",
+          "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+          "details": {
+            "type": "table",
+            "headings": [
+              {
+                "key": "issueType",
+                "valueType": "text",
+                "subItemsHeading": {
+                  "key": "url",
+                  "valueType": "url"
+                },
+                "label": "Issue type"
+              }
+            ],
+            "items": [
+              {
+                "issueType": "Content security policy",
+                "subItems": {
+                  "type": "subitems",
+                  "items": [
+                    {
+                      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "runtimeError": null,
+      "rawFile": "desktop-probabilities-3.json",
+      "environment": {
+        "networkUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+        "hostUserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+        "benchmarkIndex": 3342.5,
+        "credits": {
+          "axe-core": "4.14.0"
+        }
+      },
+      "runWarnings": []
+    }
+  ],
+  "aggregates": [
+    {
+      "profile": "mobile",
+      "path": "/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 74,
+          "median": 97,
+          "max": 97
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 1554.3235,
+          "median": 1560,
+          "max": 3170.2790000000005
+        },
+        "largest-contentful-paint": {
+          "min": 2426.647,
+          "median": 2437,
+          "max": 4483.279
+        },
+        "speed-index": {
+          "min": 1554.3235,
+          "median": 1560,
+          "max": 5087.316398001563
+        },
+        "total-blocking-time": {
+          "min": 65,
+          "median": 70,
+          "max": 101
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 39,
+          "median": 64,
+          "max": 91
+        },
+        "total-byte-weight": {
+          "min": 194418,
+          "median": 194493,
+          "max": 194620
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/jugar/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 96,
+          "median": 98,
+          "max": 98
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 1552.4705,
+          "median": 1554.7024999999999,
+          "max": 1568.2725
+        },
+        "largest-contentful-paint": {
+          "min": 2272.941,
+          "median": 2286.545,
+          "max": 2586.405
+        },
+        "speed-index": {
+          "min": 1552.4705,
+          "median": 1554.7024999999999,
+          "max": 1568.2725
+        },
+        "total-blocking-time": {
+          "min": 51,
+          "median": 69,
+          "max": 76
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 33,
+          "median": 38,
+          "max": 62
+        },
+        "total-byte-weight": {
+          "min": 213276,
+          "median": 213294,
+          "max": 213451
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    },
+    {
+      "profile": "mobile",
+      "path": "/probabilidades/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 95,
+          "median": 96,
+          "max": 96
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 1531.8980000000001,
+          "median": 1542.3764999999999,
+          "max": 1557.0605
+        },
+        "largest-contentful-paint": {
+          "min": 2343.121,
+          "median": 2423.796,
+          "max": 2613.7529999999997
+        },
+        "speed-index": {
+          "min": 1531.8980000000001,
+          "median": 1542.3764999999999,
+          "max": 1557.0605
+        },
+        "total-blocking-time": {
+          "min": 110,
+          "median": 128,
+          "max": 130
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 32,
+          "median": 34,
+          "max": 121
+        },
+        "total-byte-weight": {
+          "min": 194782,
+          "median": 194852,
+          "max": 194935
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 462.7305,
+          "median": 499.6945,
+          "max": 538.1705
+        },
+        "largest-contentful-paint": {
+          "min": 634.461,
+          "median": 702.3889999999999,
+          "max": 817.3409999999999
+        },
+        "speed-index": {
+          "min": 462.7305,
+          "median": 499.6945,
+          "max": 538.1705
+        },
+        "total-blocking-time": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 29,
+          "median": 38,
+          "max": 75
+        },
+        "total-byte-weight": {
+          "min": 194429,
+          "median": 194513,
+          "max": 194567
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/jugar/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 436.382,
+          "median": 450.37149999999997,
+          "max": 480.1875
+        },
+        "largest-contentful-paint": {
+          "min": 577.764,
+          "median": 628.375,
+          "max": 650.743
+        },
+        "speed-index": {
+          "min": 436.382,
+          "median": 450.37149999999997,
+          "max": 480.1875
+        },
+        "total-blocking-time": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 30,
+          "median": 36,
+          "max": 96
+        },
+        "total-byte-weight": {
+          "min": 213230,
+          "median": 213293,
+          "max": 213347
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    },
+    {
+      "profile": "desktop",
+      "path": "/probabilidades/",
+      "runs": 3,
+      "scores": {
+        "performance": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "accessibility": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "best-practices": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "seo": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        }
+      },
+      "metrics": {
+        "first-contentful-paint": {
+          "min": 460,
+          "median": 513.5215000000001,
+          "max": 534.2115
+        },
+        "largest-contentful-paint": {
+          "min": 575,
+          "median": 609.0430000000001,
+          "max": 613.2115
+        },
+        "speed-index": {
+          "min": 460,
+          "median": 513.5215000000001,
+          "max": 579.669312500137
+        },
+        "total-blocking-time": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "cumulative-layout-shift": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "server-response-time": {
+          "min": 33,
+          "median": 36,
+          "max": 91
+        },
+        "total-byte-weight": {
+          "min": 194828,
+          "median": 194903,
+          "max": 195069
+        }
+      },
+      "issues": [
+        "errors-in-console",
+        "inspector-issues"
+      ]
+    }
+  ]
+}

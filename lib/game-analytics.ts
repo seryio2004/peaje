@@ -1,6 +1,7 @@
 import { trackEvent, type EventName, type EventProperties } from "./analytics";
 import { MODE_IDS, PLAYER_MODE_IDS, DIFFICULTY_IDS, QUESTION_CATALOG } from "./game-catalog";
 import { getScore, type GameState } from "./game";
+import { createAnalyticsId } from "./analytics-id";
 
 type Emit = (name: EventName, properties?: EventProperties) => boolean;
 export function gameEventContext(game: GameState): EventProperties {
@@ -12,6 +13,9 @@ export function gameEventContext(game: GameState): EventProperties {
 }
 /** Explicit transitions keep render effects and Strict Mode from duplicating events. */
 export function createGameAnalytics(emit: Emit = trackEvent, now = Date.now) {
+  const safelyEmit: Emit = (name, properties) => {
+    try { return emit(name, properties); } catch { return false; }
+  };
   let run: { id: string; startedAt: number; ended: boolean; game: GameState } | null = null;
   const properties = () => run ? {
     ...gameEventContext(run.game), game_id: run.id, duration_ms: Math.max(0, now() - run.startedAt),
@@ -19,9 +23,10 @@ export function createGameAnalytics(emit: Emit = trackEvent, now = Date.now) {
   return {
     start(game: GameState, source: "setup" | "repeat" = "setup") {
       const previous = run;
-      if (source === "repeat" && previous?.ended) emit("game_repeat", properties());
-      const id = crypto.randomUUID();
-      const accepted = emit("game_start", { ...gameEventContext(game), game_id: id, source,
+      if (source === "repeat" && previous?.ended) safelyEmit("game_repeat", properties());
+      const id = createAnalyticsId();
+      if (!id) { run = null; return; }
+      const accepted = safelyEmit("game_start", { ...gameEventContext(game), game_id: id, source,
         ...(source === "repeat" && previous ? { previous_game_id: previous.id } : {}) });
       run = accepted ? { id, startedAt: now(), ended: false, game } : null;
     },
@@ -30,16 +35,16 @@ export function createGameAnalytics(emit: Emit = trackEvent, now = Date.now) {
       run.game = game;
       if (game.phase === "complete") {
         run.ended = true;
-        emit("game_end", { ...properties(), end_reason: game.endReason ?? "unknown" });
+        safelyEmit("game_end", { ...properties(), end_reason: game.endReason ?? "unknown" });
       }
     },
     abandon(reason: "new_game" | "navigation" | "page_exit") {
       if (!run || run.ended) return;
       run.ended = true;
-      emit("game_abandon", { ...properties(), reason });
+      safelyEmit("game_abandon", { ...properties(), reason });
     },
     share(method: "native" | "clipboard") {
-      if (run) emit("game_share", { ...properties(), method, result: method === "native" ? "shared" : "copied" });
+      if (run) safelyEmit("game_share", { ...properties(), method, result: method === "native" ? "shared" : "copied" });
     },
     forget() { run = null; },
   };

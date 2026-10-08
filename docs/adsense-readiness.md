@@ -2,6 +2,8 @@
 
 Fecha: 5 de octubre de 2026.
 
+> **Actualización tras el push:** el despliegue ya publica las 52 páginas. Consulta [la comprobación de producción](adsense-post-deploy.md), que sustituye las observaciones históricas de este documento sobre rutas todavía sin publicar.
+
 **Estado: cambios locales terminados y comprobados; no solicitar todavía revisión sobre la versión publicada anterior.** Primero publicar este export de producción, repetir la auditoría contra el dominio y confirmar los datos del titular, la cuenta publicitaria y los permisos de los recursos audiovisuales. No se ha desplegado ni solicitado revisión de AdSense.
 
 ## Cambios realizados

@@ -7,6 +7,54 @@ import { EVENT_NAMES, trackEvent, registerAnalyticsAdapter, clearAnalyticsSessio
 import { saveConsent, isConsent, getConsentPolicy, CONSENT_MAX_AGE_MS } from "../lib/consent";
 import { readStored, writeStored, removeStored } from "../lib/storage";
 import { QUESTION_CATALOG, MODE_IDS, CATEGORY_IDS } from "../lib/game-catalog";
+import { createAnalyticsId } from "../lib/analytics-id";
+
+test("games start without randomUUID, and unavailable crypto only disables measurement", () => {
+ const originalCrypto = Object.getOwnPropertyDescriptor(globalThis, "crypto");
+ const getRandomValues = globalThis.crypto.getRandomValues.bind(globalThis.crypto);
+ const events: { name: string; props?: EventProperties }[] = [];
+ const game = startGame("one-player");
+ const tracker = createGameAnalytics((name, props) => { events.push({name, props}); return true; });
+ try {
+  Object.defineProperty(globalThis, "crypto", {configurable:true, value:{getRandomValues}});
+  assert.doesNotThrow(() => tracker.start(game));
+  tracker.update({...game, phase:"complete", endReason:"route-completed"});
+  tracker.start(game, "repeat");
+  assert.deepEqual(events.map(e => e.name), ["game_start", "game_end", "game_repeat", "game_start"]);
+  const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+  assert.match(events[0].props!.game_id!, uuidPattern);
+  assert.match(events[3].props!.game_id!, uuidPattern);
+  assert.notEqual(events[0].props?.game_id, events[3].props?.game_id);
+  for (const crypto of [undefined, {}, {getRandomValues(){throw new Error("unavailable");}}]) {
+   Object.defineProperty(globalThis, "crypto", {configurable:true, value:crypto});
+   assert.equal(createAnalyticsId(), null);
+   assert.doesNotThrow(() => tracker.start(game));
+   tracker.update({...game, phase:"complete"});
+   tracker.abandon("navigation");
+   tracker.share("native");
+   assert.equal(events.length, 4);
+  }
+ } finally {
+  if (originalCrypto) Object.defineProperty(globalThis, "crypto", originalCrypto);
+  else Reflect.deleteProperty(globalThis, "crypto");
+ }
+});
+
+test("measurement errors never interrupt game actions", () => {
+ let broken = false;
+ const tracker = createGameAnalytics(() => { if (broken) throw new Error("offline"); return true; });
+ const game = startGame("one-player");
+ tracker.start(game);
+ broken = true;
+ assert.doesNotThrow(() => tracker.share("native"));
+ assert.doesNotThrow(() => tracker.update({...game, phase:"complete"}));
+ assert.doesNotThrow(() => tracker.start(game, "repeat"));
+ broken = false;
+ tracker.start(game);
+ broken = true;
+ assert.doesNotThrow(() => tracker.abandon("navigation"));
+ assert.doesNotThrow(() => tracker.start(game));
+});
 
 test("stable catalog IDs are unique and no skipping event exists", () => {
  for (const ids of [Object.values(QUESTION_CATALOG).map(q => q.id), Object.values(MODE_IDS), Object.values(CATEGORY_IDS)]) assert.equal(new Set(ids).size, ids.length);
@@ -51,12 +99,15 @@ test("storage failure, consent gates, session counts and adapter isolation", () 
  const storage = (map: Map<string,string>) => ({getItem:(k:string)=>map.get(k)??null,setItem:(k:string,v:string)=>map.set(k,v),removeItem:(k:string)=>map.delete(k)});
  const target = new EventTarget();
  const originalWindow = Object.getOwnPropertyDescriptor(globalThis,"window");
+ const originalCrypto = Object.getOwnPropertyDescriptor(globalThis,"crypto");
+ const getRandomValues = globalThis.crypto.getRandomValues.bind(globalThis.crypto);
  const originalConfig = {...siteConfig};
  Object.defineProperty(globalThis,"window",{configurable:true,value:Object.assign(target,{localStorage:storage(local),sessionStorage:storage(session)})});
  const received: AnalyticsEvent[] = [];
  const offBroken = registerAnalyticsAdapter(()=>{throw new Error("offline");});
  const off = registerAnalyticsAdapter(e=>received.push(e));
  try {
+  Object.defineProperty(globalThis,"crypto",{configurable:true,value:{getRandomValues}});
   Object.assign(siteConfig, { analyticsEnabled: false }); Object.assign(siteConfig, { analyticsDebug: false });
   saveConsent({analytics:true,advertising:false});
   assert.equal(trackEvent("game_start"),false); assert.equal(session.size,0);
@@ -82,6 +133,10 @@ test("storage failure, consent gates, session counts and adapter isolation", () 
   saveConsent({analytics:true,advertising:false});
   assert.equal(trackEvent("game_start"),true); // Memory fallback still works.
   assert.notEqual(received[2].session_id,received[0].session_id);
+  clearAnalyticsSession();
+  Object.defineProperty(globalThis,"crypto",{configurable:true,value:undefined});
+  assert.equal(trackEvent("game_start"),false);
+  assert.equal(received.length,3);
   Object.assign(siteConfig, { cloudflareEnabled: true }); Object.assign(siteConfig, { cloudflareToken: "invalid" });
   assert.equal(canLoadCloudflareAnalytics(true),false);
   Object.assign(siteConfig, { cloudflareToken: "a".repeat(32) });
@@ -90,5 +145,6 @@ test("storage failure, consent gates, session counts and adapter isolation", () 
  } finally {
   off();offBroken();clearAnalyticsSession();Object.assign(siteConfig,originalConfig);
   if (originalWindow) Object.defineProperty(globalThis,"window",originalWindow); else Reflect.deleteProperty(globalThis,"window");
+  if (originalCrypto) Object.defineProperty(globalThis,"crypto",originalCrypto); else Reflect.deleteProperty(globalThis,"crypto");
  }
 });

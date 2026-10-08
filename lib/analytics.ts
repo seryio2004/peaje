@@ -1,4 +1,5 @@
 import { siteConfig } from "./config";
+import { createAnalyticsId } from "./analytics-id";
 import { hasConsent } from "./consent";
 import { readStored, removeStored, writeStored } from "./storage";
 
@@ -49,8 +50,12 @@ export function trackEvent(name: EventName, properties: EventProperties = {}): b
   if (!(EVENT_NAMES as readonly string[]).includes(name)) return false;
   const now = Date.now();
   const stored = memorySession ?? readStored(ANALYTICS_SESSION_KEY, isSession, "session");
-  const session = stored && now >= stored.lastActivity && now - stored.lastActivity < SESSION_TIMEOUT_MS
-    ? stored : { id: crypto.randomUUID(), lastActivity: now, games: 0 };
+  let session = stored;
+  if (!session || now < session.lastActivity || now - session.lastActivity >= SESSION_TIMEOUT_MS) {
+    const id = createAnalyticsId();
+    if (!id) return false;
+    session = { id, lastActivity: now, games: 0 };
+  }
   session.lastActivity = now;
   if (name === "game_start") session.games += 1;
   memorySession = session;
