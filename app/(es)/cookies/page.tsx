@@ -7,7 +7,7 @@ import PageHero from "../../page-hero";
 export const metadata = pageMetadata("/cookies");
 export default function CookiesPage() {
   return <main className="content-page legal-page"><div className="content-shell narrow-content">
-    <PageHero kicker="Información legal" title="Cookies y tecnologías similares"><p>Última actualización: 5 de octubre de 2026.</p></PageHero>
+    <PageHero path="/cookies" kicker="Información legal" title="Cookies y tecnologías similares"><p>Última actualización: 5 de octubre de 2026.</p></PageHero>
     <div className="content-ad-layout">
       <div className="legal-copy">
       <section><h2>Para qué se utilizan</h2><p>El Peaje utiliza almacenamiento del navegador para recordar tu elección de privacidad. Solo si se habilita la analítica y la aceptas, se utiliza también para medir el uso del juego. No se guardan tus partidas en un servidor propio.</p><p>Analítica: <strong>{siteConfig.analyticsEnabled ? "opcional" : "desactivada"}</strong>.</p></section>

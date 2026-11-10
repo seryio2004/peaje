@@ -9,7 +9,7 @@ export default function PreviaPage() {
   return (
     <main className="content-page">
       <div className="content-shell">
-        <PageHero kicker="Una partida antes de salir" title="El Peaje para la previa">
+        <PageHero path="/previa" kicker="Una partida antes de salir" title="El Peaje para la previa">
           <p>El Peaje es un juego de cartas online para romper el hielo en una previa. Solo necesitáis un móvil: la web mezcla las 52 cartas y guía la partida.</p>
           <Link prefetch={false} className="primary-button" href="/jugar">Empezar a jugar gratis</Link>
         </PageHero>
@@ -43,7 +43,7 @@ export default function PreviaPage() {
           <p className="content-kicker">Bebidas y alternativas</p>
           <h2 id="bebidas-title">Si alguien entra o sale del grupo</h2>
           <p>La patata fija el número de jugadores al empezar. Si cambia el grupo, terminad o interrumpid esa partida e iniciad otra con la nueva configuración. Para más de ocho personas, dividid la mesa o utilizad un operador por equipo; no existen salas compartidas entre móviles.</p>
-          <Link prefetch={false} href="/juegos-de-beber">Ideas para acordar peajes voluntarios →</Link>
+          <Link prefetch={false} href="/juegos-de-beber">El Peaje como juego de beber con cartas y sin alcohol →</Link>
         </section>
       </div>
     </main>

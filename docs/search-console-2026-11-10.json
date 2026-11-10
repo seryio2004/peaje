@@ -1,0 +1,347 @@
+{
+  "asOf": "2026-11-10",
+  "period": {
+    "start": "2026-10-12",
+    "end": "2026-11-08",
+    "days": 28
+  },
+  "totals": {
+    "clicks": 24,
+    "impressions": 225,
+    "ctr": 10.666666666666668,
+    "position": 5.275111111111111
+  },
+  "queries": [
+    {
+      "key": "el peaje",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 13.22
+    },
+    {
+      "key": "peaje juego de beber",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 4.12
+    },
+    {
+      "key": "juegos de cartas beber",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "key": "cartas para previas",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "key": "el paje",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "key": "el pz",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 96
+    }
+  ],
+  "pages": [
+    {
+      "key": "https://elpejae.com/",
+      "clicks": 14,
+      "impressions": 145,
+      "ctr": 9.655172413793103,
+      "position": 4.65,
+      "lastEdited": "2026-11-10",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/juegos-de-beber/",
+      "clicks": 4,
+      "impressions": 60,
+      "ctr": 6.666666666666667,
+      "position": 3.93,
+      "lastEdited": "2026-11-10",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/jugar/",
+      "clicks": 3,
+      "impressions": 55,
+      "ctr": 5.454545454545454,
+      "position": 4.18,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/sobre-el-juego/",
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 8,
+      "lastEdited": "2026-11-10",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/como-jugar/",
+      "clicks": 3,
+      "impressions": 25,
+      "ctr": 12,
+      "position": 4.96,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/modos-de-juego/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 6.58,
+      "lastEdited": "2026-11-10",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/previa/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5,
+      "lastEdited": "2026-11-10",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/en/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 2,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/en/play/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 4.6,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/preguntas-frecuentes/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 3.25,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/fr/jouer/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6.25,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/en/drinking-games/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 23.5,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/en/how-to-play/",
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 33.33333333333333,
+      "position": 33.33,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/contacto/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 18.67,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/fr/questions-frequentes/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/it/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/en/faq/",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 100,
+      "position": 2,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/fr/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/cookies/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    },
+    {
+      "key": "https://elpejae.com/compartir",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 97,
+      "lastEdited": "2026-10-05",
+      "cooldown": true
+    }
+  ],
+  "devices": [
+    {
+      "key": "Móviles",
+      "clicks": 22,
+      "impressions": 201,
+      "ctr": 10.945273631840797,
+      "position": 3.68
+    },
+    {
+      "key": "Ordenador",
+      "clicks": 2,
+      "impressions": 21,
+      "ctr": 9.523809523809524,
+      "position": 21
+    },
+    {
+      "key": "Tablet",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2
+    }
+  ],
+  "opportunities": {
+    "queriesAt5to15": [
+      {
+        "key": "el peaje",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 13.22
+      },
+      {
+        "key": "el paje",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      }
+    ],
+    "pagesAt5to15": [
+      {
+        "key": "https://elpejae.com/sobre-el-juego/",
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0,
+        "position": 8,
+        "lastEdited": "2026-11-10",
+        "cooldown": true
+      },
+      {
+        "key": "https://elpejae.com/modos-de-juego/",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 6.58,
+        "lastEdited": "2026-11-10",
+        "cooldown": true
+      },
+      {
+        "key": "https://elpejae.com/previa/",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 5,
+        "lastEdited": "2026-11-10",
+        "cooldown": true
+      },
+      {
+        "key": "https://elpejae.com/fr/jouer/",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 6.25,
+        "lastEdited": "2026-10-05",
+        "cooldown": true
+      },
+      {
+        "key": "https://elpejae.com/it/",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6,
+        "lastEdited": "2026-10-05",
+        "cooldown": true
+      },
+      {
+        "key": "https://elpejae.com/cookies/",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6,
+        "lastEdited": "2026-10-05",
+        "cooldown": true
+      }
+    ],
+    "nextThreePages": [],
+    "lowCtrWith500Impressions": []
+  },
+  "limitations": [
+    "Las consultas y páginas son dimensiones independientes: no permiten asignar una consulta a una URL ni demostrar canibalización.",
+    "Las consultas anonimizadas pueden faltar; sus totales y los agregados por página no sustituyen al gráfico.",
+    "Las impresiones son del sitio, no volúmenes mensuales de búsqueda. Una muestra pequeña no demuestra un problema de CTR.",
+    "La posición global se aproxima ponderando las medias diarias redondeadas por sus impresiones.",
+    "El cooldown usa el registro de cambios SEO y, como aproximación, el último commit de la página. No demuestra cuándo Google la rastreó.",
+    "Sin exportación anterior comparable no se pueden calcular tendencias ni atribuir mejoras a un cambio."
+  ]
+}

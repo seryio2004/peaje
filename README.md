@@ -20,6 +20,13 @@ Consulta [la guía de Cloudflare, analítica y anuncios](docs/cloudflare-analiti
 
 Consulta [la guía de SEO y seguridad](docs/seo-y-seguridad.md) antes de cambiar textos, menús, rutas o dominio. Los builds verifican automáticamente el SEO del export y generan su CSP.
 
+El [plan SEO basado en Search Console](docs/seo-search-console.md) documenta las palabras objetivo, los cambios y la revisión semanal. Para analizar una nueva exportación:
+
+```bash
+npm run seo:report -- ./carpeta-del-informe
+# Sin carpeta, detecta la exportación si solo hay una en la raíz.
+```
+
 ## Auditoría editorial y AdSense
 
 La auditoría inicial está en [docs/adsense-audit.md](docs/adsense-audit.md) y los resultados finales en [docs/adsense-readiness.md](docs/adsense-readiness.md). No se solicita revisión de AdSense automáticamente.

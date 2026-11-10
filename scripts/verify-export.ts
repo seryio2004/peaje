@@ -26,7 +26,9 @@ for (const path of pages) {
  const html = read(file);
  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
  assert.ok(title); assert.ok(!titles.has(title), "Repeated title: " + title); titles.add(title);
+ assert.ok(decode(title).length <= 60, path + " title exceeds the editorial 60-character guideline");
  assert.equal((html.match(/<h1\b/g) || []).length, 1, path + " must contain one primary heading");
+ for (const image of html.matchAll(/<img\b[^>]*>/g)) assert.ok(/\balt="[^"]*"/.test(image[0]), path + " image needs an alt attribute");
  assert.ok(attribute(html, "meta", 'name="description"', "content").length > 0);
  assert.equal(attribute(html, "meta", 'name="robots"', "content"), production ? "index, follow" : "noindex, nofollow");
  if (production && process.env.GOOGLE_SITE_VERIFICATION) {
@@ -43,13 +45,20 @@ for (const path of pages) {
  for (const hash of inlineScriptHashes(html)) assert.ok(policy.includes(hash), "Inline script hash missing on " + path);
  assert.ok(!/script-src [^;]*'unsafe-(inline|eval)'/.test(policy));
  assert.ok(html.indexOf('data-peaje-csp="true"') < html.indexOf("<script"));
+ let breadcrumbFound = false;
  for (const script of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
    const structuredData = JSON.parse(script[1]);
+   for (const node of structuredData["@graph"] || []) if (node["@type"] === "BreadcrumbList") {
+     assert.equal(node.url, expected);
+     assert.deepEqual(node.itemListElement.map((item: { position: number; item: string }) => [item.position, item.item]), [[1, canonicalRoot], [2, expected]]);
+     breadcrumbFound = true;
+   }
    if (production) for (const node of structuredData["@graph"] || []) {
      assert.ok(node["@id"]?.startsWith(canonicalRoot), path + " has an off-domain structured-data ID");
      assert.ok(node.url?.startsWith(canonicalRoot), path + " has an off-domain structured-data URL");
    }
  }
+ if (path !== "/" && path !== "/jugar") assert.ok(breadcrumbFound, path + " needs its visible breadcrumb structured data");
  for (const match of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
    const href = decode(match[1]);
    if (!href.startsWith("/") || href.startsWith("//")) continue;
@@ -57,6 +66,10 @@ for (const path of pages) {
    const target = href.split(/[?#]/)[0].replace(new RegExp("^" + base + "(?=/|$)"), "").replace(/\/$/, "") || "/";
    assert.ok(target in SITE_PAGES || existsSync("out" + target), path + " broken link: " + href);
  }
+}
+for (const source of ["out/index.html", "out/previa/index.html", "out/jugar/index.html"]) {
+ const main = read(source).match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || "";
+ assert.ok(/href="\/juegos-de-beber\/?"/.test(main), source + " must link contextually to the drinking guide");
 }
 for (const entry of readdirSync("app/(es)", { withFileTypes: true })) {
  if (entry.isDirectory() && existsSync("app/(es)/" + entry.name + "/page.tsx")) assert.ok("/" + entry.name in SITE_PAGES, "Register new route: " + entry.name);

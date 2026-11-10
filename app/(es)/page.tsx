@@ -73,7 +73,7 @@ export default function Home() {
           <p className="content-kicker">Para la previa o la sobremesa</p>
           <h2 id="drinking-games-title">¿Buscas juegos de beber gratis?</h2>
           <p>El Peaje se juega con cartas online y funciona en un solo móvil. El grupo decide qué significa cada peaje: una pregunta, un punto, un reto o, entre adultos, una bebida voluntaria. La partida también funciona sin alcohol.</p>
-          <Link prefetch={false} className="secondary-button" href="/juegos-de-beber">Ver cómo jugar en grupo →</Link>
+          <Link prefetch={false} className="secondary-button" href="/juegos-de-beber">El Peaje como juego de beber con cartas →</Link>
         </div>
       </section>
 

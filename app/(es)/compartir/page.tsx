@@ -8,7 +8,7 @@ export default function SharePage() {
   const url = siteUrl();
   const qr = createShareQr(url);
   return <main className="content-page"><div className="content-shell">
-    <PageHero kicker="EP-52 / Invita a tu próxima partida" title="El Peaje se comparte.">
+    <PageHero path="/compartir" kicker="EP-52 / Invita a tu próxima partida" title="El Peaje se comparte.">
       <p>Acerca otra cámara al código y lleva la partida al siguiente móvil. Sin registro ni instalación.</p>
     </PageHero>
     <section className="qr-share-panel" aria-labelledby="qr-title">

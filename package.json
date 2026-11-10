@@ -12,6 +12,7 @@
     "build:staging": "node scripts/run-next.mjs build staging",
     "preview": "wrangler dev",
     "check:site": "tsx scripts/verify-export.ts",
+    "seo:report": "node scripts/search-console.mjs",
     "audit:site": "tsx scripts/site-audit.mts",
     "preview:static": "node scripts/serve-export.mjs"
   },

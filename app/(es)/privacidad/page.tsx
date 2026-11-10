@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <main className="content-page legal-page">
       <div className="content-shell narrow-content">
-        <PageHero kicker="Información legal" title="Política de privacidad">
+        <PageHero path="/privacidad" kicker="Información legal" title="Política de privacidad">
           <p>Última actualización: 5 de octubre de 2026.</p>
         </PageHero>
         <div className="content-ad-layout">

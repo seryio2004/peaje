@@ -8,7 +8,7 @@ export default function LegalNoticePage() {
   return (
     <main className="content-page legal-page">
       <div className="content-shell narrow-content">
-        <PageHero kicker="Información legal" title="Aviso legal">
+        <PageHero path="/aviso-legal" kicker="Información legal" title="Aviso legal">
           <p>Última actualización: 21 de septiembre de 2026.</p>
         </PageHero>
         <div className="content-ad-layout">

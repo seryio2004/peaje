@@ -11,7 +11,7 @@ const known = [reference, ...deck.filter(card => ["clubs-2", "spades-3", "diamon
 const example = predictionCounts(reference, known);
 
 export default function ProbabilitiesPage() {
-  return <EditorialArticle title="Probabilidades en El Peaje" intro="Las opciones no siempre tienen la misma probabilidad. Contamos las cartas que quedan en la baraja real del juego para explicar qué cambia con cada referencia.">
+  return <EditorialArticle path="/probabilidades" title="Probabilidades en El Peaje" intro="Las opciones no siempre tienen la misma probabilidad. Contamos las cartas que quedan en la baraja real del juego para explicar qué cambia con cada referencia.">
     <section><h2>Mayor o menor: contar antes de elegir</h2>
       <p>El motor crea cuatro palos con valores del 2 al 14: J = 11, Q = 12, K = 13 y A = 14. No hay comodines y las cartas salen sin reposición. Al empezar hay una referencia visible y 51 cartas por revelar. Un valor igual falla tanto si eliges mayor como si eliges menor.</p>
       <p>Para una referencia de valor r, y sin conocer otras cartas, hay 4 × (14 − r) cartas mayores, 4 × (r − 2) menores y 3 del mismo valor. La probabilidad es el número de cartas favorables dividido entre 51. El palo de esa primera referencia no cambia la comparación de valores.</p>

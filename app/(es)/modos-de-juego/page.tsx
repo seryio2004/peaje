@@ -10,7 +10,7 @@ export default function ModesPage() {
   return (
     <main className="content-page">
       <div className="content-shell">
-        <PageHero kicker="Configura la partida" title="Modos de juego y dificultades">
+        <PageHero path="/modos-de-juego" kicker="Configura la partida" title="Modos de juego y dificultades">
           <p>
             Combina una variante con la dificultad que mejor encaje con el tiempo,
             la experiencia y el número de jugadores.

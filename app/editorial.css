@@ -144,6 +144,10 @@
 /* Editorial content shares the game's palette and stays readable without JS. */
 .article-breadcrumb { padding-top: 24px; color: #d6e0d6; font-size: .85rem; }
 .article-breadcrumb a, .editorial-article a, .article-related a { color: #f4cc75; }
+.guide-wayfinding { flex-wrap: wrap; align-items: baseline; }
+.guide-wayfinding .article-breadcrumb { padding-top: 0; font: inherit; line-height: 1.7; }
+.quick-rules { padding-left: 1.5rem; }
+.quick-rules li { margin-block: 16px; line-height: 1.7; }
 .article-related { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 32px 0; }
 .article-related a { padding-block: 8px; }
 .editorial-article li { margin-block: 12px; line-height: 1.7; }

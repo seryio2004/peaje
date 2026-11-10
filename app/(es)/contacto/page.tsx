@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <main className="content-page">
       <div className="content-shell narrow-content">
-        <PageHero kicker="Participa" title="Contacto">
+        <PageHero path="/contacto" kicker="Participa" title="Contacto">
           <p>
             Puedes comunicar un error, proponer una mejora o plantear una duda por correo electrónico.
           </p>

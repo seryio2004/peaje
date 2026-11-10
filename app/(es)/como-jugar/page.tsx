@@ -10,7 +10,7 @@ export default function RulesPage() {
   return (
     <main className="content-page">
       <div className="content-shell">
-        <PageHero kicker="Guía completa" title="Cómo jugar a El Peaje">
+        <PageHero path="/como-jugar" kicker="Guía completa" title="Cómo jugar a El Peaje">
           <p>
             El objetivo es superar una ruta de predicciones sobre una baraja
             francesa. Los aciertos te acercan al final; los fallos te hacen

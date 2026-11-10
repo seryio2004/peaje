@@ -3,7 +3,7 @@ import test from "node:test";
 import { createHash } from "node:crypto";
 import { documentPolicy, inlineScriptHashes, securityHeaders } from "../scripts/security.mjs";
 import { validateSiteUrl } from "../scripts/site-environment.mjs";
-import { serializeJsonLd, pageMetadata } from "../lib/seo";
+import { serializeJsonLd, pageMetadata, pageStructuredData, siteStructuredData } from "../lib/seo";
 import { SITE_PAGES } from "../lib/site-routes";
 
 test("CSP permits only exact inline contents and configured analytics origins", () => {
@@ -29,4 +29,15 @@ test("JSON-LD cannot escape its script element and each route has its own canoni
  assert.ok(!serialized.includes("<")); assert.equal(JSON.parse(serialized).name,'</script><script>alert(1)</script>');
  const canonicals = Object.keys(SITE_PAGES).map(path => pageMetadata(path as keyof typeof SITE_PAGES).alternates?.canonical);
  assert.equal(new Set(canonicals).size, Object.keys(SITE_PAGES).length);
+});
+test("page breadcrumbs match canonical navigation and the game advertises its real free web offer", () => {
+ const graph = pageStructuredData("/juegos-de-beber", "El Peaje: juego de beber con cartas")["@graph"];
+ const page = graph[0], breadcrumb = graph[1];
+ assert.equal(page.url, pageMetadata("/juegos-de-beber").alternates?.canonical);
+ assert.equal(page.breadcrumb?.["@id"], breadcrumb["@id"]);
+ assert.deepEqual(breadcrumb.itemListElement?.map(item => item.item), ["https://elpejae.com/", page.url]);
+ const game = siteStructuredData()["@graph"].find(node => Array.isArray(node["@type"]) && node["@type"].includes("VideoGame"));
+ assert.equal(game?.offers?.price, 0);
+ assert.equal(game?.offers?.priceCurrency, "EUR");
+ assert.ok((pageMetadata("/juegos-de-beber").title as { absolute: string }).absolute.endsWith("online gratis"));
 });

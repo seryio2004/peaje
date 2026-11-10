@@ -15,3 +15,6 @@ pnpm-debug.log*
 /.wrangler/
 
 /growth-automation/
+
+# Exportaciones de Google Search Console
+/*-Performance-on-Search-*/

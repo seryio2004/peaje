@@ -10,7 +10,7 @@ export default function FaqPage() {
   return (
     <main className="content-page">
       <div className="content-shell">
-        <PageHero kicker="Respuestas rápidas" title="Preguntas frecuentes">
+        <PageHero path="/preguntas-frecuentes" kicker="Respuestas rápidas" title="Preguntas frecuentes">
           <p>
             Aquí encontrarás las dudas habituales sobre la baraja, las reglas y
             el funcionamiento de las partidas.
