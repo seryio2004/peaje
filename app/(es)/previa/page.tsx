@@ -33,7 +33,7 @@ export default function PreviaPage() {
           </div>
           <div className="content-prose">
             <p>Para una partida corta, elegid Clásico con dificultad Fácil. Si queréis competir, Por puntos cuenta los fallos y los peajes. Con 3 a 8 jugadores, La patata permite pasar el móvil tras algunos aciertos; las cartas que lo permiten están ocultas hasta responder.</p>
-            <p>Consulta <Link prefetch={false} href="/modos-de-juego">todos los modos y dificultades</Link> o lee <Link prefetch={false} href="/como-jugar">las reglas completas</Link> antes de empezar.</p>
+            <p>Consulta <Link prefetch={false} href="/modos-de-juego">todos los modos y dificultades</Link> o lee <Link prefetch={false} href="/como-jugar">las reglas completas</Link> antes de empezar. Si os faltan ideas para los peajes, usad <Link prefetch={false} href="/castigos-para-previas">la tabla de castigos y retos para previas</Link>.</p>
           </div>
         </section>
 

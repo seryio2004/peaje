@@ -754,6 +754,7 @@ export default function Game({ locale = "es", onCompleted, onStart }: {
       }, 3500);
 
       if (audioRef.current) {
+        audioRef.current.volume = 0.25;
         audioRef.current.currentTime = 0;
         void audioRef.current.play().catch(() => {
           // El efecto visual sigue funcionando aunque aún no exista el MP3.

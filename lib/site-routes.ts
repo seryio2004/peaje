@@ -6,6 +6,7 @@ export const SITE_PAGES = {
   "/jugar": { title: "Jugar a El Peaje online gratis", description: "Empieza una partida gratis de El Peaje en el navegador. Elige modo y dificultad y juega con 52 cartas, solo, en pareja o en grupo, sin registro.", label: "Jugar" },
   "/como-jugar": { title: "Cómo jugar a El Peaje: reglas de cartas y peajes", description: "Aprende las reglas de El Peaje: predice las cartas, avanza por la ruta, resuelve los peajes y descubre cuándo termina la partida.", label: "Reglas" },
   "/previa": { title: "Cartas para la previa: El Peaje online gratis", description: "Organiza una partida gratis de El Peaje para la previa: reglas rápidas, modos para grupos y peajes con puntos, preguntas o retos. Las bebidas son opcionales.", label: "Para la previa" },
+  "/castigos-para-previas": { title: "Castigos y retos para previas: ideas para El Peaje", description: "Castigos y retos para previas con y sin alcohol, una regla para el que llega tarde y una tabla del 2 al as. Úsalos como peajes en El Peaje, gratis y sin registro.", label: "Castigos para previas" },
   "/juegos-de-beber": { title: "El Peaje: juego de beber con cartas online gratis", description: "Juega a El Peaje, el juego de beber con cartas online gratis y sin registro. Aprende las reglas, elige modo y comparte un móvil; también sin alcohol.", label: "Juegos de beber" },
   "/modos-de-juego": { title: "Modos de El Peaje: cuál elegir según los jugadores", description: "Compara los seis modos de El Peaje, incluido La patata para grupos de 3 a 8 personas, y elige tu dificultad.", label: "Modos" },
   "/preguntas-frecuentes": { title: "Preguntas frecuentes sobre El Peaje", description: "Resuelve tus dudas sobre las cartas, los jugadores, los peajes, el final de partida y la privacidad de El Peaje.", label: "Preguntas" },
@@ -21,4 +22,4 @@ export const SITE_PAGES = {
 } as const;
 export type SitePath = keyof typeof SITE_PAGES;
 export const HEADER_PATHS: SitePath[] = ["/", "/jugar", "/como-jugar", "/modos-de-juego", "/preguntas-frecuentes"];
-export const FOOTER_PATHS: SitePath[] = ["/probabilidades", "/estrategia", "/variantes", "/desarrollo", "/juegos-de-beber", "/previa", "/compartir", "/sobre-el-juego", "/contacto", "/privacidad", "/cookies", "/aviso-legal"];
+export const FOOTER_PATHS: SitePath[] = ["/probabilidades", "/estrategia", "/variantes", "/desarrollo", "/juegos-de-beber", "/previa", "/castigos-para-previas", "/compartir", "/sobre-el-juego", "/contacto", "/privacidad", "/cookies", "/aviso-legal"];
